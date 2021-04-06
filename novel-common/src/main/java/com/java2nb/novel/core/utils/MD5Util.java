@@ -3,6 +3,7 @@ package com.java2nb.novel.core.utils;
 
 import lombok.SneakyThrows;
 import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 import java.security.MessageDigest;
 
