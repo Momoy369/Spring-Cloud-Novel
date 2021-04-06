@@ -32,5 +32,5 @@ jobs:
         app-name: lokanovels
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5BF259038A6C47B0A22CF6E5FA37A2F8 }}
-        package: ${{ github.workspace }}/target/*.jar
+        package: ${{ github.workspace }}/novel-front/target/novel-front-3.5.1.jar
 
