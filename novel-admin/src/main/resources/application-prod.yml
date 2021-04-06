@@ -10,7 +10,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useSSL=true&requireSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useSSL=true&requireSSL=false&serverTimezone=UTC
     username: momoy369@lokanovels
     password: Iamalone0
     #password:

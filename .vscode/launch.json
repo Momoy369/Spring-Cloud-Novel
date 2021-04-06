@@ -19,6 +19,16 @@
             "mainClass": "com.java2nb.AdminApplication",
             "projectName": "novel-admin",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CrawlNovelApplication<novel-crawl>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.java2nb.novel.CrawlNovelApplication",
+            "projectName": "novel-crawl",
+            "args": ""
         }
     ]
 }
