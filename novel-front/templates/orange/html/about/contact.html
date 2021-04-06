@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common_head(~{::title},~{::meta},~{::link},~{})">
+    <title th:text="'Hubungi kami - '+${application.website.name}"></title>
+    <meta name="keywords" content="Hubungi Kami, Novel, Jaringan Novel, Novel Romantis, Novel Urban, Novel Fantasi, Novel Silang, Novel Remaja, Novel CEO, Novel Internet, Novel Gratis, Novel Lengkap, Sastra Internet Asli" />
+    <meta name="description" th:content="${application.website.name}+'Novel diperbarui setiap hari untuk serialisasi novel, peringkat novel, menyediakan novel roman, novel urban, novel fantasi, novel cross, novel remaja, novel kaya CEO, novel online, novel gratis, novel lengkap, novel pertama, pembacaan novel gratis dari bab-bab terbaru, Semua keseruan'+${application.website.name}+'Fiksi! '" />
+    <link rel="stylesheet" href="/css/about.css"/>
+</head>
+<body class="body">
+
+
+<div th:replace="common/top :: top('')">
+</div>
+<div class="main box_center cf">
+    <div class="userBox cf">
+        <div class="my_l">
+            <ul class="log_list">
+
+                <li><a href="/about/default.html">Tentang Kami</a></li>
+                <li><a class="on" href="/about/contact.html">Kontak</a></li>
+                <li><a href="/about/user_agreement.html">Persetujuan Pengguna</a></li>
+                <li><a href="/about/copyright.html">Hak Cipta</a></li>
+                <li><a href="/about/submission.html">Submisi</a></li>
+                <li><a  href="/user/feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="my_r">
+            <div class="aboutBox">
+                <h2>Hubungi Kami</h2>
+                <div class="about_info">
+                    <A th:href="'tencent://message/?uin='+${application.website.qq}+'&amp;Site=Daftar menjadi penulis&amp;Menu=yes'">
+                        <img style="border:0px;" th:src="'http://wpa.qq.com/pa?p=1:'+${application.website.qq}+':6'"></a>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="common/footer :: footer">
+</div>
+<div th:replace="common/js :: js"></div>
+<script src="/javascript/bookdetail.js" type="text/javascript"></script>
+
+</body>
+</html>

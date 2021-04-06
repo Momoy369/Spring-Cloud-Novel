@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common_head(~{::title},~{::meta},~{::link},~{})">
+    <title th:text="'Berita Umum - '+${application.website.name}"></title>
+    <meta name="keywords" content="Berita Umum, Novel, Jaringan Novel, Novel Romantis, Novel Perkotaan, Novel Fantasi, Novel Silang, Novel Pemuda, Novel CEO, Novel Internet, Novel Gratis, Semua Novel, Sastra Internet Asli"/>
+    <meta name="description"
+          th:content="${application.website.name}+'Novel diperbarui setiap hari untuk serialisasi novel, peringkat novel, menyediakan novel roman, novel urban, novel fantasi, novel cross, novel remaja, novel kaya CEO, novel online, novel gratis, novel lengkap, novel pertama, pembacaan novel gratis dari bab-bab terbaru, Semua keseruan'+${application.website.name}+'Fiksi!'"/>
+    <link rel="stylesheet" href="/css/about.css"/>
+</head>
+<body class="body">
+
+<div th:replace="common/top :: top('')">
+</div>
+<!--主体 start-->
+<div class="main box_center cf">
+    <div class="userBox cf">
+        <div class="my_l">
+            <ul class="log_list">
+
+                <li><a href="/about/default.html">Tentang Kami</a></li>
+                <li><a href="/about/contact.html">Kontak</a></li>
+                <li><a href="/about/user_agreement.html">Persetujuan Pengguna</a></li>
+                <li><a href="/about/copyright.html">Hak Cipta</a></li>
+                <li><a href="/about/submission.html">Submisi</a></li>
+                <li><a  href="/user/feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="my_r">
+            <div class="newsBox">
+                <ul class="news_list" id="newsList">
+
+
+
+
+                </ul>
+
+
+            </div>
+            <div class="pageBox cf" id="newsPage">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--主体 end-->
+
+<div th:replace="common/footer :: footer">
+</div>v
+<div th:replace="common/js :: js"></div>
+<script src="/javascript/bookdetail.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    search(1, 5);
+
+    function search(curr, limit) {
+
+        $.ajax({
+            type: "get",
+            url: "/news/listByPage",
+            data: {'curr':curr,'limit':limit},
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 200) {
+                    var newsList = data.data.list;
+                    if (newsList.length > 0) {
+                        var newsListHtml = "";
+                        for (var i = 0; i < newsList.length; i++) {
+                            var news = newsList[i];
+                            newsListHtml += (" <li>\n" +
+                                "                        <h5><i class=\"dot\"></i><a href=\"newsInfo-"+news.id+".html\" >"+news.title+"</a></h5>\n" +
+                                "                        <p>"+news.createTime+"</p>\n" +
+                                "                    </li>");
+                        }
+                        $("#newsList").html(newsListHtml);
+
+                        layui.use('laypage', function () {
+                            var laypage = layui.laypage;
+
+                            //Halaman Laypage
+                            laypage.render({
+                                elem: 'newsPage' // Catatan, test1 di sini adalah ID-nya, tidak perlu menambahkan tanda #
+                                , count: data.data.total // Jumlah total data, diperoleh dari server,
+                                , curr: data.data.pageNum
+                                , limit: data.data.pageSize
+                                , jump: function (obj, first) {
+
+
+                                    // obj berisi semua parameter halaman saat ini, seperti:
+                                    console.log(obj.curr); // Dapatkan halaman saat ini untuk meminta data halaman terkait dari server.
+                                    console.log(obj.limit); // Dapatkan jumlah bar yang ditampilkan di setiap halaman
+
+
+                                    // Tidak dijalankan untuk pertama kali
+                                    if (!first) {
+                                        search(obj.curr, obj.limit);
+                                    } else {
+
+                                    }
+                                }
+                            });
+                        });
+
+                    }
+
+
+                } else {
+                    layer.alert(data.msg);
+                }
+
+            },
+            error: function () {
+                layer.alert('Kesalahan jaringan');
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
+
+
+

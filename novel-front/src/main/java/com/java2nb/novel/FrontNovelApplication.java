@@ -4,6 +4,7 @@ import com.github.tobato.fastdfs.FdfsClientConfig;
 import io.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
@@ -25,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = {"com.java2nb.novel.mapper"})
 @Import(FdfsClientConfig.class)
 public class FrontNovelApplication {
-
+    
     public static void main(String[] args) {
         SpringApplication.run(FrontNovelApplication.class);
     }
