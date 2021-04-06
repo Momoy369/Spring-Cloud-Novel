@@ -1,0 +1,54 @@
+java2nb:
+  uploadPath: D:/novelplus/novel-admin/pic/
+  username: admin
+  password: 111111
+logging:
+  level:
+    root: info
+    com.java2nb: debug
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/novelplus?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+    #password:
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    # Konfigurasikan waktu tunggu untuk mendapatkan batas waktu tunggu koneksi
+    maxWait: 60000
+    # Konfigurasikan berapa lama interval untuk melakukan pemeriksaan, periksa koneksi idle yang perlu ditutup, unitnya milidetik
+    timeBetweenEvictionRunsMillis: 60000
+    # Konfigurasikan waktu kelangsungan hidup minimum koneksi di kumpulan, dalam milidetik
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # Buka PSCache dan tentukan ukuran PSCache pada setiap koneksi
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # Konfigurasikan filter untuk memonitor intersepsi statistik, setelah menghapus antarmuka pemantauan, sql tidak dapat membuat statistik, dan 'dinding' digunakan untuk firewall
+    filters: stat,slf4j
+    # Buka fungsi mergeSql melalui properti connectProperties; catatan SQL lambat
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # Gabungkan data pemantauan dari beberapa DruidDataSource
+    #useGlobalDataSourceStat: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: iamalone0
+    # Periode waktu tunggu koneksi (milidetik)
+    timeout: 10000
+    jedis:
+      pool:
+        # Koneksi gratis terbesar di kumpulan koneksi
+        max-idle: 8
+        # Koneksi idle terkecil di kumpulan koneksi
+        min-idle: 10
+        # Jumlah maksimum koneksi di kumpulan koneksi (gunakan nilai negatif untuk menunjukkan bahwa tidak ada batasan)
+        max-active: 100
+        # Waktu tunggu pemblokiran maksimum dari kumpulan koneksi (gunakan nilai negatif untuk menunjukkan tidak ada batasan)
+        max-wait: -1

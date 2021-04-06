@@ -1,0 +1,28 @@
+spring:
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+  thymeleaf:
+    mode: LEGACYHTML5 #Hapus html verifikasi ketat thymeleaf thymeleaf.mode = LEGACYHTML5
+    cache: false # Apakah akan mengaktifkan cache template, defaultnya benar, disarankan untuk mematikan cache selama pengembangan, jika tidak, Anda tidak akan dapat melihat real-time
+
+  # Ubah semua angka menjadi tipe String dan kembali untuk menghindari masalah hilangnya presisi data front-end
+  jackson:
+    generator:
+      write-numbers-as-strings: true
+
+#Jenis cache, ehcache (default), redis
+cache:
+  type: ehcache
+
+mybatis:
+  configuration:
+    # Secara otomatis memetakan nilai bidang tabel yang digarisbawahi dari database ke bidang kasus unta dari kelas Java
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mybatis/mapping/*.xml
+  type-aliases-package: com.java2nb.novel.entity
+
+logging:
+  config: classpath:logback-boot.xml
+
+

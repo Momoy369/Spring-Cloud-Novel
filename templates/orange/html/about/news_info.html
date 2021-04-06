@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common_head(~{::title},~{::meta},~{::link},~{})">
+    <title th:text="'Pengumuman - '+${application.website.name}"></title>
+    <meta name="keywords" content="Pengumuman, Novel, Jaringan Novel, Novel Romantis, Novel Perkotaan, Novel Fantasi, Novel Silang, Novel Pemuda, Novel CEO, Novel Internet, Novel Gratis, Semua Novel, Sastra Internet Asli"/>
+    <meta name="description" th:content="${application.website.name}+'Novel diperbarui setiap hari untuk serialisasi novel, peringkat novel, menyediakan novel roman, novel urban, novel fantasi, novel cross, novel remaja, novel kaya CEO, novel online, novel gratis, novel lengkap, novel pertama, pembacaan novel gratis dari bab-bab terbaru, Semua keseruan'+${application.website.name}+'Fiksi!'" />
+    <link rel="stylesheet" href="/css/about.css" />
+</head>
+<body class="body">
+
+<div th:replace="common/top :: top('')">
+</div>
+<div class="main box_center cf">
+    <div class="newsMain cf">
+        <div class="nav_sub">
+            Saat ini: <a href="/" > Beranda </a> &gt; <a href="/about/news.html" > Pengumuman </a> &gt; <span th:utext="${news.title}">  </span>
+        </div>
+        <div class="channelWrap channelNews cf">
+            <div class="news_title">
+                <h2 th:utext="${news.title}"></h2>
+                <p class="from" th:text="'Sumber: '+${news.sourceName}"> <span class="time" th:text="${#dates.format(news.createTime, 'yy-MM-dd')}"></span></p>
+            </div>
+            <div class="news_info" th:utext="${news.content}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="common/footer :: footer">
+</div>
+
+</body>
+<div th:replace="common/js :: js"></div>
+<script src="/javascript/bookdetail.js" type="text/javascript"></script>
+</html>

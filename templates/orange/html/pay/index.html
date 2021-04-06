@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common_head(~{::title},~{},~{::link},~{})">
+    <title th:text="'Isi Koin - '+${application.website.name}"></title>
+    <link rel="stylesheet" href="/css/base.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body class="">
+
+<div th:replace="common/top :: top('')">
+</div>
+
+<form action="/pay/aliPay" method="post" id="payform" name="payform">
+    <div class="main box_center cf">
+
+        <div class="channelWrap channelPay cf">
+
+            <div class="payBox cf">
+                <div class="payHead cf">
+                    <div class="fl">
+                        Isi koin: <span class="user_name" id="my_name"></span>Saldo: <em class="red" id="accountBalance">0</em> Koin<!--<em class="red">+0</em>Voucher-->
+                    </div>
+                    <!--<div class="fr">
+                        <a class="btn_gray" href="/user/pay_record.aspx" target="_blank">Catatan isi ulang</a><a class="btn_gray" href="/user/my_order.aspx" target="_blank">Catatan biaya</a>
+                    </div>-->
+                </div>
+                <div class="payCon">
+                    <h5>Metode Isi Ulang</h5>
+                    <ul class="pay_way cf" id="ulPayType">
+                        <li class="on"  valp="1"><img class="pay_pic" src="../images/pay_zfb.png" alt="bayar dengan AliPay" /></li>
+                        <li valp="2"><img class="pay_pic" src="../images/pay_wx.png" alt="WeChat Pay" /></li>
+
+                    </ul>
+                    <h5>Pilih jumlah top-up</h5>
+                    <ul class="pay_way cf" id="ulZFWX">
+                        <li vals="10"><strong>10 USD</strong><span class="pay_mn">10000 KOIN</span></li>
+                        <li vals="30"><strong>30 USD</strong><span class="pay_mn">30000 KOIN</span></li>
+                        <li vals="50"><strong>50 USD</strong><span class="pay_mn">50000 KOIN<!--<em class="red">+ 送500代金券</em>--></span></li>
+                        <li vals="100"><strong>100 USD</strong><span class="pay_mn">100000 KOIN<!--<em class="red">+ 送1200代金券</em>--></span></li>
+                        <li vals="200"><strong>200 USD</strong><span class="pay_mn">200000 KOIN<!--<em class="red">+ 送3000代金券</em>--></span></li>
+                        <li vals="500"><strong>500 USD</strong><span class="pay_mn">500000 KOIN<!--<em class="red">+ 送10000代金券</em>--></span></li>
+                    </ul>
+                    <ul class="pay_way cf" style="display:none;" id="ulPayPal">
+                        <li vals="20"><strong>20 USD</strong><span class="pay_mn">20000 KOIN</span></li>
+                        <li vals="50" class="on"><strong>50 USD</strong><span class="pay_mn">50000 KOIN<em class="red"></em></span></li>
+                        <li vals="100"><strong>100 USD</strong><span class="pay_mn">100000 KOIN<em class="red"></em></span></li>
+                    </ul>
+                    <ul class="pay_Checkout" id="ulZFWXXJ">
+                        <li>Nilai tukar saat ini: IDR 100 = 100 KOIN</li>
+                        <li>Jumlah total: <em class="red" id="showTotal">50 USD</em> mendapatkan <em class="red" id="showRemark">50000 KOIN<!--+500代金券--></em></li>
+                        <li style="display:none"><a class="btn_red" href="pay_success.html" onclick="javascript:UserPay.sendPay();">Bayar Sekarang</a></li>
+                    </ul>
+                    <ul class="pay_Checkout" style="display:none;" id="ulPayPalXJ">
+                        <li>Nilai tukar saat ini: 1 USD = 1200 KOIN</li>
+                        <li>Jumlah total: <em class="red" id="showPayPalTotal">50 USD</em> mendapatkan <em class="red" id="showPayPalRemark">40000 KOIN</em></li>
+                        <li style="display:none"><a class="btn_red" href="javascript:void(0);" onclick="javascript:UserPay.sendPay();">Bayar sekarang</a></li>
+                    </ul>
+                </div>
+                <div class="payFoot">
+                    <strong class="tip_tit">Tips</strong>
+                    <ul class="tip_list">
+                        <li> 1. Akses untuk mengisi ulang dan membaca terbatas hanya untuk Kota Buku </li>
+                         <li> 2. Isi ulang mendukung pembayaran dengan kartu kredit, kartu debit, saldo Alipay, perubahan WeChat, dll. </li>
+                         <li> 3. Waktu langganan tahunan adalah 365 hari, dan waktu pembelian berulang akan bertambah </li>
+                         <li> 4. Jika ada masalah dengan isi ulang, <a href="/user/feedback.html" target="_blank" class="unlink black9">Klik di sini untuk meninggalkan pesan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <input type="hidden" id="pValue" name="payAmount"  />
+</form>
+
+
+<div th:replace="common/footer :: footer">
+</div>
+<div th:replace="common/js :: js"></div>
+<script src="/javascript/pay.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+
+
+    //Menanyakan informasi pengguna
+    $.ajax({
+        type: "get",
+        url: "/user/userInfo",
+        data: {},
+        dataType: "json",
+        success: function (data) {
+            if (data.code == 200) {
+                if(data.data.nickName){
+                    $("#my_name").html(data.data.nickName);
+                }else{
+                    $("#my_name").html(data.data.username);
+                }
+
+                $("#accountBalance").html(data.data.accountBalance);
+
+            } else if (data.code == 1001) {
+                //Belum masuk
+                location.href = '/user/login.html?originUrl=' + decodeURIComponent(location.href);
+
+            } else {
+                layer.alert(data.msg);
+            }
+
+        },
+        error: function () {
+            layer.alert('Kesalahan sistem');
+        }
+    })
+
+    $("#ulZFWX").find("li").click(function () {
+
+        var payType = $("#ulPayType").find("li.on").attr("valp");
+
+        if(payType == 2){
+            layer.alert("WeChat Pay belum dibuka, jadi pantau terus");
+            return ;
+        }
+
+        $("#pValue").val($(this).attr("vals"));
+
+        $("#payform").submit();
+
+
+
+
+
+    });
+</script>
+
+
+</body>
+</html>

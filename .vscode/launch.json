@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FrontNovelApplication<novel-front>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.java2nb.novel.FrontNovelApplication",
+            "projectName": "novel-front",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AdminApplication<novel-admin>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.java2nb.AdminApplication",
+            "projectName": "novel-admin",
+            "args": ""
+        }
+    ]
+}

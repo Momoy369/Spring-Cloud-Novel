@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    include: [common-prod]
+
+  #Konfigurasi jalur file statis
+  resources:
+    static-locations: file:${user.dir}/templates/${templates.name}/static/
+  #konfigurasi jalur kerangka timeleaf
+  thymeleaf:
+    prefix: file:${user.dir}/templates/${templates.name}/html/
+    suffix: .html
+
+#Konfigurasi template
+templates:
+  name: orange
+
+
+pic:
+  save:
+    type: 2 #Metode penyimpanan gambar, 1 jangan simpan, gunakan gambar jaringan yang dirayapi, 2 simpan di media penyimpanan Anda sendiri
+    storage: local #Media penyimpanan, lokal: lokal, OSS: Alibaba Cloud Object Storage, fastDfs: sistem file terdistribusi
+    path: D:/novelplus/novel-front/pic/  #Jalur penyimpanan gambar
+
+
+#Konfigurasi kumpulan utas
+thread:
+  pool:
+    #Jumlah kumpulan utas inti
+    core-pool-size: 10
+    #Jumlah maksimum kumpulan utas
+    maximum-pool-size: 20
+    #Thread timeout (detik)
+    keep-alive-time: 10
+    #Ukuran antrian
+    queue-size: 1000
+
+

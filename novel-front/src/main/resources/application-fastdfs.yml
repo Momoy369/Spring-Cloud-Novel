@@ -1,0 +1,16 @@
+#Konfigurasi FastDfs	====================================
+#Membaca waktu pemblokiran aliran input
+fdfs:
+  connect-timeout: 600
+  so-timeout: 1500
+  #alamat pelacak
+  trackerList: 127.0.0.1:22122
+  #Konfigurasi gambar kecil
+  thumbImage:
+    height: 150
+    width: 150
+  #Akses alamat melalui nginx
+  webUrl: http://127.0.0.1/
+  #Dapatkan jumlah maksimum dari kumpulan koneksi
+  pool.max-total: 200
+

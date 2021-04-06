@@ -1,0 +1,38 @@
+server:
+  session-timeout: 18000
+#    tomcat:
+#        max-threads: 1000
+#        min-spare-threads: 30
+  port: 80
+#    uri-encoding: utf-8
+#security:
+#  basic:
+#    enabled: false
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles: 
+    active: prod
+  servlet:
+    multipart:
+      max-file-size: 30Mb
+      max-request-size: 30Mb
+  devtools:
+    restart:
+      enabled: true
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
+mybatis:
+  configuration:
+    # Secara otomatis memetakan nilai bidang tabel yang digarisbawahi dari database ke bidang kasus unta dari kelas Java
+    map-underscore-to-camel-case: true
+  mapper-locations: mybatis/**/*Mapper.xml
+  typeAliasesPackage: com.java2nb.**.domain
+#[Deprecated] Konfigurasi cache dan metode penyimpanan sesi, default ehcache, redis opsional, [Deprecated] sesuaikan dengan jenis cache spring [shiro. User, permission, session, spring.cache common]
+#[Tidak digunakan lagi] cacheType: ehcache

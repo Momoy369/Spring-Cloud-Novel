@@ -1,0 +1,12 @@
+#Konfigurasi situs web
+website:
+  #Nama situs
+  name: Novel Loka
+  #nama domain
+  domain: xiongxyang.gitee.io
+  #SEO Kata Kunci
+  keyword: ${website.name}, Novel, CMS baru, sistem sastra asli, sistem novel open source, program situs web novel gratis
+  #SEODescription
+  description: ${website.name} - Ini adalah membaca multi-terminal (PC, WAP) dan fungsi lengkap dari sistem CMS literatur asli. Ini terdiri dari beberapa subsistem seperti sistem portal meja depan, sistem manajemen belakang panggung penulis, sistem manajemen platform belakang panggung, dan sistem manajemen crawler. Mendukung pengisian ulang anggota, mode langganan, rilis berita dan fungsi laporan statistik real-time, buku-buku baru secara otomatis disimpan di perpustakaan, dan buku-buku lama secara otomatis diperbarui.
+  #Contact QQ
+  qq: 1179705413

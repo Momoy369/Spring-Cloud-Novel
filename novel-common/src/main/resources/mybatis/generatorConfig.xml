@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--Generator Mybatis saat ini memiliki 5 mode operasi, yaitu: MyBatis3DynamicSql, MyBatis3Kotlin, MyBatis3, MyBatis3Simple, MyBatis3DynamicSqlV1.-->
+    <context id="springboot-base" targetRuntime="MyBatis3DynamicSql">
+        <commentGenerator>
+            <!-- Apakah akan menghapus komentar yang dibuat secara otomatis benar: yes: false: no -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection
+                connectionURL="jdbc:mysql://127.0.0.1:3306/novelplus?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;nullCatalogMeansCurrent=true"
+                driverClass="com.mysql.jdbc.Driver" password=""
+                userId="root" />
+
+        <!-- Standarnya salah, tipe JDBC DECIMAL dan NUMERIC diurai sebagai Integer, jika benar, JDBC DECIMAL adalah
+             Dan tipe NUMERIC memutuskan untuk java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject: Lokasi tempat kelas PO dibuat -->
+        <javaModelGenerator
+                targetPackage="com.java2nb.novel.entity"
+                targetProject="novel-common/src/main/java">
+            <!-- enableSubPackages: Apakah akan membiarkan skema sebagai akhiran paket -->
+            <property name="enableSubPackages" value="false" />
+            <!-- Spasi sebelum dan sesudah nilai yang dikembalikan dari database dibersihkan -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- targetProject: Lokasi tempat file pemetaan mapper dibuat -->
+        <sqlMapGenerator targetPackage="mybatis.mapping"
+                         targetProject="novel-common/src/main/resources">
+            <!-- enableSubPackages: Apakah akan membiarkan skema sebagai akhiran paket -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- targetPackage: lokasi tempat antarmuka mapper dibuat -->
+        <javaClientGenerator
+                targetPackage="com.java2nb.novel.mapper"
+                targetProject="novel-common/src/main/java" type="XMLMAPPER">
+            <!-- enableSubPackages: Apakah akan membiarkan skema sebagai akhiran paket -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!--Hasilkan semua tabel tableName diatur ke%-->
+        <table tableName="book"/>
+
+        <!-- Tentukan tabel database -->
+        <!--<table schema="jly" tableName="job_position" domainObjectName="JobPositionTest"/>-->
+    </context>
+</generatorConfiguration>

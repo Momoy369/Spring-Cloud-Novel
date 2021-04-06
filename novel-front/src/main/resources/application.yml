@@ -1,0 +1,77 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: prod
+    include: website,alipay,oss,fastdfs
+
+
+  rabbitmq:
+    enable: 0
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    virtual-host: /novel-plus
+    template:
+      # Nama sakelar default. Setelah konfigurasi di sini, ini akan digunakan untuk mengirim pesan jika tidak ada sakelar yang ditentukan
+      exchange: novel.exchange
+    publisher-confirms: false
+
+
+  elasticsearch:
+    # Apakah akan membuka mesin pencari, 1: terbuka, 0: tidak terbuka
+    enable: 0
+    jest:
+      uris: http://192.168.43.87:9200
+
+
+
+redisson:
+  singleServerConfig:
+    address: 127.0.0.1:6379
+
+jwt:
+  secret: novel!#20191230
+  expiration: 604800
+
+#Kata Sandi Manajemen Cache
+cache:
+  manager:
+    password: novel@2020117
+
+
+# Mencegah serangan XSS
+xss:
+  # Saklar filter
+  enabled: true
+  # Kecualikan tautan (beberapa dipisahkan dengan koma)
+  excludes: /system/notice/*
+  # Tautan yang cocok (beberapa dipisahkan dengan koma)
+  urlPatterns: /book/addBookComment,/user/addFeedBack,/author/addBook,/author/addBookContent,/author/register.html
+
+
+author:
+  income:
+    #Tarif pajak (Proporsi pendapatan setelah pengurangan pajak)
+    tax-rate: 0.9
+    # Rasio sub-komisi
+    share-proportion: 0.7
+    #Rasio pertukaran (RMB)
+    exchange-proportion: 0.01
+
+  #Aturan Penetapan Harga Bab #Fiksi
+book:
+  price:
+    #Jumlah kata
+    word-count: 1000
+    #Value (Mata uang rumah)
+    value: 5
+
+
+
+
+
+
+
+

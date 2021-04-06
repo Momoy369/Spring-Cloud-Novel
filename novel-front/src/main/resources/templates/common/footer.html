@@ -1,0 +1,11 @@
+<div th:fragment="footer" class="footer">
+    <div class="box_center cf">
+        <div class="copyright">
+            <ul >
+                <li class="menu"><a href="/?to=mobile">Beralih ke mobile</a><i class="line">|</i><a href="/">Beranda</a><i class="line">|</i><a href="/about/default.html" >Tentang</a><i class="line">|</i><a href="/about/contact.html" >Kontak</a><i class="line">|</i><a href="/user/feedback.html" >Feedback</a><i class="line">|</i><a href="/author/index.html" >Menjadi Penulis</a><i class="line">|</i><a href="/mobile/fiction_house.apk" >Aplikasi</a></li>
+                <li th:text="'Copyright (C)&nbsp;' +${application.website.name}+ '&nbsp;All rights reserved'"></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
