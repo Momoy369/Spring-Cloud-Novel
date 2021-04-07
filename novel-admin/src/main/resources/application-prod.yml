@@ -1,5 +1,5 @@
 java2nb:
-  uploadPath: /home/site/pic/
+  uploadPath: /local/site/wwwroot/pic/
   username: admin
   password: 111111
 logging:

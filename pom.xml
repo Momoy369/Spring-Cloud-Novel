@@ -47,6 +47,7 @@
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <fastdfs-client.version>1.26.1-RELEASE</fastdfs-client.version>
         <alipay-sdk-java.version>4.9.153.ALL</alipay-sdk-java.version>
+        <azure.version>2.3.5</azure.version>
     </properties>
 
     <dependencyManagement>
@@ -56,6 +57,30 @@
                 <artifactId>novel-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>spring-starter-azure-storage</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-spring-boot-bom</artifactId>
+                <version>${azure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -64,6 +89,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
