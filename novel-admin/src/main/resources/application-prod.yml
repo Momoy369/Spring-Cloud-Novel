@@ -1,5 +1,5 @@
 java2nb:
-  uploadPath: D:/novelplus/novel-admin/pic/
+  uploadPath: /home/site/pic/
   username: admin
   password: 111111
 logging:
