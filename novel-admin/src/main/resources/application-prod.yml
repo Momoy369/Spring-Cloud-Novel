@@ -39,7 +39,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
-    password: iamalone0
+    password: 
     # Periode waktu tunggu koneksi (milidetik)
     timeout: 10000
     jedis:

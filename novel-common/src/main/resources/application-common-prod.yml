@@ -9,7 +9,7 @@ spring:
     #Redis port koneksi server
     port: 6379
     #Redis kata sandi koneksi server
-    password: iamalone0
+    password: 
     jedis:
       pool:
         #Jumlah maksimum koneksi di kumpulan koneksi (gunakan nilai negatif untuk menunjukkan bahwa tidak ada batasan)
