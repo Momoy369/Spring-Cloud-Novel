@@ -58,7 +58,7 @@ public class FileController {
             //输出验证码图片方法
             randomValidateCode.getRandcode(cacheService, response);
         } catch (Exception e) {
-            log.error("获取验证码失败>>>> ", e);
+            log.error("Gagal mendapatkan kode verifikasi>>>> ", e);
         }
     }
 

@@ -1,6 +1,6 @@
 @charset "utf-8";
 a { color: #333 }
-a:hover, .redFont, .current, .bookNav a:hover, .textinfo a:hover { color: #f70 }
+a:hover, .redFont, .current, .bookNav a:hover, .textinfo a:hover { color: rgb(0, 102, 255) }
 .read_menu li a, .closePopup, .menu_left li a span, .menu_right li a span, .icon_check, .icon_yb { background: url(../images/icon_readpage.png) no-repeat }
 /* 阅读页背景 */
 body { /*background-color: #4a4a4a;*/ color: #333; font-family: "Microsoft YaHei" }
@@ -116,7 +116,7 @@ body, .read_style_1 { background-color: #ebe5d8 }
 .readTheme .gray { background-color: #eee }
 .readTheme .night { background-color: #666 }
 /*.readTheme a.current, .readTheme a:hover { box-shadow: 1px 3px 5px #aaa }*/
-.read_style_1 .readTheme .white, .read_style_2 .readTheme .green, .read_style_3 .readTheme .pink, .read_style_4 .readTheme .yellow, .read_style_5 .readTheme .gray, .read_style_6 .readTheme .night { border-color: #f80 }
+.read_style_1 .readTheme .white, .read_style_2 .readTheme .green, .read_style_3 .readTheme .pink, .read_style_4 .readTheme .yellow, .read_style_5 .readTheme .gray, .read_style_6 .readTheme .night { border-color: rgb(0, 255, 255) }
 .setBtn a { border: 1px solid #D9D9D9; width: 53px; height: 28px; line-height: 28px; box-shadow: 0 1px 1px #ECECEC; border-radius: 3px }
 .setBtn .act { color: #CC2931 }
 .setFont .setSimsun { font-family: Simsun; font-size: 13px }
@@ -143,15 +143,15 @@ body, .read_style_1 { background-color: #ebe5d8 }
 }
 .pc_bar { padding: 30px 0 10px; text-align: center; position: relative; }
 .icon_pc { box-shadow: 0 1px 1px rgba(0,0,0,.3); padding: 3px; display: inline-block; border-radius: 50%; }
-.icon_pc span { width: 96px; height: 96px; line-height: 1; border-radius: 50%; display: inline-block; background-color: #f80; color: #fefefe; font-size: 22px; letter-spacing: 0px; text-align: center; }
-.icon_pc:hover span { background: #ed4259 }
+.icon_pc span { width: 96px; height: 96px; line-height: 1; border-radius: 50%; display: inline-block; background-color: rgb(0, 255, 255); color: #fefefe; font-size: 22px; letter-spacing: 0px; text-align: center; }
+.icon_pc:hover span { background: #425ced }
 .icon_yb { width: 37px; height: 27px; display: block; background-position: 0 -173px; margin: 19px auto 7px }
 .icon_pc em { filter: alpha(opacity=90); -moz-opacity: 0.9; opacity: 0.9; }
 .read_dz { height:40px; line-height:40px; border-radius:40px; padding:0 22px; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0c000000,endColorstr=#0c000000); background:rgba(0,0,0,.07); display:block; position:absolute; bottom:35px; right:50px; color:#444; font-size:18px }
 .read_dz:hover { color:#444; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19000000,endColorstr=#19000000); background:rgba(0,0,0,.1) }
 .read_dz i { width:25px; height:25px; display:inline-block; position:relative; top:4px; margin-right:6px; background:url(../images/icon_readdz.png) no-repeat }
 .read_style_6 .read_dz { color:#aaa }
-.read_dz.on { color:#f70; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0cff8800,endColorstr=#0cff8800); background:rgba(255,136,0,.05) }
+.read_dz.on { color:rgb(0, 255, 255); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0cff8800,endColorstr=#0cff8800); background:rgba(255,136,0,.05) }
 .read_dz.on i { background-position:-30px 0 }
 .haveRead { border-radius: 2px; /*background: #fff;*/ width: 98%; margin:0 auto 20px; }
 .haveRead h4 { padding: 25px 40px 0; font-weight: normal }
@@ -174,8 +174,8 @@ body, .read_style_1 { background-color: #ebe5d8 }
 .order_zj h4 { font-size:18px; font-weight:normal }
 .order_zj .price { font-size:12px; padding-top:6px }
 .order_zj .price .red { margin-left:5px }
-.order_allzj { background:#f80; color:#fff; border-color:#f80 }
+.order_allzj { background:rgb(0, 102, 255); color:#fff; border-color:rgb(0, 225, 255) }
 .order_allzj .red { color:#fff }
-.order_allzj:hover { color:#fff; background:#f70; border-color:#f70 }
+.order_allzj:hover { color:#fff; background:rgb(0, 255, 255); border-color:rgb(0, 255, 255) }
 .order_tip { padding:25px 0 10px; color:#999; font-size:13px }
 .dqye { font-size:15px }

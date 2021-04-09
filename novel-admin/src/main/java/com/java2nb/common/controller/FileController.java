@@ -135,7 +135,7 @@ public class FileController extends BaseController {
 	@RequiresPermissions("common:remove")
 	public R remove(@RequestParam("ids[]") Long[] ids) {
 		if ("test".equals(getUsername())) {
-			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+			return R.error(1, "Sistem demo tidak diperbolehkan untuk dimodifikasi, silakan terapkan program untuk pengalaman lengkap");
 		}
 		sysFileService.batchRemove(ids);
 		return R.ok();
@@ -145,7 +145,7 @@ public class FileController extends BaseController {
 	@PostMapping("/upload")
 	R upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 		if ("test".equals(getUsername())) {
-			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+			return R.error(1, "Sistem demo tidak diperbolehkan untuk dimodifikasi, silakan terapkan program untuk pengalaman lengkap");
 		}
 		Date date = new Date();
 		String year = DateUtils.format(date,DateUtils.YEAR_PATTERN);

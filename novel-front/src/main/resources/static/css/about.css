@@ -3,7 +3,7 @@
 .my_l { width: 198px; float: left;    font-size: 13px;
     padding-top: 20px; }
 .my_l li a { display: block; height: 48px; line-height: 48px; padding-left: 40px; border-left: 2px solid transparent; font-size: 14px; margin: 0 0 2px; }
-.my_l li .on { border-left: 2px solid #f80; background: #f8f8f8 }
+.my_l li .on { border-left: 2px solid rgb(0, 204, 255); background: #f8f8f8 }
 .my_r { width: 739px; padding: 30px; float: right; border-left: 1px solid #ededed; min-height: 470px; background: #fff }
 .my_r .title { padding: 15px 0 }
 .my_r h4 { font-size: 15px; color: #666; font-weight: bold }

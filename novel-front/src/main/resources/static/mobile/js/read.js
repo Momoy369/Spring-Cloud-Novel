@@ -22,7 +22,7 @@ function nr_setbg(intype){
         }
     }
     if(intype == "light"){
-        if(light.innerHTML == "关灯"){
+        if(light.innerHTML == "Gelap"){
             document.cookie="light=yes;path=/";
             set("light","yes");
         }
@@ -122,13 +122,13 @@ function set(intype,p){
     if(intype == "light"){
         if(p == "yes"){
             //关灯
-            lightdiv.innerHTML = "开灯";
+            lightdiv.innerHTML = "Gelap";
             lightdiv.className="button lighton";
             nr_body.style.backgroundColor = "#000";
             //nr_title.style.color = "#ccc";
             nr1.style.color = "#999";
 
-            huyandiv.innerHTML = "护眼";
+            huyandiv.innerHTML = "Hijau";
             huyandiv.className="button huyanon";
             //pt_prev.style.cssText = "background-color:#222;color:#0065B5;";
             //pt_mulu.style.cssText = "background-color:#222;color:#0065B5;";
@@ -140,7 +140,7 @@ function set(intype,p){
         }
         else if(p == "no"){
             //开灯
-            lightdiv.innerHTML = "关灯";
+            lightdiv.innerHTML = "Gelap";
             lightdiv.className="button lightoff";
             nr_body.style.backgroundColor = "#fff";
             nr1.style.color = "#000";
@@ -153,12 +153,12 @@ function set(intype,p){
             //pb_next.style.cssText = "";
             //shuqian_2.style.color = "#000";
 
-            huyandiv.innerHTML = "护眼";
+            huyandiv.innerHTML = "Hijau";
             huyandiv.className="button huyanon";
         }
         else if(p == "huyan"){
             //护眼
-            lightdiv.innerHTML = "关灯";
+            lightdiv.innerHTML = "Gelap";
             lightdiv.className="button lightoff";
             huyandiv.className="button huyanoff";
             nr_body.style.backgroundColor = "#005716";

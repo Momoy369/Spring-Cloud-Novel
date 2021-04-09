@@ -76,21 +76,21 @@
 <input type="hidden" id="softCat" th:value="${softCat}"/>
 
 <ul class="layui-nav"  lay-filter="" style="padding:0 20px;text-align: center" >
-    <li id="menunew" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9">最新</a></li>
-    <li id="menu21" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9&softCat=3262">少年漫</a></li>
-    <li id="menu22" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9&softCat=3263">少女漫</a></li>
-    <li id="menucomplete" class="layui-nav-item"><a >完本</a>
+    <li id="menunew" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9">Terbaru</a></li>
+    <li id="menu21" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9&softCat=3262">Fikri Remaja</a></li>
+    <li id="menu22" class="layui-nav-item"><a href="/book/searchSoftBook.html?catId=9&softCat=3263">Fiksi Pria</a></li>
+    <li id="menucomplete" class="layui-nav-item"><a >Lihat semua</a>
         <dl class="layui-nav-child"> <!-- 二级菜单 -->
-            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=已完成">全部</a></dd>
-            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=已完成&softCat=3262">少年漫</a></dd>
-            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=已完成&softCat=3263">少女漫</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=tamat">Buku Tamat</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=tamat&softCat=3262">Fiksi Remaja</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=tamat&softCat=3263">Fiksi Pria</a></dd>
         </dl>
     </li>
-    <li id="menuhot" class="layui-nav-item"><a >排行</a>
+    <li id="menuhot" class="layui-nav-item"><a >Skor</a>
         <dl class="layui-nav-child"> <!-- 二级菜单 -->
-            <dd><a href="/book/searchSoftBook.html?catId=9&sortBy=score">全部</a></dd>
-            <dd><a href="/book/searchSoftBook.html?catId=9&sortBy=score&softCat=3262">少年漫</a></dd>
-            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=已完成&softCat=3263">少女漫</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&sortBy=score">Semua</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&sortBy=score&softCat=3262">Fiksi Remaja</a></dd>
+            <dd><a href="/book/searchSoftBook.html?catId=9&bookStatus=tamat&softCat=3263">Fiksi Pria</a></dd>
         </dl>
     </li>
 
@@ -101,12 +101,12 @@
     <div class="layui-row">
 
         <div class="layui-col-xs10 layui-col-sm10 layui-col-md11 layui-col-lg11" style="padding-top:1%">
-            <input id="title" type="text" name="title" required lay-verify="required" placeholder="请输入书名·作者"
+            <input id="title" type="text" name="title" required lay-verify="required" placeholder="Silakan masukkan judul/nama penulis"
                    autocomplete="off"
                    class="layui-input" th:value="${keyword}">
         </div>
         <div class="layui-col-xs1" style="padding: 1%">
-            <button onclick="searchBooks()" class="layui-btn" lay-submit lay-filter="formDemo">搜索</button>
+            <button onclick="searchBooks()" class="layui-btn" lay-submit lay-filter="formDemo">Cari</button>
         </div>
     </div>
 
@@ -129,15 +129,15 @@
         </a>
         <div style=";color: #4c6978;float: right;"><i style="color: red" th:text="${book.score} + '分'"></i></div>
         <a th:href="'/book/searchSoftBook.html?catId=9&keyword='+ ${book.author}">
-            <div style=";color: #4c6978;" class="line-limit-length" th:text="'作者：'+ ${book.author}"></div>
+            <div style=";color: #4c6978;" class="line-limit-length" th:text="'Penulis: '+ ${book.author}"></div>
         </a>
-        <div style="margin-top: 5px;color: #4c6978;" th:text="'类别：'+ ${book.cateName}"></div>
-        <div style="margin-top: 5px;color: #4c6978;" th:text="'状态：'+ ${book.bookStatus}"></div>
-        <div style="margin-top: 5px;color: #4c6978;">更新：<i th:text="${#dates.format(book.updateTime, 'yy-MM-dd')}"></i>
+        <div style="margin-top: 5px;color: #4c6978;" th:text="'Genre: '+ ${book.cateName}"></div>
+        <div style="margin-top: 5px;color: #4c6978;" th:text="'Status: '+ ${book.bookStatus}"></div>
+        <div style="margin-top: 5px;color: #4c6978;">Diperbarui: <i th:text="${#dates.format(book.updateTime, 'yy-MM-dd')}"></i>
         </div>
         <div class="layui-collapse" style="margin-top: 5px;">
             <div class="layui-colla-item">
-                <h2 style="color: #4c6978;" class="layui-colla-title">简介：</h2>
+                <h2 style="color: #4c6978;" class="layui-colla-title">Blurb: </h2>
                 <div style="color: #4c6978;" class="layui-colla-content" th:utext="${book.bookDesc}">
 
                 </div>

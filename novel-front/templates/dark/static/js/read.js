@@ -128,7 +128,7 @@ function set(intype,p){
             //nr_title.style.color = "#ccc";
             nr1.style.color = "#999";
 
-            huyandiv.innerHTML = "护眼";
+            huyandiv.innerHTML = "Hijau";
             huyandiv.className="button huyanon";
             //pt_prev.style.cssText = "background-color:#222;color:#0065B5;";
             //pt_mulu.style.cssText = "background-color:#222;color:#0065B5;";
@@ -153,7 +153,7 @@ function set(intype,p){
             //pb_next.style.cssText = "";
             //shuqian_2.style.color = "#000";
 
-            huyandiv.innerHTML = "护眼";
+            huyandiv.innerHTML = "Hijau";
             huyandiv.className="button huyanon";
         }
         else if(p == "huyan"){

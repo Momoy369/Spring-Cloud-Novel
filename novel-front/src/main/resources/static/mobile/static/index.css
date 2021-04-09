@@ -87,7 +87,7 @@ header .username a {margin:0; color:#c5f1ff; line-height:55px;}
 .hot_sale:hover{background:#d9f5ff; border-bottom:2px #9dcada solid; border-top:2px #9dcada solid;}
 .hot_saleEm{background:#fff; border-bottom:2px #fff solid; border-top:2px #fff solid;}
 .girl .hot_sale:hover{background:#fef1f5; border-bottom:2px #ffdee9 solid; border-top:2px #ffdee9 solid;}
-.partner .hot_sale:hover{background:#fbfff2; border-bottom:2px #dce59a solid; border-top:2px #dce59a solid;}
+.partner .hot_sale:hover{background:#fbfff2; border-bottom:2px #dce59a solid; border-top:2px #3b8ae6 solid;}
 .hot_salehavDate .author{margin-bottom:2px;}
 .hot_sale .date{color:#e76767; font-size:12px; margin-bottom:4px;}
 .hot_link div{clear:both; padding:2px 10px 2px 50px; height:52px; position:relative; border-top:1px #fff solid; border-bottom:1px #fff solid;}

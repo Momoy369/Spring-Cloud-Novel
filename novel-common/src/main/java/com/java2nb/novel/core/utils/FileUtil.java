@@ -9,6 +9,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.io.*;
@@ -80,6 +81,14 @@ public class FileUtil {
 
         return picSrc;
     }
+
+    // public static String network2Local2(MultipartFile file, String prefixName, String localPicPrefix) {
+    //     return null;
+    // }
+
+    // public static String network2Local2(MultipartFile file, String prefixName, String localPicPrefix) {
+    //     return null;
+    // }
 
 
 

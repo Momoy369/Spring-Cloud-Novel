@@ -26,5 +26,25 @@ public class OssProperties{
 
     private String webUrl;
 
+    public String getEndpoint() {
+        return null;
+    }
+
+    public String getKeyId() {
+        return null;
+    }
+
+    public String getKeySecret() {
+        return null;
+    }
+
+    public String getBucketName() {
+        return null;
+    }
+
+    public String getWebUrl() {
+        return null;
+    }
+
 
 }

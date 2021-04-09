@@ -54,15 +54,15 @@ public class DateUtils {
         long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
         String r = "";
         if (day > 0) {
-            r += day + "天";
+            r += day + "Hari";
         } else if (hour > 0) {
-            r += hour + "小时";
+            r += hour + "Jam";
         } else if (min > 0) {
-            r += min + "分";
+            r += min + "Menit";
         } else if (s > 0) {
-            r += s + "秒";
+            r += s + "Detik";
         }
-        r += "前";
+        r += "Sebelumnya";
         return r;
     }
 
@@ -81,18 +81,18 @@ public class DateUtils {
         long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
         String r = "";
         if (day > 0) {
-            r += day + "天";
+            r += day + "Hari";
         }
         if (hour > 0) {
-            r += hour + "小时";
+            r += hour + "Jam";
         }
         if (min > 0) {
-            r += min + "分";
+            r += min + "Menit";
         }
         if (s > 0) {
-            r += s + "秒";
+            r += s + "Detik";
         }
-        r += "前";
+        r += "Sebelumnya";
         return r;
     }
 

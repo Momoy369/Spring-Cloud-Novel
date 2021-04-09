@@ -1702,7 +1702,7 @@ a cite {
 }
 
 .layui-bg-red {
-    background-color: #FF5722 !important
+    background-color: #1e4eeb !important
 }
 
 .layui-bg-orange {
@@ -1861,7 +1861,7 @@ a cite {
 }
 
 .layui-btn-danger {
-    background-color: #FF5722
+    background-color: #1e4eeb
 }
 
 .layui-btn-disabled, .layui-btn-disabled:active, .layui-btn-disabled:hover {
@@ -2062,7 +2062,7 @@ a cite {
 }
 
 .layui-form-danger + .layui-form-select .layui-input, .layui-form-danger:focus {
-    border-color: #FF5722 !important
+    border-color: #1e4eeb !important
 }
 
 .layui-form-select .layui-input {
@@ -3870,7 +3870,7 @@ body .layui-table-tips .layui-layer-content {
 
 .layui-tab-title li .layui-tab-close:hover {
     border-radius: 2px;
-    background-color: #FF5722;
+    background-color: #1e4eeb;
     color: #fff
 }
 
@@ -3956,7 +3956,7 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-timeline-axis:hover {
-    color: #FF5722
+    color: #1e4eeb
 }
 
 .layui-timeline-item:before {
@@ -3992,7 +3992,7 @@ body .layui-table-tips .layui-layer-content {
     padding: 0 6px;
     font-size: 12px;
     text-align: center;
-    background-color: #FF5722;
+    background-color: #1e4eeb;
     color: #fff;
     border-radius: 2px
 }

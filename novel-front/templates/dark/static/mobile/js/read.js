@@ -153,7 +153,7 @@ function set(intype,p){
             //pb_next.style.cssText = "";
             //shuqian_2.style.color = "#000";
 
-            huyandiv.innerHTML = "护眼";
+            huyandiv.innerHTML = "Hijau";
             huyandiv.className="button huyanon";
         }
         else if(p == "huyan"){

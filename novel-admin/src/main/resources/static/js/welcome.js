@@ -27,11 +27,11 @@ layer.ready(function () {
 
     function logs() {
         parent.layer.open({
-            title: '初见倾心，再见动情',
+            title: 'Melihat cinta untuk pertama kalinya, selamat tinggal cinta',
             type: 1,
             area: ['700px', 'auto'],
             content: html,
-            btn: ['确定', '取消']
+            btn: ['OK', 'Batal']
         });
     }
 

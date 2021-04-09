@@ -38,7 +38,7 @@ public class LoginController extends BaseController {
     JnConfig jnConfig;
 
 
-    @Log("请求访问主页")
+    @Log("Minta untuk mengunjungi beranda")
     @GetMapping({"","/","/index"})
     String index(Model model) {
         List<Tree<MenuDO>> menus = menuService.listMenuTree(getUserId());
@@ -65,7 +65,7 @@ public class LoginController extends BaseController {
         return "login";
     }
 
-    @Log("登录")
+    @Log("Masuk")
     @PostMapping("/login")
     @ResponseBody
     R ajaxLogin(String username, String password,String verify,HttpServletRequest request) {
@@ -74,15 +74,15 @@ public class LoginController extends BaseController {
             //从session中获取随机数
             String random = (String) request.getSession().getAttribute(RandomValidateCodeUtil.RANDOMCODEKEY);
             if (StringUtils.isBlank(verify)) {
-                return R.error("请输入验证码");
+                return R.error("harap masukkan kode verifikasi");
             }
             if (random.equals(verify)) {
             } else {
-                return R.error("请输入正确的验证码");
+                return R.error("Harap masukkan kode verifikasi yang benar");
             }
         } catch (Exception e) {
-            logger.error("验证码校验失败", e);
-            return R.error("验证码校验失败");
+            logger.error("Verifikasi kode verifikasi gagal", e);
+            return R.error("Verifikasi kode verifikasi gagal");
         }
         password = MD5Utils.encrypt(username, password);
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
@@ -91,7 +91,7 @@ public class LoginController extends BaseController {
             subject.login(token);
             return R.ok();
         } catch (AuthenticationException e) {
-            return R.error("用户或密码错误");
+            return R.error("Pengguna atau kata sandi salah");
         }
     }
 
@@ -119,7 +119,7 @@ public class LoginController extends BaseController {
             RandomValidateCodeUtil randomValidateCode = new RandomValidateCodeUtil();
             randomValidateCode.getRandcode(request, response);//输出验证码图片方法
         } catch (Exception e) {
-            logger.error("获取验证码失败>>>> ", e);
+            logger.error("Gagal mendapatkan kode verifikasi>>>> ", e);
         }
     }
 

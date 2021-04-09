@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title th:text="${application.website.name}+'列表'"></title>
+    <title th:text="${application.website.name}+' - Peringkat Novel'"></title>
 
     <meta name="keywords"
-          th:content="${application.website.name}+',精品小说,弹幕网站,弹幕,弹幕小说网站,免费小说,小说阅读,小说排行,轻小说,txt小说下载,电子书下载,动漫轻小说,日本轻小说'">
+          th:content="${application.website.name}+', - Novel Loka, situs novel berseri, novel gratis, bacaan novel, peringkat novel, novel ringan. '">
 
     <meta name="description"
-          th:content="${application.website.name}+'是国内优秀的小说弹幕网站,'+${application.website.name}+'提供海量热门网络小说,日本轻小说,国产轻小说,动漫小说,轻小说在线阅读和TXT小说下载,致力于网络精品小说的收集,智能计算小说评分,打造小说精品排行榜,致力于无广告无弹窗的小说阅读环境。'">
+          th:content="${application.website.name}+' - Ini adalah situs web novel serial domestik yang sangat baik ,'+${application.website.name}+'Novel Loka, situs novel berseri, novel gratis, bacaan novel, peringkat novel, novel ringan. '">
 
 
     <div th:include="mobile/common/css :: css"></div>
@@ -83,7 +83,7 @@
         <a href="javascript:history.go(-1)">
             <i style="font-size: 20px;color: #fff;" class="layui-icon">&#xe65c;</i></a>
     </div>
-    <b class="layui-icon">小说列表</b>
+    <b class="layui-icon">Daftar novel</b>
     <div style="float: right;margin-right: 10px">
         <a href="/"><i style="font-size: 20px;color: #fff;" class="layui-icon">&#xe68e;</i></a>
     </div>
@@ -93,12 +93,12 @@
     <div class="layui-row">
 
         <div class="layui-col-xs10 layui-col-sm10 layui-col-md11 layui-col-lg11" style="padding-top:1%">
-            <input id="title" type="text" name="title" required lay-verify="required" placeholder="请输入书名·作者"
+            <input id="title" type="text" name="title" required lay-verify="required" placeholder="Silakan masukkan judul/nama penulis"
                    autocomplete="off"
                    class="layui-input" th:value="${keyword}">
         </div>
         <div class="layui-col-xs1" style="padding: 1%">
-            <button onclick="search(1,20)" class="layui-btn" lay-submit lay-filter="formDemo">搜索</button>
+            <button onclick="search(1,20)" class="layui-btn" lay-submit lay-filter="formDemo">Cari</button>
         </div>
     </div>
 
@@ -202,13 +202,13 @@
                             "            </a>\n" +
                             "            <div style=\";color: #4c6978;float: right;\"><i style=\"color: red\"></i></div>\n" +
                             "            <a href=\"/book/book_ranking.html?keyword="+encodeURI(book.authorName)+"\">\n" +
-                            "                <div style=\";color: #a6a6a6;\" class=\"line-limit-length\">作者："+book.authorName+"</div>\n" +
+                            "                <div style=\";color: #a6a6a6;\" class=\"line-limit-length\">Penulis: "+book.authorName+"</div>\n" +
                             "            </a>\n" +
-                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">类别："+book.catName+"</div>\n" +
-                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">状态："+(book.bookStatus==0?'连载':'完结')+"</div>\n" +
-                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">更新：<i style='color: red'>"+book.lastIndexUpdateTime.substr(0,11)+"</i>\n" +
+                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">Genre: "+book.catName+"</div>\n" +
+                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">Status"+(book.bookStatus==0?'berlanjut':'tamat')+"</div>\n" +
+                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">Diperbarui: <i style='color: red'>"+book.lastIndexUpdateTime.substr(0,11)+"</i>\n" +
                             "            </div>\n" +
-                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">简介："+(book.bookDesc?(book.bookDesc.length>15?(book.bookDesc.substr(0,15)+"..."):book.bookDesc):book.bookDesc)+"</div>\n" +
+                            "            <div style=\"margin-top: 5px;color: #a6a6a6;\">Blurb: "+(book.bookDesc?(book.bookDesc.length>15?(book.bookDesc.substr(0,15)+"..."):book.bookDesc):book.bookDesc)+"</div>\n" +
                             "\n" +
                             "\n" +
                             "        </div>\n" +
@@ -249,7 +249,7 @@
 
             },
             error: function () {
-                layer.alert('网络异常');
+                layer.alert('Kesalahan jaringan');
             }
         })
 

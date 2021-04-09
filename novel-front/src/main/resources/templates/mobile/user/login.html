@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>登录|注册</title>
+    <title>Masuk | Daftar</title>
 
     <div th:include="common/css :: css"></div>
 
@@ -22,7 +22,7 @@
         <a href="javascript:history.go(-1)">
             <i style="font-size: 20px;color: #92B8B1;" class="layui-icon">&#xe65c;</i></a>
     </div>
-    <b class="layui-icon">登录|注册</b>
+    <b class="layui-icon">Masuk | Daftar</b>
     <div style="float: right;margin-right: 10px"><a href="/">
         <i style="font-size: 20px;color: #92B8B1;" class="layui-icon">&#xe68e;</i>
     </a>
@@ -32,22 +32,22 @@
 <form style="height: 500px;margin-top: 50px" class="layui-form" action="">
     <input type="hidden" id="bookIdHidden" name="bookId" th:value="${bookId}"/>
     <div class="layui-form-item">
-        <label class="layui-form-label">登录名</label>
+        <label class="layui-form-label">Nama Pengguna</label>
         <div class="layui-input-block">
-            <input type="text" id="loginName" name="loginName" required  lay-verify="required" placeholder="请输入登录名" autocomplete="off" class="layui-input">
+            <input type="text" id="loginName" name="loginName" required  lay-verify="required" placeholder="Masukkan nama pengguna" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
+        <label class="layui-form-label">Kata Sandi</label>
         <div class="layui-input-inline">
-            <input id="password" type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            <input id="password" type="password" name="password" required lay-verify="required" placeholder="Masukkan kata sandi" autocomplete="off" class="layui-input">
         </div>
-        <div class="layui-form-mid layui-word-aux">如果登录名不存在，则直接注册！</div>
+        <div class="layui-form-mid layui-word-aux">Belum punya akun? Mulai mendaftar！</div>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">登录|注册</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">Masuk | Daftar</button>
+            <button type="reset" class="layui-btn layui-btn-primary">Setel Ulang</button>
         </div>
     </div>
 </form>
@@ -70,7 +70,7 @@
     layui.use('form', function(){
         var form = layui.form;
 
-        //监听提交
+        //Pantau pengiriman
         form.on('submit(formDemo)', function(){
             $.post("/user/loginOrRegist",{"bookId":$("#bookIdHidden").val(),"loginName":$("#loginName").val(),"password":$("#password").val()},function (data) {
                 if(data.code == 1 || data.code == 2){
@@ -79,10 +79,10 @@
                     setTimeout(function () {
                         var bookId = $("#bookIdHidden").val();
                         if(bookId){
-                            //加入书架
+                            //Tambahkan ke rak buku
                             window.location.href="/book/"+bookId+".html";
                         }else{
-                            //我的书架
+                            //Rak buku saya
                             window.location.href="/book/search?token="+data.token;
                         }
                     },3000)

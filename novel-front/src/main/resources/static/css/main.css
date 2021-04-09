@@ -12,7 +12,7 @@
 .sliderContent { width: 306px; float: left; /*margin: 16px 0 16px 14px;*/ position: relative }
 .scSmallImg { position: absolute; top: 0px; right: 0px; /*height: 335px*/ }
 .scSmallImg li { height: 65px; margin-bottom: 8px; border: 2px solid #fff }
-.scSmallImg li.on { border: 2px solid #FF7800 }
+.scSmallImg li.on { border: 2px solid #00b7ff }
 .scSmallImg img { width: auto; height: 65px; cursor: pointer; filter: alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6 }
 .scSmallImg li.on img { filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1 }
 .scBigImg dd { display: none }
@@ -22,12 +22,12 @@
 .hot_articles dl { padding: 0 4px 8px; border-bottom: 1px dotted #eae6e2 }
 .hot_articles .hot_recommend { margin-bottom: 12px; }
 .hot_articles dt { /*height: 40px; line-height: 40px;*/ padding-bottom: 7px; text-align: center; font-size: 16px; font-weight: 600; line-height: 1.8 }
-.hot_articles dt a { color: #F70 }
+.hot_articles dt a { color: rgb(0, 132, 255) }
 .hot_articles dd { line-height: 30px; font-size: 14px; overflow: hidden }
 .hot_articles dd a { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
 .hot_articles .hot_recommend dd a { width: 49%; padding-right: 1%; float: left; }
 .hot_articles .hot_notice dd a { padding-right: 1%; }
-.hot_articles span.tit { color: #f70; margin-right: 6px }
+.hot_articles span.tit { color: rgb(0, 132, 255); margin-right: 6px }
 .hot_articles .hot_notice { border: none }
 .hot_articles .line { padding: 0 14px; color: #eee }
 .rightBox { width: 240px; float: right; /*border: 1px solid #EAEAEA;*/ position: relative }
@@ -55,9 +55,9 @@
 .rightList li i { float: left; margin: 8px 7px 0 0; }
 .rankTable .rank i { margin: 1px 1px 0 }
 /*.rightList li.on i { position: absolute; top: 12px; left: 0; margin: 0; display:none }*/
-.rightList li.num1 i, .rankTable .rank .num1 { background-color: #fc7403 }
-.rightList li.num2 i, .rankTable .rank .num2 { background-color: #f79415 }
-.rightList li.num3 i, .rankTable .rank .num3 { background-color: #ffa95e }
+.rightList li.num1 i, .rankTable .rank .num1 { background-color: #3c1ad3 }
+.rightList li.num2 i, .rankTable .rank .num2 { background-color: #1577f7 }
+.rightList li.num3 i, .rankTable .rank .num3 { background-color: #3f99ee }
 .rightList li.num1 i,.rightList li.num2 i,.rightList li.num3 i { display:block }
 /*.rightList .more{ margin: 1px 0; height: 34px; line-height: 34px; border-radius: 1px; background-color: #f7f7f7; text-align: center }
 .rightList .more a{ display: block; color: #666 }*/
@@ -107,13 +107,13 @@
 .rightList2 li { vertical-align: middle }
 .rightList2 li a { display: block; /*padding: 0 30px;*/ height: 47px; line-height: 47px; font-size: 16px; overflow: hidden; border-top: 1px dotted #eee; }
 .rightList2 li:first-child a { border: none }
-.rightList2 li a.on, .rightList2 li a:hover { color: #f70 }
+.rightList2 li a.on, .rightList2 li a:hover { color: rgb(0, 119, 255) }
 .so_tag { /*padding: 4px 14px 0;*/  font-size: 14px; padding: 5px 0 }
 .so_tag li { padding: 0 0 24px; /*border-bottom: 1px solid #eee*/ }
 .so_tag li:last-child { padding: 0 0 4px }
 .so_tag li .tit, .so_tag li a { line-height: 1; padding: 3px 7px; margin-right: 12px }
 .so_tag li .tit { color: #999 }
-.so_tag li a.on, .so_tag li a:hover { color: #f70 }
+.so_tag li a.on, .so_tag li a:hover { color: rgb(0, 119, 255) }
 .so_tag li .so_girl { display: inline-block }
 .so_tag li .so_boy { display: inline-block/*; margin: 8px 0 0 140px;*/ }
 
@@ -126,7 +126,7 @@
 .payCon h5 { font-size: 16px; font-weight: normal; padding: 28px 0 2px }
 .pay_way { padding-bottom: 5px }
 .pay_way li { width: 196px; text-align: center; border: 2px solid #eee; border-radius: 4px; margin: 20px 26px 3px 0; float: left; cursor: pointer; line-height: 1 }
-.pay_way li.on { border-color: #f80 }
+.pay_way li.on { border-color: rgb(0, 110, 255) }
 .pay_way li .pay_pic { width: 180px; margin: 12px auto; }
 .pay_way li strong { font-size: 24px; display: block; line-height: 1; padding: 20px 0 5px }
 .pay_way li .pay_mn { display: table-cell; width: 196px; height: 40px; vertical-align: middle; line-height: 1.2; padding-bottom: 12px; font-size: 14px; text-align: center }
@@ -236,10 +236,10 @@
 .page_bar .next a { margin-left: 1rem }
 .page_bar li .select_page { width: 100% }
 .icon_jh, .icon_zd { text-align: center; margin: 2px 5px 0 0; color: #fff; font-size: 12px; padding: 3px 3px; line-height: 1; display: inline-block; background: #ed4259; border-radius: 2px }
-.icon_zd { background: #4a90e2 }
+.icon_zd { background: #4a87e2 }
 
 
 .hot_notice span, .items_txt .intro a, .updateTable .author a, .updateTable .style a, .updateTable .time a, .updateTable th { color: #888 }
-.items_txt .intro a:hover, .rightList .more a:hover, .updateTable .style a:hover, .rightList .on .book_intro .txt:hover { color: #f70 }
+.items_txt .intro a:hover, .rightList .more a:hover, .updateTable .style a:hover, .rightList .on .book_intro .txt:hover { color: rgb(0, 102, 255) }
 .icon_show:hover, .icon_hide:hover { color: #2972cc }
 .channelChapterlist { min-height: 600px }

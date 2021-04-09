@@ -30,7 +30,7 @@ function AddToFavorites(isTip)
             window.external.AddFavorite(url, title);
         else {
             if(isTip){
-                alert("该浏览器不支持自动收藏，请点击Ctrl+D手动收藏！");
+                alert("Browser ini tidak mendukung pengumpulan otomatis, silakan klik Ctrl + D untuk mengumpulkan secara manual!");
             }
         }
     }

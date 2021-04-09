@@ -45,8 +45,8 @@ public class FastDfsFileServiceImpl implements FileService {
             FileInputStream inputStream = new FileInputStream(file);
             StorePath storePath = storageClient.uploadFile(inputStream, file.length(),
                     FilenameUtils.getExtension(file.getName()), null);
-            //这里额外加上LOCAL_PIC_PREFIX路径，表明该图片是个人资源，而不是爬虫爬取的网络资源，不需要再次进行转换，
-            // 实际访问时，再通过nginx的rewite指令来重写路径，去掉LOCAL_PIC_PREFIX
+            //Lintasan LOCAL_PIC_PREFIX ditambahkan di sini, yang menunjukkan bahwa gambar tersebut adalah sumber daya pribadi, bukan sumber daya jaringan yang dirayapi oleh perayap, dan tidak perlu diubah lagi.
+            // Ketika benar-benar mengakses, tulis ulang jalur melalui instruksi rewite nginx dan hapus LOCAL_PIC_PREFIX
             return webUrl+Constants.LOCAL_PIC_PREFIX+storePath.getFullPath();
         } catch (Exception e) {
             log.error(e.getMessage(), e);

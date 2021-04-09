@@ -6,6 +6,7 @@ import com.java2nb.novel.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author 11797
@@ -20,4 +21,8 @@ public class LocalFileServiceImpl implements FileService {
 
         return FileUtil.network2Local(picSrc, picSavePath, Constants.LOCAL_PIC_PREFIX);
     }
+    // @Override
+    // public String upload(MultipartFile file, String prefixName){
+    //     return FileUtil.network2Local2(file, prefixName, Constants.LOCAL_PIC_PREFIX);
+    // }
 }

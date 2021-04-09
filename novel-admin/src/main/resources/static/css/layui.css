@@ -284,7 +284,7 @@ a cite{font-style: normal; *cursor:pointer;}
 
 
 /* 背景颜色 */
-.layui-bg-red{background-color: #FF5722 !important; color: #fff!important;} /*赤*/
+.layui-bg-red{background-color: #1e4eeb !important; color: #fff!important;} /*赤*/
 .layui-bg-orange{background-color: #FFB800!important; color: #fff!important;} /*橙*/
 .layui-bg-green{background-color: #009688!important; color: #fff!important;} /*绿*/
 .layui-bg-cyan{background-color: #2F4056!important; color: #fff!important;} /*青*/
@@ -320,7 +320,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-btn-primary:hover{border-color: #009688; color: #333}
 /* 百搭 */.layui-btn-normal{background-color: #1E9FFF;}
 /* 暖色 */.layui-btn-warm{background-color: #FFB800;}
-/* 警告 */.layui-btn-danger{background-color: #FF5722;}
+/* 警告 */.layui-btn-danger{background-color: #1e4eeb;}
 /* 禁用 */.layui-btn-disabled,.layui-btn-disabled:hover,.layui-btn-disabled:active{border: 1px solid #e6e6e6; background-color: #FBFBFB; color: #C9C9C9; cursor: not-allowed; opacity: 1;}
 
 /* 大型 */.layui-btn-big{height: 44px; line-height: 44px; padding: 0 25px; font-size: 16px;}
@@ -364,7 +364,7 @@ a cite{font-style: normal; *cursor:pointer;}
 
 /* 分割块 */.layui-form-mid{position: relative; float: left; display: block; padding: 8px 0 !important; line-height: 20px; margin-right: 10px;}
 /* 警告域 */.layui-form-danger:focus
-,.layui-form-danger+.layui-form-select .layui-input{border: 1px solid #FF5722 !important;}
+,.layui-form-danger+.layui-form-select .layui-input{border: 1px solid #1e4eeb !important;}
 
 
 /* 下拉选择 */.layui-form-select{position: relative;}
@@ -752,7 +752,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-tab-content{padding: 10px;}
 
 /* Tab关闭 */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
-.layui-tab-title li .layui-tab-close:hover{border-radius: 2px; background-color: #FF5722; color: #fff;}
+.layui-tab-title li .layui-tab-close:hover{border-radius: 2px; background-color: #1e4eeb; color: #fff;}
 
 /* Tab简洁风格 */.layui-tab-brief > .layui-tab-title .layui-this{color: #009688;}
 .layui-tab-brief > .layui-tab-title .layui-this:after
@@ -772,7 +772,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-timeline{padding-left: 5px;}
 .layui-timeline-item{position: relative; padding-bottom: 20px;}
 .layui-timeline-axis{position: absolute; left: -5px; top: 0; z-index: 10; width: 20px; height: 20px; line-height: 20px; background-color: #fff; color: #5FB878; border-radius: 50%; text-align: center; cursor: pointer;}
-.layui-timeline-axis:hover{color: #FF5722;}
+.layui-timeline-axis:hover{color: #1e4eeb;}
 .layui-timeline-item:before{content: ''; position: absolute; left: 5px; top: 0; z-index: 0; width: 1px; height: 100%; background-color: #e2e2e2;}
 .layui-timeline-item:last-child:before{display: none;}
 .layui-timeline-item:first-child:before{display: block;}
@@ -782,7 +782,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 /* 小徽章 */
 .layui-badge,
 .layui-badge-dot,
-.layui-badge-rim{position:relative; display: inline-block; font-size: 12px; background-color: #FF5722; color: #fff;}
+.layui-badge-rim{position:relative; display: inline-block; font-size: 12px; background-color: #1e4eeb; color: #fff;}
 .layui-badge{min-width: 8px; height: 18px; line-height: 18px; padding: 0 5px; text-align: center; border-radius: 9px;}
 .layui-badge-dot{width: 8px; height: 8px; border-radius: 50%;}
 .layui-badge-rim{height: 18px; line-height: 18px; padding: 0 5px; border: 1px solid #e2e2e2; border-radius: 3px; background-color: #fff; color: #666;}

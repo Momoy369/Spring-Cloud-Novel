@@ -67,8 +67,8 @@ layui.define(function(exports){
       groups = config.pages;
     }
     
-    config.prev = 'prev' in config ? config.prev : '&#x4E0A;&#x4E00;&#x9875;'; //Teks sebelumnya
-    config.next = 'next' in config ? config.next : '&#x4E0B;&#x4E00;&#x9875;'; //Teks halaman berikutnya
+    config.prev = 'prev' in config ? config.prev : '&lt;'; //Teks sebelumnya
+    config.next = 'next' in config ? config.next : '&gt;'; //Teks halaman berikutnya
     
     //计算当前组
     var index = config.pages > groups 
@@ -77,7 +77,7 @@ layui.define(function(exports){
     
     //试图片段
     ,views = {
-      //上一页
+      //Sebelumnya
       prev: function(){
         return config.prev 
           ? '<a href="javascript:;" class="layui-laypage-prev'+ (config.curr == 1 ? (' ' + DISABLED) : '') +'" data-page="'+ (config.curr - 1) +'">'+ config.prev +'</a>'

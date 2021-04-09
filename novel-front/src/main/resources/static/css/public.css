@@ -58,8 +58,8 @@ em, i {
 }
 .gray { color:#999 !important }
 .black { color:#000 !important }
-.red { color:#EF5944 !important }
-.ora { color:#e86320 !important }
+.red { color:#44b9ef !important }
+.ora { color:#20c0e8 !important }
 .green { color:#457a2a!important }
 .blue { color:#1B7DC6 !important }
 .col6 { color:#666 !important }
@@ -142,10 +142,10 @@ p.cue {
 /*- form -*/
 .btn {
     display: inline-block;
-    background-color: #f80;
+    background-color: rgb(0, 183, 255);
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid #f70;
+    border: 1px solid rgb(0, 162, 255);
     color: #FFF;
     line-height:1;
     padding: 7px 20px;
@@ -354,7 +354,7 @@ select {
     color: #FFF;
 }
 #head .nav a.topAdd:hover {
-    background: #60BBFF url(../images/top_add.gif) no-repeat 15px bottom;
+    background: #608aff url(../images/top_add.gif) no-repeat 15px bottom;
 }
 #head .nav .noLeft {
     border-left: 0;
@@ -1381,14 +1381,14 @@ select {
 a.lista,a.listag,a.listred{display:inline-block;margin-right:4px;margin-left:4px;color:#444444;text-decoration: none}
 a.lista:hover,a.listag:hover{color:#0066cc;}
 
-a.listred,a.listred:hover{color:Red}
+a.listred,a.listred:hover{color:rgb(0, 81, 255)}
 /*gsq*/
-#menu li a:hover, #menu li .selected, .red { color:#f60 }
+#menu li a:hover, #menu li .selected, .red { color:rgb(0, 174, 255) }
 .panel-header, .panel-body { border-left:none!important; }
 .datagrid-row-selected { background:#f6f6f6!important; color:#000 }
 .datagrid-row-over { background:#f6f6f6!important }
 a.easyui-linkbutton { text-align:center }
-a.easyui-linkbutton.on { color:#f60 }
+a.easyui-linkbutton.on { color:rgb(0, 255, 255) }
 a.l-btn span span.icon-search { padding:0; display: none }
 /*.l-btn-icon-left .l-btn-text {
     margin: 0 4px!important;

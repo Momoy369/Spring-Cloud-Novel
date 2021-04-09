@@ -139,10 +139,10 @@ public class SysUserServiceImpl implements SysUserService {
                 userDO.setPassword(MD5Utils.encrypt(userDO.getUsername(), userVO.getPwdNew()));
                 return userMapper.update(userDO);
             } else {
-                throw new Exception("输入的旧密码有误！");
+                throw new Exception("Kata sandi lama yang dimasukkan salah! ");
             }
         } else {
-            throw new Exception("你修改的不是你登录的账号！");
+            throw new Exception("Apa yang Anda ubah bukanlah akun yang Anda masuki! ");
         }
     }
 
@@ -150,7 +150,7 @@ public class SysUserServiceImpl implements SysUserService {
     public int adminResetPwd(UserVO userVO) throws Exception {
         UserDO userDO = get(userVO.getUserDO().getUserId());
         if ("admin".equals(userDO.getUsername())) {
-            throw new Exception("超级管理员的账号不允许直接重置！");
+            throw new Exception("Akun pengguna super tidak diizinkan untuk disetel ulang secara langsung! ");
         }
         userDO.setPassword(MD5Utils.encrypt(userDO.getUsername(), userVO.getPwdNew()));
         return userMapper.update(userDO);
@@ -236,7 +236,7 @@ public class SysUserServiceImpl implements SysUserService {
             byte[] b = out.toByteArray();
             FileUtil.uploadFile(b, jnConfig.getUploadPath(), fileName);
         } catch (Exception e) {
-            throw new Exception("图片裁剪错误！！");
+            throw new Exception("Kesalahan pemangkasan gambar!!");
         }
         Map<String, Object> result = new HashMap<>();
         if (sysFileService.save(sysFile) > 0) {

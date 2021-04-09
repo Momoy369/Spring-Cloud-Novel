@@ -12,17 +12,17 @@ padding:0
 }
 a img { border: none }
 a { outline: none; color: #333; text-decoration: none }
-a:hover, .topBar a:hover, .red, .record_list li:hover .read_link a { color: #f70 }
-.red1 { color: #ff4040 }
+a:hover, .topBar a:hover, .red, .record_list li:hover .read_link a { color: rgb(0, 89, 255) }
+.red1 { color: #105eee }
 .unlink { text-decoration: underline }
-.blue { color: #5fc3f3 }
+.blue { color: #5f82f3 }
 .green { color: #360 }
 .black { color: #000 }
 .black3 { color: #333 }
 .black6 { color: #666 }
 .black9 { color: #999 }
 .ccc { color: #ccc }
-.orange { color: #f60 }
+.orange { color: rgb(0, 102, 255) }
 .font12 { font-size: 12px!important }
 .font14 { font-size: 14px!important }
 .font16 { font-size: 16px!important }
@@ -80,7 +80,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #
 .logo img { width: auto; height: 48px }
 .searchBar { width: 342px; margin-top: 27px; overflow: hidden }
 .searchBar .search/*, .searchBar .hotword*/ { width: 342px; overflow: hidden }
-.searchBar .s_int { width: 250px; padding: 0 14px 0 18px; height: 36px; line-height: 36px\9; vertical-align: middle; border: 1px solid #f80; border-right: none; color: #333; float: left; border-radius: 20px 0 0 20px; font-size: 14px; /*background: #fff;*/ background: 0 0 }
+.searchBar .s_int { width: 250px; padding: 0 14px 0 18px; height: 36px; line-height: 36px\9; vertical-align: middle; border: 1px solid rgb(5, 121, 216); border-right: none; color: #333; float: left; border-radius: 20px 0 0 20px; font-size: 14px; /*background: #fff;*/ background: 0 0 }
 /*.searchBar .s_btn { width: 78px; height: 38px; line-height: 38px; background: #f65167; color: #fff; font-size: 16px; text-align: center; float: left; cursor: pointer; padding: 0 }
 .searchBar .s_btn:hover { background:#E23249 }*/
 .searchBar .search_btn { float: left;
@@ -88,7 +88,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #
     height: 38px;
     text-align: center;
     border-radius: 0 20px 20px 0;
-    background-color: #f80; cursor: pointer; }
+    background-color: rgb(0, 162, 255); cursor: pointer; }
 .searchBar .search_btn .icon { width: 18px; height: 18px; display: block; margin: 9px auto 0; background: url(../images/search.png) no-repeat; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/search.png', sizingMethod='scale'); }
 
 /*.hotword { padding-top: 3px }
@@ -101,9 +101,9 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #
 .bookShelf .user_name { max-width: 100px; display: inline-block }
 .bookShelf .line { float: left; color: #ccc }
 /*.bookShelf img { position: absolute; top: 17px; left: 17px; z-index: 10 }*/
-.mainNav { width: 100%; height: 48px; background: #f80; margin-bottom: 20px }
+.mainNav { width: 100%; height: 48px; background: rgb(10, 125, 202); margin-bottom: 20px }
 .mainNav .nav li { float: left }
-.mainNav .nav li a { float: left; height: 44px; line-height: 48px; color: #fff; font-size: 16px; margin: 0 34px; border-bottom: 2px solid #f80; transition: color .3s,background-color .3s,border .3s }
+.mainNav .nav li a { float: left; height: 44px; line-height: 48px; color: #fff; font-size: 16px; margin: 0 34px; border-bottom: 2px solid rgb(0, 102, 255); transition: color .3s,background-color .3s,border .3s }
 .mainNav .nav li.on a, .mainNav .nav li a:hover { border-bottom: 2px solid rgba(255,255,255,.8) }
 .footer { padding: 0 0 20px; /*margin-top: 20px; background: #fbfaf8; border-top: 1px solid #e0e0e0; */text-align: center; font-size: 12px }
 .copyright ul li { color: #999; line-height: 26px }
@@ -114,24 +114,24 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #
 .rBar { float: right; width: 268px }
 .btn_gray, .btn_red, .btn_ora, .btn_ora_white, .btn_red1 {  border-radius: 20px; font-size: 15px; display: inline-block; text-align: center; cursor: pointer; /*padding: 0 34px; height: 34px; line-height: 34px;*/ padding: 11px 36px; line-height: 1; }
 .btn_gray { border: 1px solid #dedede; background: #fafafa; }
-.btn_red, .btn_ora { border: 1px solid #f80; background: #f80; color: #fff }
+.btn_red, .btn_ora { border: 1px solid rgb(0, 81, 255); background: rgb(0, 140, 255); color: #fff }
 .btn_red1 { border: 1px solid #ff4040; background: #ff4040; color: #fff }
-.btn_ora_white { border: 1px solid #f80; color: #f80 }
+.btn_ora_white { border: 1px solid rgb(0, 102, 255); color: rgb(0, 140, 255) }
 .btn_ora_white:hover { background: #fefaf6 }
-.btn_link { padding: 2px 6px; background: #f80; color: #fff; border-radius: 2px }
+.btn_link { padding: 2px 6px; background: rgb(0, 26, 255); color: #fff; border-radius: 2px }
 .btn_gray:hover { background: #f0f0f0; color: #333 }
-.btn_ora:hover, .btn_red:hover, .btn_link:hover { background: #f70; color: #fff }
-.btn_red1:hover { background: #fc2525; color: #fff }
+.btn_ora:hover, .btn_red:hover, .btn_link:hover { background: rgb(0, 132, 255); color: #fff }
+.btn_red1:hover { background: #2545fc; color: #fff }
 .pay_Checkout .btn_red, .btn_big {
     font-size: 16px;
     padding: 15px 0;
     border-radius: 4px;
     width: 196px; }
-i.vip { width: 26px; height: 14px; text-align: center; line-height: 14px; font-size: 11px; color: #fff; background: #fe8034; border-radius: 2px; margin: 13px 0 0 3px; display: inline-block; transform: scale(0.88); }
-i.vip_b { width: 36px; height: 22px; text-align: center; line-height: 22px; font-size: 15px; color: #fff; background: #f70; border-radius: 4px; margin-left: 5px; display: inline-block; vertical-align: 3px }
+i.vip { width: 26px; height: 14px; text-align: center; line-height: 14px; font-size: 11px; color: #fff; background: #34a3fe; border-radius: 2px; margin: 13px 0 0 3px; display: inline-block; transform: scale(0.88); }
+i.vip_b { width: 36px; height: 22px; text-align: center; line-height: 22px; font-size: 15px; color: #fff; background: rgb(0, 204, 255); border-radius: 4px; margin-left: 5px; display: inline-block; vertical-align: 3px }
 .pageBox { text-align: center; padding: 20px 0 }
 .pageBox a, .pageBox span { display: inline-block; color: #999; padding: 6px 10px; margin: 0 5px; border-radius: 4px; font-size: 14px; line-height: 1 }
-.pageBox .current, .pageBox a:hover { background: #f80; color: #fff }
+.pageBox .current, .pageBox a:hover { background: rgb(0, 102, 255); color: #fff }
 .top_nearread { display: inline-block; position: relative; margin-right: 10px; float:left }
 .top_nearread .nearread { padding: 0 9px }
 .top_nearread .nearread.on { border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; background: #FFF; padding: 0 8px; height: 36px; position: relative; z-index: 8 }
@@ -141,7 +141,7 @@ i.vip_b { width: 36px; height: 22px; text-align: center; line-height: 22px; font
 .book_record .sp { width:77px; height:6px; background:#fff; position:absolute; top:32px; right:1px }
 .record_title { padding: 14px 10px }
 .record_title a { border: 1px solid #dedede; background: #fafafa; border-radius: 2px; font-size: 12px; padding: 6px 12px; line-height: 1; margin-right: 14px }
-.record_title a.on { border: 1px solid #f65167; background: #f65167; color: #fff }
+.record_title a.on { border: 1px solid #5185f6; background: #f65167; color: #fff }
 .record_box .all { display: block; height: 28px; line-height: 28px; text-align: center; background: #f6f6f6 }
 .record_list ul { margin-bottom: 10px }
 .record_list li { clear: both; padding: 10px; line-height: 1; overflow: hidden }
@@ -164,7 +164,7 @@ i.vip_b { width: 36px; height: 22px; text-align: center; line-height: 22px; font
 .nav_sub a { padding: 0 6px }
 
 .copyright .menu a { color: #666; font-size: 12px }
-.copyright .menu a:hover, .bookShelf .sj_link:hover { color: #f70 }
+.copyright .menu a:hover, .bookShelf .sj_link:hover { color: rgb(0, 102, 255) }
 
 .rightList .more, .more_bar { margin: 1px 0; height: 34px; line-height: 34px; border-radius: 1px; background-color: #f7f7f7; text-align: center }
 .rightList .more a, .more_bar a { display: block; color: #666 }
@@ -200,7 +200,7 @@ i.vip_b { width: 36px; height: 22px; text-align: center; line-height: 22px; font
 .border_l { border-left: 1px solid #eee }
 .border_r { border-right: 1px solid #eee }
 .layui-laypage-curr{
-    background: #f80;
+    background: rgb(0, 110, 255);
 }
 .layui-laypage-curr em {
    color: #fff;

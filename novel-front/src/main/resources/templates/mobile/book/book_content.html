@@ -9,7 +9,7 @@
     <meta name="keywords" th:content="${book.bookName}+','+${bookIndex.indexName}">
 
     <meta name="description"
-          th:content="${book.bookName}+'最新更新章节免费在线阅读TXT下载'">
+          th:content="${book.bookName}+'Bab terbaru yang diperbarui bebas membaca unduhan TXT online'">
 
 
 
@@ -196,17 +196,17 @@
 
 
 <p class="Readpage" style="background:#FFFFFF;padding:2px;">
-    <a id="lightdiv" class="button lightoff" onclick="nr_setbg('light')">关灯</a>
-    <a id="huyandiv" class="button huyanon" onclick="nr_setbg('huyan')">护眼</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    字体：<a id="fontbig" class="sizebg" onclick="nr_setbg('big')">大</a> <a id="fontmiddle" class="button sizebgon"
-                                                                         onclick="nr_setbg('middle')">中</a> <a
-        id="fontsmall" class="sizebg" onclick="nr_setbg('small')">小</a>
+    <a id="lightdiv" class="button lightoff" onclick="nr_setbg('light')">Gelap</a>
+    <a id="huyandiv" class="button huyanon" onclick="nr_setbg('huyan')">Terang</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    Font: <a id="fontbig" class="sizebg" onclick="nr_setbg('big')">Besar</a> <a id="fontmiddle" class="button sizebgon"
+                                                                         onclick="nr_setbg('middle')">Normal</a> <a
+        id="fontsmall" class="sizebg" onclick="nr_setbg('small')">Kecil</a>
 </p>
 <div class="indexDiv" style="height: 42px;line-height: 42px;text-align:center;background: #f2f2f2">
 
-    <a style="color: #333" th:href="'javascript:enterPreIndexPage(\''+${book.id}+'\',\''+${preBookIndexId}+'\');'">上一章</a>
-    <a style="color: #333" th:href="'/book/indexList-'+${book.id}+'.html'">目录</a>
-    <a style="color: #333" th:href="'javascript:enterNextIndexPage(\''+${book.id}+'\',\''+${nextBookIndexId}+'\');'">下一章</a>
+    <a style="color: #333" th:href="'javascript:enterPreIndexPage(\''+${book.id}+'\',\''+${preBookIndexId}+'\');'">Sebelumnya</a>
+    <a style="color: #333" th:href="'/book/indexList-'+${book.id}+'.html'">Daftar isi</a>
+    <a style="color: #333" th:href="'javascript:enterNextIndexPage(\''+${book.id}+'\',\''+${nextBookIndexId}+'\');'">Selanjutnya</a>
 </div>
 <!--<div id="screenInput" class="screen_toolbar" style="display: none">
     <div style="height: 5px" class="layui-col-xs2 layui-col-sm3 layui-col-md3 layui-col-lg3"></div>
@@ -237,16 +237,16 @@
 </div>
 <div  class="Readarea ReadAjax_content screen_container"
      style="color: rgb(0, 0, 0); font-size: 20px;background-color: #fff" th:if="${needBuy}">
-    <h5>此章为VIP章节，需要订阅后才能继续阅读</h5>
-    价格：<span style="color: red" th:text="${bookIndex.bookPrice}+'屋币(1元=100屋币)'"></span><br/>
-    <a href="javascript:buyBookIndex()"  type="button" class="layui-btn layui-btn-sm layui-btn-radius">购买</a>
+    <h5>Bab ini adalah bab VIP, Anda harus berlangganan untuk melanjutkan membaca</h5>
+    Harga: <span style="color: red" th:text="${bookIndex.bookPrice}+' Koin (1 USD = 12000 Koin)'"></span><br/>
+    <a href="javascript:buyBookIndex()"  type="button" class="layui-btn layui-btn-sm layui-btn-radius">Beli</a>
 
 </div>
 <div class="indexDiv" style="height: 42px;line-height: 42px;text-align:center;background: #f2f2f2">
 
-    <a style="color: #333" th:href="'javascript:enterPreIndexPage(\''+${book.id}+'\',\''+${preBookIndexId}+'\');'">上一章</a>
-    <a style="color: #333" th:href="'/book/indexList-'+${book.id}+'.html'">目录</a>
-    <a style="color: #333" th:href="'javascript:enterNextIndexPage(\''+${book.id}+'\',\''+${nextBookIndexId}+'\');'">下一章</a>
+    <a style="color: #333" th:href="'javascript:enterPreIndexPage(\''+${book.id}+'\',\''+${preBookIndexId}+'\');'">Sebelumnya</a>
+    <a style="color: #333" th:href="'/book/indexList-'+${book.id}+'.html'">Daftar isi</a>
+    <a style="color: #333" th:href="'javascript:enterNextIndexPage(\''+${book.id}+'\',\''+${nextBookIndexId}+'\');'">Selanjutnya</a>
 
 </div>
 
@@ -278,7 +278,7 @@
 <script>
     (function () {
 
-        //添加阅读记录
+        //Tambahkan catatan bacaan
         $.ajax({
             type: "POST",
             url: "/user/addReadHistory",
@@ -340,7 +340,7 @@
 
 
                 } else if(data.code == 1001){
-                    //未登录
+                    //Belum masuk
                     location.href = '/user/login.html?originUrl='+decodeURIComponent(location.href);
 
 
@@ -350,7 +350,7 @@
 
             },
             error: function () {
-                layer.alert('网络异常');
+                layer.alert('Kesalahan jaringan');
             }
         })
 

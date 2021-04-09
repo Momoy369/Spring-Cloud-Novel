@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title th:utext="${book.bookName}+'小说最新章节免费阅读和下载'"></title>
+    <title th:utext="${book.bookName}+' - Membaca dan mengunduh bab-bab novel terbaru secara gratis '"></title>
 
-    <meta name="keywords" th:content="${book.bookName}+','+${book.bookName}+'最新章节,'+${book.bookName}+'免费阅读,'+${book.bookName}+'TXT下载'">
+    <meta name="keywords" th:content="${book.bookName}+','+${book.bookName}+'Bab terbaru,'+${book.bookName}+' Bacaan gratis,'+${book.bookName}+' Unduh gratis'">
 
     <meta name="description"
-          th:content="${book.bookName}+'最新章节列表,'+${book.bookName}+'最新更新章节免费无广告无弹窗在线阅读,'+${book.bookName}+'小说TXT免费下载。'">
+          th:content="${book.bookName}+'Daftar bab terbaru - ,'+${book.bookName}+'Bab pembaruan terbaru gratis, tidak ada iklan, tidak ada pop-up untuk dibaca secara online,'+${book.bookName}+'TXT baru dapat diunduh gratis. '">
 
 
 
@@ -133,12 +133,12 @@
 
     </div>
         <div style="position:relative;padding: 3px 10px 0px" class="layui-col-xs8 layui-col-sm8 layui-col-md8 layui-col-lg8">
-            <a th:href="'javascript:searchBooks(\''+ ${book.authorName}+'\')'"><div style=";color: #444;" th:utext="'作者：'+ ${book.authorName}"></div></a>
-            <a th:href="'/book/book_ranking.html?catId='+${book.catId}"><div style="margin-top: 5px;color: #444;" th:text="'类别：'+ ${book.catName}"></div></a>
-            <div style="margin-top: 5px;color: #444;" th:text="'状态：'+ ${book.bookStatus==0?'连载':'完结'}"></div>
-            <div style="margin-top: 5px;color: #444;">更新：<i  th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd')}"></i></div>
-            <div style="margin-top: 5px;color: #444;">评分：<i style="font-weight:bold;color: red" th:text="${book.score} + '分'"></i></div>
-            <div style="margin-top: 5px;color: #444;">点击：<i style="font-weight:bold;color: red" th:text="${book.visitCount}"></i></div>
+            <a th:href="'javascript:searchBooks(\''+ ${book.authorName}+'\')'"><div style=";color: #444;" th:utext="'Penulis: '+ ${book.authorName}"></div></a>
+            <a th:href="'/book/book_ranking.html?catId='+${book.catId}"><div style="margin-top: 5px;color: #444;" th:text="'Genre: '+ ${book.catName}"></div></a>
+            <div style="margin-top: 5px;color: #444;" th:text="'Status: '+ ${book.bookStatus==0?'berlanjut':'tamat'}"></div>
+            <div style="margin-top: 5px;color: #444;">Diperbarui: <i  th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd')}"></i></div>
+            <div style="margin-top: 5px;color: #444;">Skor: <i style="font-weight:bold;color: red" th:text="${book.score} + '分'"></i></div>
+            <div style="margin-top: 5px;color: #444;">Klik: <i style="font-weight:bold;color: red" th:text="${book.visitCount}"></i></div>
 
 
         </div>
@@ -147,10 +147,10 @@
 
 
 <div style="text-align: center;height: 45px;line-height: 45px">
-    <a th:href="'/book/'+${book.id}+'/'+${firstBookIndexId}+'.html'"  type="button" class="layui-btn layui-btn-sm layui-btn-radius">开始阅读</a>
-    <button type="button" id="cFavs" onclick="addInShell()"  class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm">加入书架</button>
+    <a th:href="'/book/'+${book.id}+'/'+${firstBookIndexId}+'.html'"  type="button" class="layui-btn layui-btn-sm layui-btn-radius">Baca</a>
+    <button type="button" id="cFavs" onclick="addInShell()"  class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm">Masukkan rak</button>
 
-    <button type="button" onclick="location.href='/user/favorites.html'" class="layui-btn layui-btn-sm layui-btn-radius layui-bg-cyan">我的书架</button>
+    <button type="button" onclick="location.href='/user/favorites.html'" class="layui-btn layui-btn-sm layui-btn-radius layui-bg-cyan">Rak buku</button>
 <!--
     <button type="button" onclick="downloadFile()" class="layui-btn layui-btn-sm layui-btn-radius layui-bg-normal">下载TXT</button>
 -->
@@ -162,9 +162,9 @@
 <div class="layui-collapse">
     <div class="layui-colla-item" >
         <h2 class="layui-colla-title">
-            <span>最新章节</span>
+            <span>Bab terbaru</span>
             <span style="margin-left: 30px">
-                更新： <i th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd HH:mm:ss')}"></i>
+                Diperbarui:  <i th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd HH:mm:ss')}"></i>
             </span>
         </h2>
         <div class="layui-colla-content layui-show indexP layui-row" id="indexList">
@@ -176,7 +176,7 @@
 </div>
 <div style="height: 42px;color:#4c6978;line-height: 42px;padding-left: 30px;background: #f2f2f2" >
 
-    <a th:href="'/book/indexList-'+${book.id}+'.html'">查看完整目录</a>
+    <a th:href="'/book/indexList-'+${book.id}+'.html'">Daftar isi</a>
 </div>
 
 <!--
@@ -193,7 +193,7 @@
 <div th:replace="mobile/common/js :: js">
 </div>
 <script>
-    //查询是否在书架
+    //Periksa apakah ada di rak buku
     $.ajax({
         type: "get",
         url: "/user/queryIsInShelf",
@@ -202,12 +202,12 @@
         success: function (data) {
             if (data.code == 200) {
                 if (data.data) {
-                    $("#cFavs").html("<button type=\"button\" id=\"cFavs\"  class=\"layui-btn layui-btn-sm layui-btn-radius layui-btn-warm\">已在书架</button>");
+                    $("#cFavs").html("<button type=\"button\" id=\"cFavs\"  class=\"layui-btn layui-btn-sm layui-btn-radius layui-btn-warm\">Sudah di rak</button>");
                 }
 
 
             } else if (data.code == 1001) {
-                //未登录
+                //Belum masuk
 
             } else {
                 layer.alert(data.msg);
@@ -215,11 +215,11 @@
 
         },
         error: function () {
-            layer.alert('网络异常');
+            layer.alert('Kesalahan jaringan');
         }
     })
 
-    //查询最新目录集合
+    //Menanyakan koleksi katalog terbaru
     $.ajax({
         type: "get",
         url: "/book/queryNewIndexList",
@@ -238,7 +238,7 @@
 
 
             } else if (data.code == 1001) {
-                //未登录
+                //Belum masuk
 
             } else {
                 layer.alert(data.msg);
@@ -246,7 +246,7 @@
 
         },
         error: function () {
-            layer.alert('网络异常');
+            layer.alert('Kesalahan jaringan');
         }
     })
 
@@ -258,11 +258,11 @@
             dataType: "json",
             success: function (data) {
                 if (data.code == 200) {
-                        $("#cFavs").html("<button type=\"button\" id=\"cFavs\"  class=\"layui-btn layui-btn-sm layui-btn-radius layui-btn-warm\">已在书架</button>");
+                        $("#cFavs").html("<button type=\"button\" id=\"cFavs\"  class=\"layui-btn layui-btn-sm layui-btn-radius layui-btn-warm\">Sudah di rak</button>");
 
 
                 } else if (data.code == 1001) {
-                    //未登录
+                    //Belum masuk
                     location.href = '/user/login.html?originUrl=' + decodeURIComponent(location.href);
 
                 } else {
@@ -271,7 +271,7 @@
 
             },
             error: function () {
-                layer.alert('网络异常');
+                layer.alert('Kesalahan jaringan');
             }
         })
 
@@ -309,7 +309,7 @@
                     layer.alert(data.desc);
                     if(data.code == 1) {
                         $('#collectButton').unbind("click");
-                        $("#collectButton").text("撤下书架");
+                        $("#collectButton").text("Hapus dari rak");
                         $("#collectButton").click(function () {
                             cancelToCollect();
                         });
@@ -332,7 +332,7 @@
                     layer.alert(data.desc);
                 if(data.code == 1) {
                     $('#collectButton').unbind("click");
-                    $("#collectButton").text("加入书架");
+                    $("#collectButton").text("Masukkan rak");
                     $("#collectButton").click(function () {
                         addToCollect();
                     });

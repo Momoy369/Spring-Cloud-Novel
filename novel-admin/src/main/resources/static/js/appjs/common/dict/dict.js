@@ -193,7 +193,7 @@ function add() {
 function edit(id) {
 	layer.open({
 		type : 2,
-		title : '编辑',
+		title : 'Ubah',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
@@ -201,8 +201,8 @@ function edit(id) {
 	});
 }
 function remove(id) {
-	layer.confirm('确定要删除选中的记录？', {
-		btn : [ '确定', '取消' ]
+	layer.confirm('Apakah Anda yakin ingin menghapusnya?', {
+		btn : [ 'OK', 'Batal' ]
 	}, function() {
 		$.ajax({
 			url : prefix + "/remove",

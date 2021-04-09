@@ -35,7 +35,7 @@ public class OssFileServiceImpl implements FileService {
         if (filePath.contains(Constants.LOCAL_PIC_PREFIX)) {
             file = new File(picSavePath+filePath);
         } else {
-            //默认图片不存储
+            //Gambar default tidak disimpan
             return filePath;
         }
 
@@ -46,16 +46,16 @@ public class OssFileServiceImpl implements FileService {
 
         OSSClient ossClient = new OSSClient(ossProperties.getEndpoint(), ossProperties.getKeyId(), ossProperties.getKeySecret());
         try {
-            //容器不存在，就创建
+            //Jika penampung tidak ada, buatlah
             if (!ossClient.doesBucketExist(ossProperties.getBucketName())) {
                 ossClient.createBucket(ossProperties.getBucketName());
                 CreateBucketRequest createBucketRequest = new CreateBucketRequest(ossProperties.getBucketName());
                 createBucketRequest.setCannedACL(CannedAccessControlList.PublicRead);
                 ossClient.createBucket(createBucketRequest);
             }
-            //上传文件
+            //unggah berkas
             PutObjectResult result = ossClient.putObject(new PutObjectRequest(ossProperties.getBucketName(), filePath, file));
-            //设置权限 这里是公开读
+            //Setel izin di sini adalah bacaan umum
             ossClient.setBucketAcl(ossProperties.getBucketName(), CannedAccessControlList.PublicRead);
 
             if(result != null) {
