@@ -7,7 +7,7 @@ pic:
   save:
     type: 1 #Metode penyimpanan gambar, 1 jangan simpan, gunakan gambar jaringan yang dirayapi, 2 simpan di media penyimpanan Anda sendiri
     storage: local #Media penyimpanan, lokal: lokal, OSS: Alibaba Cloud Object Storage, fastDfs: sistem file terdistribusi
-    path: /lokanovels/pic  #Jalur penyimpanan gambar
+    path: /pic/localPic  #Jalur penyimpanan gambar
 
 
 
