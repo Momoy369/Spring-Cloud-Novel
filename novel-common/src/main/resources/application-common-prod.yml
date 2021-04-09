@@ -23,7 +23,7 @@ spring:
     #Waktu koneksi habis (milidetik)
     timeout: 30000
   datasource:
-    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useSSL=true&requireSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useUnicode=true&characterEncoding=utf-8&useSSL=true&requireSSL=false&serverTimezone=Asia/Jakarta
     username: momoy369@lokanovels
     password: Iamalone0
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -40,7 +40,7 @@ sharding:
       ds0:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useSSL=true&requireSSL=false&serverTimezone=UTC
+        jdbc-url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useUnicode=true&characterEncoding=utf-8&useSSL=true&requireSSL=false&serverTimezone=Asia/Jakarta
         username: momoy369@lokanovels
         password: Iamalone0
     #      ds1:

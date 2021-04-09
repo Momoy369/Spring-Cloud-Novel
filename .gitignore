@@ -4,3 +4,4 @@
 **/target
 **/*.iml
 
+novel-front/src/main/resources/my.azureauth

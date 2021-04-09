@@ -1,9 +1,9 @@
 #OSS
 novel:
   file:
-    endpoint: oss-cn-shenzhen.aliyuncs.com #Server berbeda, alamat berbeda
-    key-id: dhjjrue6767778878 #Buka konsol OSS untuk mendapatkan
-    key-secret: dssdkkrkelrkellk44554 #Buka konsol OSS untuk mendapatkan
-    bucket-name: novel #Penamaan bucket saat Anda membuatnya sendiri, pembuatan konsol juga OKE, pembuatan kode juga OKE
-    file-host: pic #jalur file
-    web-url: https://xxyimg.oss-cn-hangzhou.aliyuncs.com #Alamat akses web dari file OSS
+    endpoint: oss-ap-southeast-5.aliyuncs.com #Server berbeda, alamat berbeda
+    key-id: LTAI5tSqNEe7nVMzEkt792CH #Buka konsol OSS untuk mendapatkan
+    key-secret: g5eWMmhDT9Csv2ZlAWqvNnjqcAmRPQ #Buka konsol OSS untuk mendapatkan
+    bucket-name: lokanovels #Penamaan bucket saat Anda membuatnya sendiri, pembuatan konsol juga OKE, pembuatan kode juga OKE
+    file-host: lokanovels/pic #jalur file
+    web-url: https://lokanovels.oss-ap-southeast-5.aliyuncs.com #Alamat akses web dari file OSS

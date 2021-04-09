@@ -1,7 +1,7 @@
 java2nb:
-  uploadPath: /local/site/wwwroot/pic/
-  username: admin
-  password: 111111
+  uploadPath: /lokanovels/pic
+  username: 
+  password: 
 logging:
   level:
     root: error
@@ -10,7 +10,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useSSL=true&requireSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://lokanovels.mysql.database.azure.com:3306/lokanovels?useUnicode=true&characterEncoding=utf-8&useSSL=true&requireSSL=false&serverTimezone=Asia/Jakarta
     username: momoy369@lokanovels
     password: Iamalone0
     #password:

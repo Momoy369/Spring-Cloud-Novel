@@ -6,7 +6,7 @@ ${AnsiColor.RED}
 ||  /  | / /  ___     //  ___      ___      _   __
 || / /||/ / //___) ) // //   ) ) //   ) ) // ) )  ) )
 ||/ / |  / //       // //       //   / / // / /  / /
-|  /  | / ((____   // ((____   ((___/ / // / /  / /   Selamat datang di Novel Loka! ! !
+|  /  | / ((____   // ((____   ((___/ / // / /  / /   Selamat datang di Novel Loka!!!
 
                                                -------Powered By XXY
 ${AnsiColor.CYAN}
