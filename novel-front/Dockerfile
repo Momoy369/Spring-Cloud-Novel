@@ -1,5 +1,6 @@
 FROM java:8
-ADD novel-front-1.1.0.jar /root
+EXPOSE 8082
+ADD target/novel-front-3.5.1.jar novel-front-3.5.1.jar
 ENV dburl=""
 ENV username=""
 ENV	password=""
