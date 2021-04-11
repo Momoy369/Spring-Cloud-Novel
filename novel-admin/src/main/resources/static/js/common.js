@@ -1,7 +1,7 @@
 var HtmlUtil = {
-    /*1.用浏览器内部转换器实现html编码（转义）*/
+    /*1.Gunakan konverter internal browser untuk mencapai encoding html (escaping) */
     htmlEncode:function (html){
-        //1.首先动态创建一个容器标签元素，如DIV
+        //1.Pertama-tama secara dinamis buat elemen label penampung, seperti DIV
         var temp = document.createElement ("div");
         //2.然后将要转换的字符串设置为这个元素的innerText或者textContent
         (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
@@ -10,9 +10,9 @@ var HtmlUtil = {
         temp = null;
         return output;
     },
-    /*2.用浏览器内部转换器实现html解码（反转义）*/
+    /*2.Gunakan konverter internal browser untuk mencapai decoding html (arti sebaliknya) */
     htmlDecode:function (text){
-        //1.首先动态创建一个容器标签元素，如DIV
+        //1.Pertama-tama secara dinamis buat elemen label penampung, seperti DIV
         var temp = document.createElement("div");
         //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
         temp.innerHTML = text;
@@ -21,7 +21,7 @@ var HtmlUtil = {
         temp = null;
         return output;
     },
-    /*3.用正则表达式实现html编码（转义）*/
+    /*3.Gunakan ekspresi reguler untuk mencapai encoding html (pelolosan) */
     htmlEncodeByRegExp:function (str){
         var temp = "";
         if(str.length == 0) return "";
@@ -33,7 +33,7 @@ var HtmlUtil = {
         temp = temp.replace(/\"/g,"&quot;");
         return temp;
     },
-    /*4.用正则表达式实现html解码（反转义）*/
+    /*4.Gunakan ekspresi reguler untuk mencapai decoding html (arti terbalik) */
     htmlDecodeByRegExp:function (str){
         var temp = "";
         if(str.length == 0) return "";
@@ -45,12 +45,12 @@ var HtmlUtil = {
         temp = temp.replace(/&quot;/g,"\"");
         return temp;
     },
-    /*5.用正则表达式实现html编码（转义）（另一种写法）*/
+    /*5.Gunakan ekspresi reguler untuk mencapai encoding html (pelolosan) (cara penulisan lain) */
     html2Escape:function(sHtml) {
         if(sHtml == undefined || sHtml == null || sHtml.length == 0) return "";
         return sHtml.replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
     },
-    /*6.用正则表达式实现html解码（反转义）（另一种写法）*/
+    /*6.Gunakan ekspresi reguler untuk mencapai decoding html (arti terbalik) (cara penulisan lain) */
     escape2Html:function (str) {
         if(str == undefined || str == null || str.length == 0) return "";
         var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};

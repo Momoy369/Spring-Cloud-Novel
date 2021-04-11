@@ -454,7 +454,7 @@ Text.prototype = {
         })
     },
 
-    // tab 特殊处理
+    // tab penanganan khusus
     _tabHandle: function () {
         const editor = this.editor
         const $textElem = editor.$textElem
@@ -464,7 +464,7 @@ Text.prototype = {
                 return
             }
             if (!editor.cmd.queryCommandSupported('insertHTML')) {
-                // 必须原生支持 insertHTML 命令
+                // Harus secara native mendukung perintah insertHTML
                 return
             }
             const $selectionElem = editor.selection.getSelectionContainerElem()
@@ -476,10 +476,10 @@ Text.prototype = {
             const parentNodeName = $parentElem.getNodeName()
 
             if (selectionNodeName === 'CODE' && parentNodeName === 'PRE') {
-                // <pre><code> 里面
+                //<pre> <code> di dalam
                 editor.cmd.do('insertHTML', '    ')
             } else {
-                // 普通文字
+                // Teks normal
                 editor.cmd.do('insertHTML', '&nbsp;&nbsp;&nbsp;&nbsp;')
             }
 
