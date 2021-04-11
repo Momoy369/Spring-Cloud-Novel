@@ -1,25 +1,25 @@
 /*
-    编辑区域
+    Edit area
 */
 
 import $ from '../util/dom-core.js'
 import { getPasteText, getPasteHtml, getPasteImgs } from '../util/paste-handle.js'
 import { UA, isFunction } from '../util/util.js'
 
-// 获取一个 elem.childNodes 的 JSON 数据
+// Dapatkan data JSON dari elem.childNodes
 function getChildrenJSON($elem) {
     const result = []
-    const $children = $elem.childNodes() || [] // 注意 childNodes() 可以获取文本节点
+    const $children = $elem.childNodes() || [] // Perhatikan bahwa childNodes () bisa mendapatkan node teks
     $children.forEach(curElem => {
         let elemResult
         const nodeType = curElem.nodeType
 
-        // 文本节点
+        // Node teks
         if (nodeType === 3) {
             elemResult = curElem.textContent
         }
 
-        // 普通 DOM 节点
+        // Node DOM normal
         if (nodeType === 1) {
             elemResult = {}
 
@@ -37,7 +37,7 @@ function getChildrenJSON($elem) {
                 })
             }
             elemResult.attrs = attrData
-            // children（递归）
+            // anak-anak (rekursif)
             elemResult.children = getChildrenJSON($(curElem))
         }
 
@@ -46,76 +46,76 @@ function getChildrenJSON($elem) {
     return result
 }
 
-// 构造函数
+// Pembuat
 function Text(editor) {
     this.editor = editor
 }
 
-// 修改原型
+// Ubah prototipe
 Text.prototype = {
     constructor: Text,
 
-    // 初始化
+    // inisialisasi
     init: function () {
-        // 绑定事件
+        // Acara terikat
         this._bindEvent()
     },
 
-    // 清空内容
+    // Konten kosong
     clear: function () {
         this.html('<p><br></p>')
     },
 
-    // 获取 设置 html
+    // Siapkan html
     html: function (val) {
         const editor = this.editor
         const $textElem = editor.$textElem
         let html
         if (val == null) {
             html = $textElem.html()
-            // 未选中任何内容的时候点击“加粗”或者“斜体”等按钮，就得需要一个空的占位符 &#8203 ，这里替换掉
+            // Saat Anda mengeklik tombol "tebal" atau "miring" saat tidak ada yang dipilih, placeholder kosong & # 8203 diperlukan, ganti di sini
             html = html.replace(/\u200b/gm, '')
             return html
         } else {
             $textElem.html(val)
 
-            // 初始化选取，将光标定位到内容尾部
+            // Inisialisasi pemilihan, posisikan kursor ke akhir konten
             editor.initSelection()
         }
     },
 
-    // 获取 JSON
+    // Dapatkan JSON
     getJSON: function () {
         const editor = this.editor
         const $textElem = editor.$textElem
         return getChildrenJSON($textElem)
     },
 
-    // 获取 设置 text
+    // Dapatkan teks set
     text: function (val) {
         const editor = this.editor
         const $textElem = editor.$textElem
         let text
         if (val == null) {
             text = $textElem.text()
-            // 未选中任何内容的时候点击“加粗”或者“斜体”等按钮，就得需要一个空的占位符 &#8203 ，这里替换掉
+            // Saat Anda mengeklik tombol "tebal" atau "miring" saat tidak ada yang dipilih, placeholder kosong & # 8203 diperlukan, ganti di sini
             text = text.replace(/\u200b/gm, '')
             return text
         } else {
             $textElem.text(`<p>${val}</p>`)
 
-            // 初始化选取，将光标定位到内容尾部
+            // Inisialisasi pemilihan, posisikan kursor ke akhir konten
             editor.initSelection()
         }
     },
 
-    // 追加内容
+    // Konten tambahan
     append: function (html) {
         const editor = this.editor
         const $textElem = editor.$textElem
         $textElem.append($(html))
 
-        // 初始化选取，将光标定位到内容尾部
+        // Inisialisasi pemilihan, posisikan kursor ke akhir konten
         editor.initSelection()
     },
 
