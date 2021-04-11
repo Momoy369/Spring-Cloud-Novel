@@ -36,7 +36,7 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("功能测试")
+                .title("Uji Fungsi")
                 //创建人
                 .contact(new Contact("xiongxy", "1179705413@qq.com", "1179705413@qq.com"))
                 //版本号

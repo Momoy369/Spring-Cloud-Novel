@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 日期处理
+ * Pemrosesan tanggal
  */
 public class DateUtils {
     private final static Logger logger = LoggerFactory.getLogger(DateUtils.class);
@@ -19,13 +19,13 @@ public class DateUtils {
     public final static String MONTH_PATTERN = "MM";
     public final static String DAY_PATTERN = "dd";
     /**
-     * 时间格式(yyyy-MM-dd)
+     * Format waktu (tttt-BB-hh)
      */
-    public final static String DATE_PATTERN = "yyyy-MM-dd";
+    public final static String DATE_PATTERN = "dd-MM-yyyy";
     /**
-     * 时间格式(yyyy-MM-dd HH:mm:ss)
+     * Format waktu (tttt-BB-hh JJ: mm: dd)
      */
-    public final static String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public final static String DATE_TIME_PATTERN = "dd-MM-yyyy HH:mm:ss";
 
     public static String format(Date date) {
         return format(date, DATE_PATTERN);
@@ -40,7 +40,7 @@ public class DateUtils {
     }
 
     /**
-     * 计算距离现在多久，非精确
+     * Hitung berapa jarak sekarang, tidak akurat
      *
      * @param date
      * @return
@@ -67,7 +67,7 @@ public class DateUtils {
     }
 
     /**
-     * 计算距离现在多久，精确
+     * Hitung berapa jarak sekarang, akurat
      *
      * @param date
      * @return
@@ -97,7 +97,7 @@ public class DateUtils {
     }
 
     /**
-     * 获取过去第几天的日期
+     * Dapatkan tanggal beberapa hari terakhir
      *
      * @param past
      * @return
@@ -108,12 +108,12 @@ public class DateUtils {
         calendar.setTime(date);
         calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) - past);
         Date today = calendar.getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         return sdf.format(today);
     }
 
     /**
-     * 获取过去几天的日期集合
+     * Dapatkan kumpulan tanggal dalam beberapa hari terakhir
      *
      * @param past
      * @return
@@ -123,8 +123,8 @@ public class DateUtils {
         for(int i = past - 1 ; i > 0 ; i--){
             result.add(getPastDate(i,date));
         }
-        //今天的日期
-        result.add(new SimpleDateFormat("yyyy-MM-dd").format(date));
+        //Tanggal hari ini
+        result.add(new SimpleDateFormat("dd-MM-yyyy").format(date));
         return result;
 
     }

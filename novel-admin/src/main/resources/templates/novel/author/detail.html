@@ -12,7 +12,7 @@
                 <input id="id" name="id" th:value="${author.id}"
                        type="hidden">
                                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">用户ID：</label>
+                        <label class="col-sm-3 control-label">ID Pengguna: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.userId}">
@@ -22,7 +22,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">邀请码：</label>
+                        <label class="col-sm-3 control-label">Kode undangan: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.inviteCode}">
@@ -32,7 +32,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">笔名：</label>
+                        <label class="col-sm-3 control-label">Nama pena: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.penName}">
@@ -42,7 +42,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">手机号码：</label>
+                        <label class="col-sm-3 control-label">Nomor ponsel: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.telPhone}">
@@ -52,7 +52,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">QQ或微信账号：</label>
+                        <label class="col-sm-3 control-label">Akun QQ atau WeChat: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.chatAccount}">
@@ -62,7 +62,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">电子邮箱：</label>
+                        <label class="col-sm-3 control-label">Email: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.email}">
@@ -72,7 +72,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">作品方向，0：男频，1：女频：</label>
+                        <label class="col-sm-3 control-label">Spesialisasi, 0: Fiksi Pria, 1: Umum: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8 dict-type" dict-type="work_direction"
                                  th:attr="dict-value=${author.workDirection}">
@@ -82,16 +82,16 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">入驻时间：</label>
+                        <label class="col-sm-3 control-label">Waktu dibuat: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${author.createTime}==null?null:${#dates.format(author.createTime,'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${author.createTime}==null?null:${#dates.format(author.createTime,'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">0：正常，1：封禁：</label>
+                        <label class="col-sm-3 control-label">0: normal, 1: diblokir: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${author.status}">

@@ -57,10 +57,10 @@ public class SearchServiceImpl implements SearchService {
     @Override
     @SneakyThrows
     public void importToEs(Book book) {
-        //导入到ES
+        //Impor ke ES
         EsBookVO esBookVO = new EsBookVO();
         BeanUtils.copyProperties(book, esBookVO, "lastIndexUpdateTime");
-        esBookVO.setLastIndexUpdateTime(new SimpleDateFormat("yyyy/MM/dd HH:mm").format(book.getLastIndexUpdateTime()));
+        esBookVO.setLastIndexUpdateTime(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(book.getLastIndexUpdateTime()));
 
         IndexRequest request = new IndexRequest(INDEX);
         request.id(book.getId()+"");
@@ -76,19 +76,19 @@ public class SearchServiceImpl implements SearchService {
     public PageBean<EsBookVO> searchBook(BookSpVO params, int page, int pageSize) {
         List<EsBookVO> bookList = new ArrayList<>(0);
 
-        //使用搜索引擎搜索
+        //Gunakan mesin pencari untuk mencari
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-        // 构造查询哪个字段
+        // Bidang mana untuk membuat kueri
         if (StringUtils.isNoneBlank(params.getKeyword())) {
             boolQueryBuilder = boolQueryBuilder.must(QueryBuilders.queryStringQuery(params.getKeyword()));
         }
 
-        // 作品方向
+        // Arah kerja
         if (params.getWorkDirection() != null) {
             boolQueryBuilder.filter(QueryBuilders.termQuery("workDirection", params.getWorkDirection()));
         }
 
-        // 分类
+        // klasifikasi
         if (params.getCatId() != null) {
             boolQueryBuilder.filter(QueryBuilders.termQuery("catId", params.getCatId()));
         }
@@ -106,7 +106,7 @@ public class SearchServiceImpl implements SearchService {
         boolQueryBuilder.filter(QueryBuilders.rangeQuery("wordCount").gte(params.getWordCountMin()).lte(params.getWordCountMax()));
 
         if (params.getUpdateTimeMin() != null) {
-            boolQueryBuilder.filter(QueryBuilders.rangeQuery("lastIndexUpdateTime").gte(new SimpleDateFormat("yyyy/MM/dd HH:mm").format(params.getUpdateTimeMin())));
+            boolQueryBuilder.filter(QueryBuilders.rangeQuery("lastIndexUpdateTime").gte(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(params.getUpdateTimeMin())));
         }
 
 
@@ -121,7 +121,7 @@ public class SearchServiceImpl implements SearchService {
         Double total = results.getCount();
 
 
-        // 高亮字段
+        // Sorot bidang
         HighlightBuilder highlightBuilder = new HighlightBuilder();
         highlightBuilder.field("authorName");
         highlightBuilder.field("bookName");
@@ -133,16 +133,16 @@ public class SearchServiceImpl implements SearchService {
         searchSourceBuilder.highlighter(highlightBuilder);
 
 
-        //设置排序
+        //Atur urutan
         if (params.getSort() != null) {
             searchSourceBuilder.sort(StringUtil.camelName(params.getSort()), SortOrder.DESC);
         }
 
-        // 设置分页
+        // Setel paging
         searchSourceBuilder.from((page - 1) * pageSize);
         searchSourceBuilder.size(pageSize);
 
-        // 构建Search对象
+        // Bangun objek Pencarian
         Search search = new Search.Builder(searchSourceBuilder.toString()).addIndex(INDEX).build();
         log.debug(search.toString());
         SearchResult result;

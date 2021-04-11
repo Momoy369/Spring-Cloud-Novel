@@ -8,11 +8,11 @@ public class R extends HashMap<String, Object> {
 
 	public R() {
 		put("code", 0);
-		put("msg", "操作成功");
+		put("msg", "Operasi berhasil");
 	}
 
 	public static R error() {
-		return error(1, "操作失败");
+		return error(1, "Operasi gagal");
 	}
 
 	public static R error(String msg) {

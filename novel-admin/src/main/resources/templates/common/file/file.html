@@ -29,28 +29,28 @@
                 <div class="ibox-content">
                     <div class="file-manager">
                         <button type="button" class="layui-btn" id="test1">
-                            <i class="fa fa-cloud"></i>上传文件
+                            <i class="fa fa-cloud"></i> Unggah berkas
                         </button>
                         <div class="hr-line-dashed"></div>
                         <ul class="folder-list" style="padding: 0">
                             <li><a href="javascript:void(0)" class="file-control hactive" :class="{'aactive':type === ''}"
-                                   v-on:click="changeType('')"><i class="fa fa-folder"></i>所有文件</a></li>
+                                   v-on:click="changeType('')"><i class="fa fa-folder"></i>Semua data</a></li>
 
                             <li><a href="javascript:void(0)" class="file-control hactive" :class="{'aactive':type === 0}"
-                                   v-on:click="changeType(0)"><i class="fa fa-folder"></i>图片</a></li>
+                                   v-on:click="changeType(0)"><i class="fa fa-folder"></i>Gambar</a></li>
 
                             <li><a href="javascript:void(0)" :class="{'aactive':type === 1}"
-                                   v-on:click="changeType(1)" class="file-control hactive"><i class="fa fa-folder"></i>文档</a>
+                                   v-on:click="changeType(1)" class="file-control hactive"><i class="fa fa-folder"></i>Dokumen</a>
                             </li>
 
                             <li><a href="javascript:void(0)" v-on:click="changeType(2)" :class="{'aactive':type === 2}"
-                                   class="file-control hactive"><i class="fa fa-folder"></i>视频</a></li>
+                                   class="file-control hactive"><i class="fa fa-folder"></i>Video</a></li>
 
                             <li><a href="javascript:void(0)" v-on:click="changeType(3)" :class="{'aactive':type === 3}"
-                                   class="file-control hactive"><i class="fa fa-folder"></i>音乐</a></li>
+                                   class="file-control hactive"><i class="fa fa-folder"></i>Musik</a></li>
 
                             <li><a href="javascript:void(0)" v-on:click="changeType(99)" :class="{'aactive':type === 99}"
-                                   class="file-control hactive"><i class="fa fa-folder"></i>其他</a></li>
+                                   class="file-control hactive"><i class="fa fa-folder"></i>Lain-lain</a></li>
                         </ul>
                     </div>
                 </div>
@@ -71,9 +71,9 @@
                                     <small>{{row.createDate}}</small>
                                 </div>
                                 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<button
-                                    class="btn btn-warning btn-xs copy" :url="row.url">复制
+                                    class="btn btn-warning btn-xs copy" :url="row.url">Salin
                             </button>&nbsp; &nbsp; &nbsp; &nbsp;<button class="btn btn-danger btn-xs"
-                                                                        @click="remove(row.id)">删除
+                                                                        @click="remove(row.id)">Hapus
                             </button>
                             </a>
                         </div>
@@ -153,7 +153,7 @@
                 $('#page').bootstrapPaginator(options);
             },
             remove: function (id) {
-                layer.confirm('确定要删除选中的记录？', {
+                layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
                     btn: ['确定', '取消']
                 }, function () {
                     $.ajax({
@@ -188,7 +188,7 @@
 <script type="text/javascript">
     var clipboard = new Clipboard('button.copy', {
         text: function (trigger) {
-            layer.msg('文件路径已复制到粘贴板');
+            layer.msg('Jalur file telah disalin ke papan tempel');
             return $(trigger).attr('url');
         }
     });

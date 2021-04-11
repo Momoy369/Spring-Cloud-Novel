@@ -37,7 +37,7 @@ public class PayController extends BaseController {
 
 
     /**
-     * 支付宝支付
+     * Bayar dengan Ali-Pay
      */
     @SneakyThrows
     @PostMapping("aliPay")
@@ -45,32 +45,32 @@ public class PayController extends BaseController {
 
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
-            //未登录，跳转到登陆页面
+            //Belum login, lompat ke halaman login
             httpResponse.sendRedirect("/user/login.html?originUrl=/pay/aliPay?payAmount="+payAmount);
             return;
         }else {
-            //创建充值订单
+            //Buat pesanan isi ulang
             Long outTradeNo = orderService.createPayOrder((byte)1,payAmount,userDetails.getId());
 
-            //获得初始化的AlipayClient
+            //Dapatkan AlipayClient yang telah diinisialisasi
             AlipayClient alipayClient = new DefaultAlipayClient(alipayConfig.getGatewayUrl(), alipayConfig.getAppId(), alipayConfig.getMerchantPrivateKey(), "json", alipayConfig.getCharset(), alipayConfig.getPublicKey(), alipayConfig.getSignType());
-            //创建API对应的request
+            //Buat permintaan yang sesuai dengan API
             AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
             alipayRequest.setReturnUrl(alipayConfig.getReturnUrl());
-            //在公共参数中设置回跳和通知地址
+            //Setel lompatan kembali dan alamat notifikasi di parameter publik
             alipayRequest.setNotifyUrl(alipayConfig.getNotifyUrl());
-            //填充业务参数
+            //Isi parameter bisnis
             alipayRequest.setBizContent("{" +
                     "    \"out_trade_no\":\"" + outTradeNo + "\"," +
                     "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
                     "    \"total_amount\":" + payAmount + "," +
                     "    \"subject\":\"Novel Loka\"" +
                     "  }");
-            //调用SDK生成表单
+            //Panggil SDK untuk menghasilkan formulir
             String form = alipayClient.pageExecute(alipayRequest).getBody();
 
             httpResponse.setContentType("text/html;charset=utf-8");
-            //直接将完整的表单html输出到页面
+            //Keluarkan format html lengkap langsung ke halaman
             httpResponse.getWriter().write(form);
             httpResponse.getWriter().flush();
             httpResponse.getWriter().close();
@@ -82,7 +82,7 @@ public class PayController extends BaseController {
     }
 
     /**
-     * 支付宝支付通知
+     * Pemberitahuan pembayaran Alipay
      * */
     @SneakyThrows
     @RequestMapping("aliPay/notify")
@@ -91,7 +91,7 @@ public class PayController extends BaseController {
 
         PrintWriter out = httpResponse.getWriter();
 
-        //获取支付宝POST过来反馈信息
+        //Dapatkan umpan balik dari Alipay POST
         Map<String,String> params = new HashMap<String,String>();
         Map<String,String[]> requestParams = request.getParameterMap();
         for (Iterator<String> iter = requestParams.keySet().iterator(); iter.hasNext();) {
@@ -105,38 +105,38 @@ public class PayController extends BaseController {
             params.put(name, valueStr);
         }
 
-        //调用SDK验证签名
+        //Panggil SDK untuk memverifikasi tanda tangan
         boolean signVerified = AlipaySignature.rsaCheckV1(params, alipayConfig.getPublicKey(), alipayConfig.getCharset(), alipayConfig.getSignType());
 
-        //——请在这里编写您的程序（以下代码仅作参考）——
+        //——Harap tulis program Anda di sini (kode berikut hanya untuk referensi) ——
 
-	/* 实际验证过程建议商户务必添加以下校验：
-	1、需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
-	2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），
-	3、校验通知中的seller_id（或者seller_email) 是否为out_trade_no这笔单据的对应的操作方（有的时候，一个商户可能有多个seller_id/seller_email）
-	4、验证app_id是否为该商户本身。
+	/* Dalam proses verifikasi yang sebenarnya, merchant disarankan untuk menambahkan verifikasi berikut:
+	1、Perlu dilakukan verifikasi apakah out_trade_no pada data notifikasi adalah nomor pesanan yang dibuat di sistem merchant,
+	2、Tentukan apakah total_amount benar-benar jumlah pesanan yang sebenarnya (yaitu, jumlah saat pesanan pedagang dibuat),
+	3、Verifikasi bahwa seller_id (atau seller_email) di notifikasi adalah operator yang sesuai dari out_trade_no struk (terkadang, merchant mungkin memiliki beberapa seller_id / seller_email)
+	4、Verifikasi bahwa app_id adalah pedagang itu sendiri.
 	*/
         if(signVerified) {
-            //验证成功
-            //商户订单号
+            //Berhasil diverifikasi
+            //Nomor pesanan pedagang
             String outTradeNo = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
 
-            //支付宝交易号
+            //Nomor transaksi Alipay
             String tradeNo = new String(request.getParameter("trade_no").getBytes("ISO-8859-1"),"UTF-8");
 
-            //交易状态
+            //status perdagangan
             String tradeStatus = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"),"UTF-8");
 
-            //更新订单状态
+            //Perbarui status pesanan
             orderService.updatePayOrder(Long.parseLong(outTradeNo), tradeNo, tradeStatus);
 
 
             out.println("success");
 
-        }else {//验证失败
+        }else {//verifikasi gagal
             out.println("fail");
 
-            //调试用，写文本函数记录程序运行情况是否正常
+            //Untuk debugging, tulis fungsi teks untuk merekam apakah program berjalan normal
             //String sWord = AlipaySignature.getSignCheckContentV1(params);
             //AlipayConfig.logResult(sWord);
         }

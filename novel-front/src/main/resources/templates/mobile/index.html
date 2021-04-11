@@ -47,7 +47,7 @@
 <body>
 
 
-<!-- 你的HTML代码 -->
+<!-- Kode HTML Anda -->
 <a name="top"></a>
 <ul  class="layui-nav app" lay-filter="" style="display:none;padding:0 10px;text-align: center">
     <li class="layui-nav-item"><a>Klasifikasi</a>
@@ -97,7 +97,7 @@
     <li class="layui-nav-item"><a href="/book/book_ranking.html?catId=5&sort=last_index_update_time">Sci-fi</a></li>
     <li class="layui-nav-item"><a href="/book/book_ranking.html?catId=7&sort=last_index_update_time">Kampus</a></li>
     <li class="layui-nav-item"><a>Buku Tamat</a>
-        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dl class="layui-nav-child"> <!-- Menu sekunder -->
             <dd><a href="/book/book_ranking.html?bookStatus=1">Semua Genre</a></dd>
             <dd><a href="/book/book_ranking.html?bookStatus=1&catId=1">Fantasi</a></dd>
             <dd><a href="/book/book_ranking.html?bookStatus=1&catId=2">Silat</a></dd>
@@ -109,7 +109,7 @@
         </dl>
     </li>
     <li class="layui-nav-item"><a>Peringkat</a>
-        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dl class="layui-nav-child"> <!-- Menu sekunder -->
             <dd><a href="/book/book_ranking.html?sortBy=visit_count">Semua Genre</a></dd>
             <dd><a href="/book/book_ranking.html?sortBy=visit_count&catId=1">Fantasi</a></dd>
             <dd><a href="/book/book_ranking.html?sortBy=visit_count&catId=2">Silat</a></dd>
@@ -236,7 +236,7 @@
         success: function (data) {
             if (data.code == 200) {
 
-                //精品推荐
+                //Direkomendasikan
                 var rightListBooks = data.data[4];
                 var rightListBooksHtml = "";
                 for (var i = 0; i < 3; i++) {
@@ -264,7 +264,7 @@
                 }
                 $("#currentWeek").html(rightListBooksHtml);
 
-                //热门推荐
+                //Rekomendasi populer
                 var hotRecBooks = data.data[3];
                 var hotRecBooksHtml = "";
                 for (var i = 0; i < 6; i++) {
@@ -274,7 +274,7 @@
                         hotRecBook.bookDesc = hotRecBook.bookDesc.replace(/<[^>]+>/g,"").replace(/\s+/g,"");
                     }
 
-                    //手机浏览器不支持String.replaceAll()方法
+                    //Browser seluler tidak mendukung metode String.replaceAll ()
 
                     hotRecBooksHtml += ("<div style=\"margin-bottom: 5px\" class=\"layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg4\">\n" +
                         "                        <a href=\"/book/"+hotRecBook.bookId+".html\">\n" +
@@ -286,7 +286,7 @@
                         "                            <div class=\"layui-col-xs5 layui-col-sm6 layui-col-md6 layui-col-lg6\">\n" +
                         "                                <ul>\n" +
                         "                                    <li style='padding-bottom: 2px' class=\"line-limit-length\" >"+hotRecBook.bookName+"</li>\n" +
-                        "                                    <li style='padding-bottom: 2px;color: #a6a6a6'>作者："+hotRecBook.authorName+"</li>\n" +
+                        "                                    <li style='padding-bottom: 2px;color: #a6a6a6'>Penulis: "+hotRecBook.authorName+"</li>\n" +
                         "                                    <li style=\"color: #a6a6a6;width: 180px;height:60px;overflow: hidden\">"+hotRecBook.bookDesc +
                         "                                </ul>\n" +
                         "                            </div>\n" +
@@ -310,7 +310,7 @@
     })
 
 
-    //更新榜单查询
+    //Perbarui kueri daftar
     $.ajax({
         type: "get",
         url: "/book/listUpdateRank",

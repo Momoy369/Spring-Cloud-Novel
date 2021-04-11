@@ -15,7 +15,7 @@ import java.util.Date;
 
 
 /**
- * 新闻表
+ * Lembar berita
  * 
  * @author xiongxy
  * @email 1179705413@qq.com
@@ -25,154 +25,154 @@ public class NewsDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	//主键
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	//Kunci utama
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long id;
-	//类别ID
+	//ID Kategori
 			private Integer catId;
-	//分类名
+	//Nama Kategori
 			private String catName;
-	//来源
+	//sumber
 			private String sourceName;
-	//标题
+	//judul
 			private String title;
-	//内容
+	//kandungan
 			private String content;
-	//发布时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//waktu rilis
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
-	//发布人ID
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// ID Penayang
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long createUserId;
-	//更新时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//Waktu diperbarui
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date updateTime;
-	//更新人ID
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// Perbarui ID orang tersebut
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long updateUserId;
 
 	/**
-	 * 设置：主键
+	 * Pengaturan: Kunci utama
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
-	 * 获取：主键
+	 * Dapatkan: Kunci utama
 	 */
 	public Long getId() {
 		return id;
 	}
 	/**
-	 * 设置：类别ID
+	 * Pengaturan: ID Kategori
 	 */
 	public void setCatId(Integer catId) {
 		this.catId = catId;
 	}
 	/**
-	 * 获取：类别ID
+	 * Dapatkan: ID Kategori
 	 */
 	public Integer getCatId() {
 		return catId;
 	}
 	/**
-	 * 设置：分类名
+	 * Pengaturan: nama kategori
 	 */
 	public void setCatName(String catName) {
 		this.catName = catName;
 	}
 	/**
-	 * 获取：分类名
+	 * Dapatkan: nama kategori
 	 */
 	public String getCatName() {
 		return catName;
 	}
 	/**
-	 * 设置：来源
+	 * Pengaturan: Sumber
 	 */
 	public void setSourceName(String sourceName) {
 		this.sourceName = sourceName;
 	}
 	/**
-	 * 获取：来源
+	 * Dapatkan: Sumber
 	 */
 	public String getSourceName() {
 		return sourceName;
 	}
 	/**
-	 * 设置：标题
+	 * Pengaturan: Judul
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	/**
-	 * 获取：标题
+	 * Dapatkan: Judul
 	 */
 	public String getTitle() {
 		return title;
 	}
 	/**
-	 * 设置：内容
+	 * Pengaturan: Konten
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	/**
-	 * 获取：内容
+	 * Dapatkan: Konten
 	 */
 	public String getContent() {
 		return content;
 	}
 	/**
-	 * 设置：发布时间
+	 * Pengaturan: waktu rilis
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 	/**
-	 * 获取：发布时间
+	 * Dapatkan: Waktu rilis
 	 */
 	public Date getCreateTime() {
 		return createTime;
 	}
 	/**
-	 * 设置：发布人ID
+	 * Pengaturan: ID Penayang
 	 */
 	public void setCreateUserId(Long createUserId) {
 		this.createUserId = createUserId;
 	}
 	/**
-	 * 获取：发布人ID
+	 * Dapatkan: ID Penayang
 	 */
 	public Long getCreateUserId() {
 		return createUserId;
 	}
 	/**
-	 * 设置：更新时间
+	 * Pengaturan: waktu update
 	 */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 	/**
-	 * 获取：更新时间
+	 * Dapatkan: Perbarui waktu
 	 */
 	public Date getUpdateTime() {
 		return updateTime;
 	}
 	/**
-	 * 设置：更新人ID
+	 * Pengaturan: Perbarui ID orang
 	 */
 	public void setUpdateUserId(Long updateUserId) {
 		this.updateUserId = updateUserId;
 	}
 	/**
-	 * 获取：更新人ID
+	 * Dapatkan: ID Updater
 	 */
 	public Long getUpdateUserId() {
 		return updateUserId;

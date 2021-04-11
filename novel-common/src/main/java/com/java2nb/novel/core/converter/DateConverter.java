@@ -17,10 +17,10 @@ public class DateConverter implements Converter<String, Date> {
     private static final List<String> formats = new ArrayList<>(4);
 
     static {
-        formats.add("yyyy-MM");
-        formats.add("yyyy-MM-dd");
-        formats.add("yyyy-MM-dd HH:mm");
-        formats.add("yyyy-MM-dd HH:mm:ss");
+        formats.add("MM-yyyy");
+        formats.add("dd-MM-yyyy");
+        formats.add("dd-MM-yyyy HH:mm");
+        formats.add("dd-MM-yyyy HH:mm:ss");
     }
 
     @Override

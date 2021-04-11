@@ -33,7 +33,7 @@ public class ${className}DO implements Serializable {
 	@JsonSerialize(using = LongToStringSerializer.class)
 	#end
 	#if($column.javaType == "Date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 	#end
 	private $column.javaType $column.attrname;
 #end

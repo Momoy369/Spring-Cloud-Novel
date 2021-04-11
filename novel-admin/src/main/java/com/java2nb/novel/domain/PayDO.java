@@ -15,7 +15,7 @@ import java.util.Date;
 
 
 /**
- * 充值订单
+ * Pesanan top-up
  * 
  * @author xiongxy
  * @email 1179705413@qq.com
@@ -25,140 +25,140 @@ public class PayDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	//主键
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	//Kunci utama
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long id;
-	//保留
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// Dicadangkan
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long outTradeNo;
-	//订单号
+	//jumlah order
 			private String tradeNo;
-	//保留
+	//Menjaga
 			private Integer payChannel;
-	//交易香蕉币
+	//Perdagangkan Koin Pisang
 			private Integer totalAmount;
-	//支付用户ID
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// ID pengguna pembayaran
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long userId;
-	//支付状态：0：支付失败，1：支付成功，2：待支付
+	//Status pembayaran: 0: pembayaran gagal, 1: pembayaran berhasil, 2: pembayaran tertunda
 			private Integer payStatus;
-	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//Waktu penciptaan
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
-	//更新时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	//Perbarui waktu
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date updateTime;
 
 	/**
-	 * 设置：主键
+	 * Pengaturan: Kunci utama
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
-	 * 获取：主键
+	 * Dapatkan: Kunci utama
 	 */
 	public Long getId() {
 		return id;
 	}
 	/**
-	 * 设置：保留
+	 * Pengaturan: dipesan
 	 */
 	public void setOutTradeNo(Long outTradeNo) {
 		this.outTradeNo = outTradeNo;
 	}
 	/**
-	 * 获取：保留
+	 * Dapatkan: Keep
 	 */
 	public Long getOutTradeNo() {
 		return outTradeNo;
 	}
 	/**
-	 * 设置：订单号
+	 * Pengaturan: nomor pesanan
 	 */
 	public void setTradeNo(String tradeNo) {
 		this.tradeNo = tradeNo;
 	}
 	/**
-	 * 获取：订单号
+	 * Dapatkan: nomor pesanan
 	 */
 	public String getTradeNo() {
 		return tradeNo;
 	}
 	/**
-	 * 设置：保留
+	 * Pengaturan: dipesan
 	 */
 	public void setPayChannel(Integer payChannel) {
 		this.payChannel = payChannel;
 	}
 	/**
-	 * 获取：保留
+	 * Dapatkan: Keep
 	 */
 	public Integer getPayChannel() {
 		return payChannel;
 	}
 	/**
-	 * 设置：交易香蕉币
+	 * Setting: Tukarkan Koin Pisang
 	 */
 	public void setTotalAmount(Integer totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 	/**
-	 * 获取：交易香蕉币
+	 * Peroleh: Tukarkan Koin Pisang
 	 */
 	public Integer getTotalAmount() {
 		return totalAmount;
 	}
 	/**
-	 * 设置：支付用户ID
+	 * Pengaturan: Bayar ID pengguna
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	/**
-	 * 获取：支付用户ID
+	 * Dapatkan: Membayar ID pengguna
 	 */
 	public Long getUserId() {
 		return userId;
 	}
 	/**
-	 * 设置：支付状态：0：支付失败，1：支付成功，2：待支付
+	 * Pengaturan: status pembayaran: 0: pembayaran gagal, 1: pembayaran berhasil, 2: pembayaran tertunda
 	 */
 	public void setPayStatus(Integer payStatus) {
 		this.payStatus = payStatus;
 	}
 	/**
-	 * 获取：支付状态：0：支付失败，1：支付成功，2：待支付
+	 * Dapatkan: status pembayaran: 0: pembayaran gagal, 1: pembayaran berhasil, 2: pembayaran tertunda
 	 */
 	public Integer getPayStatus() {
 		return payStatus;
 	}
 	/**
-	 * 设置：创建时间
+	 * Pengaturan: Waktu pembuatan
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 	/**
-	 * 获取：创建时间
+	 * Dapatkan: Waktu pembuatan
 	 */
 	public Date getCreateTime() {
 		return createTime;
 	}
 	/**
-	 * 设置：更新时间
+	 * Pengaturan: waktu update
 	 */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 	/**
-	 * 获取：更新时间
+	 * Dapatkan: Perbarui waktu
 	 */
 	public Date getUpdateTime() {
 		return updateTime;

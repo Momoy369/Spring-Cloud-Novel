@@ -18,7 +18,7 @@
         <div class="channelWrap channelNews cf">
             <div class="news_title">
                 <h2 th:utext="${news.title}"></h2>
-                <p class="from" th:text="'Sumber: '+${news.sourceName}"> <span class="time" th:text="${#dates.format(news.createTime, 'yy-MM-dd')}"></span></p>
+                <p class="from" th:text="'Sumber: '+${news.sourceName}"> <span class="time" th:text="${#dates.format(news.createTime, 'dd-MM-yy')}"></span></p>
             </div>
             <div class="news_info" th:utext="${news.content}">
             </div>

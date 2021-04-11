@@ -92,29 +92,29 @@ function validateRule() {
 		messages : {
 
 			name : {
-				required : icon + "请输入姓名"
+				required : icon + "Silakan ketik nama Anda"
 			},
 			username : {
-				required : icon + "请输入您的用户名",
-				minlength : icon + "用户名必须两个字符以上"
+				required : icon + "Silakan masukkan nama pengguna Anda",
+				minlength : icon + "Nama pengguna minimal harus dua karakter"
 			},
 			password : {
-				required : icon + "请输入您的密码",
-				minlength : icon + "密码必须6个字符以上"
+				required : icon + "Silahkan masukkan kata sandi anda",
+				minlength : icon + "Kata sandi harus lebih dari 6 karakter"
 			},
 			confirm_password : {
-				required : icon + "请再次输入密码",
-				minlength : icon + "密码必须6个字符以上",
-				equalTo : icon + "两次输入的密码不一致"
+				required : icon + "Silakan masukkan kata sandi sekali lagi",
+				minlength : icon + "Kata sandi harus lebih dari 6 karakter",
+				equalTo : icon + "Kedua kata sandi yang dimasukkan tidak konsisten"
 			},
-			email : icon + "请输入您的E-mail",
+			email : icon + "Masukkan email Anda",
 		}
 	})
 }
 var openDept = function(){
 	layer.open({
 		type:2,
-		title:"选择部门",
+		title:"Pilih departemen",
 		area : [ '300px', '450px' ],
 		content:"/system/sysDept/treeView"
 	})

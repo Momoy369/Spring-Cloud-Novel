@@ -10,7 +10,7 @@ layui.define('jquery', function(exports){
   "use strict";
   
   var $ = layui.$;
-  var about = 'http://www.layui.com/doc/modules/code.html'; //关于信息
+  var about = 'http://www.layui.com/doc/modules/code.html'; //Tentang informasi
   
   exports('code', function(options){
     var elems = [];

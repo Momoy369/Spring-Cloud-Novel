@@ -1,5 +1,5 @@
 java2nb:
-  uploadPath: /pic/localPic
+  uploadPath: D:/novelplus/novel-admin/pic
   username: 
   password: 
 logging:
@@ -10,7 +10,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/lokanovels?useUnicode=true&characterEncoding=utf-8&useSSL=false&requireSSL=false&serverTimezone=Asia/Jakarta
+    url: jdbc:mysql://127.0.0.1:3306/novelplus?useUnicode=true&characterEncoding=utf-8&useSSL=false&requireSSL=false&serverTimezone=Asia/Jakarta
     username: root
     password: 
     #password:

@@ -792,7 +792,7 @@ return (function( root, factory ) {
             },
 
             /**
-             * 获取文件统计信息。返回一个包含一下信息的对象。
+             * Dapatkan statistik file. Kembalikan objek yang berisi informasi berikut.
              * * `successNum` 上传成功的文件数
              * * `progressNum` 上传中的文件数
              * * `cancelNum` 被删除的文件数
@@ -1130,7 +1130,7 @@ return (function( root, factory ) {
         return RuntimeClient;
     });
     /**
-     * @fileOverview 错误信息
+     * @fileOverview Pesan eror
      */
     define('lib/dnd',[
         'base',
@@ -1487,7 +1487,7 @@ return (function( root, factory ) {
     });
 
     /**
-     * @fileOverview 错误信息
+     * @fileOverview Pesan eror
      */
     define('lib/filepaste',[
         'base',
@@ -1653,7 +1653,7 @@ return (function( root, factory ) {
     });
 
     /**
-     * @fileOverview 错误信息
+     * @fileOverview Pesan eror
      */
     define('lib/filepicker',[
         'base',
@@ -1955,7 +1955,7 @@ return (function( root, factory ) {
             // 是否裁剪
             crop: false,
 
-            // 是否保留头部信息
+            // Apakah akan menyimpan informasi header
             preserveHeaders: false,
 
             // 是否允许放大。
@@ -2127,7 +2127,7 @@ return (function( root, factory ) {
              *     // 是否允许裁剪。
              *     crop: false,
              *
-             *     // 是否保留头部meta信息。
+             *     // Apakah akan menyimpan informasi meta header.
              *     preserveHeaders: true,
              *
              *     // 如果发现压缩后文件大小比原来还大，则使用原来图片
@@ -2355,7 +2355,7 @@ return (function( root, factory ) {
          * @class File
          * @constructor 构造函数
          * @grammar new File( source ) => File
-         * @param {Lib.File} source [lib.File](#Lib.File)实例, 此source对象是带有Runtime信息的。
+         * @param {Lib.File} source [lib.File](#Lib.File)实例, Objek sumber ini memiliki informasi Runtime.
          */
         function WUFile( source ) {
 
@@ -2474,7 +2474,7 @@ return (function( root, factory ) {
             },
 
             /**
-             * 获取文件原始信息。
+             * Dapatkan informasi asli dari file tersebut.
              * @return {*}
              */
             getSource: function() {
@@ -3068,7 +3068,7 @@ return (function( root, factory ) {
 
     });
     /**
-     * @fileOverview 添加获取Runtime相关信息的方法。
+     * @fileOverview Tambahkan metode untuk mendapatkan informasi terkait Runtime.
      */
     define('widgets/runtime',[
         'uploader',
@@ -3869,7 +3869,7 @@ return (function( root, factory ) {
                 me.remaning++;
 
                 // 如果没有分片，则直接使用原始的。
-                // 不会丢失content-type信息。
+                // Tidak ada informasi tipe konten yang akan hilang.
                 block.blob = block.chunks === 1 ? file.source :
                         file.source.slice( block.start, block.end );
 
@@ -6303,7 +6303,7 @@ return (function( root, factory ) {
                         height: this.height
                     };
 
-                    // 读取meta信息。
+                    // Baca informasi meta.
                     if ( !me._metas && 'image/jpeg' === me.type ) {
                         Util.parseMeta( me._blob, function( error, ret ) {
                             me._metas = ret;
@@ -7979,7 +7979,7 @@ return (function( root, factory ) {
         return Base;
     });
     /**
-     * @fileOverview 日志组件，主要用来收集错误信息，可以帮助 webuploader 更好的定位问题和发展。
+     * @fileOverview Komponen log terutama digunakan untuk mengumpulkan informasi kesalahan dan dapat membantu webuploader untuk menemukan masalah dan pengembangan dengan lebih baik.
      *
      * 如果您不想要启用此功能，请在打包的时候去掉 log 模块。
      *

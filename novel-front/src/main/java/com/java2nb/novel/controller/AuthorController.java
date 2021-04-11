@@ -33,7 +33,7 @@ public class AuthorController extends BaseController{
     private final BookService bookService;
 
     /**
-     * 校验笔名是否存在
+     * Periksa apakah nama pena ada
      * */
     @GetMapping("checkPenName")
     public ResultBean checkPenName(String penName){
@@ -42,7 +42,7 @@ public class AuthorController extends BaseController{
     }
 
     /**
-     * 作家发布小说分页列表查询
+     * Kueri daftar halaman novel yang diterbitkan penulis
      * */
     @GetMapping("listBookByPage")
     public ResultBean listBookByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize ,HttpServletRequest request){
@@ -51,31 +51,31 @@ public class AuthorController extends BaseController{
     }
 
     /**
-     * 发布小说
+     * Publikasikan novel
      * */
     @PostMapping("addBook")
     public ResultBean addBook(@RequestParam("bookDesc") String bookDesc,Book book,HttpServletRequest request){
 
         Author author = checkAuthor(request);
 
-        //bookDesc不能使用book对象来接收，否则会自动去掉前面的空格
+        //bookDesc tidak dapat menggunakan objek buku untuk menerima, jika tidak spasi sebelumnya akan otomatis dihapus
         book.setBookDesc(bookDesc
                 .replaceAll("\\n","<br>")
                 .replaceAll("\\s","&nbsp;"));
-        //发布小说
+        //Publikasikan novel
         bookService.addBook(book,author.getId(),author.getPenName());
 
         return ResultBean.ok();
     }
 
     /**
-     * 更新小说状态,上架或下架
+     * Perbarui status novel, tambah atau hapus
      * */
     @PostMapping("updateBookStatus")
     public ResultBean updateBookStatus(Long bookId,Byte status,HttpServletRequest request){
         Author author = checkAuthor(request);
 
-        //更新小说状态,上架或下架
+        //Perbarui status novel, tambah atau hapus
         bookService.updateBookStatus(bookId,status,author.getId());
 
         return ResultBean.ok();
@@ -84,28 +84,28 @@ public class AuthorController extends BaseController{
 
 
     /**
-     * 删除章节
+     * Hapus bab
      */
     @DeleteMapping("deleteIndex/{indexId}")
     public ResultBean deleteIndex(@PathVariable("indexId") Long indexId,  HttpServletRequest request) {
 
         Author author = checkAuthor(request);
 
-        //删除章节
+        //Hapus bab
         bookService.deleteIndex(indexId, author.getId());
 
         return ResultBean.ok();
     }
 
     /**
-     * 更新章节名
+     * Perbarui nama bab
      */
     @PostMapping("updateIndexName")
     public ResultBean updateIndexName(Long indexId,  String indexName, HttpServletRequest request) {
 
         Author author = checkAuthor(request);
 
-        //更新章节名
+        //Perbarui nama bab
         bookService.updateIndexName(indexId, indexName, author.getId());
 
         return ResultBean.ok();
@@ -115,7 +115,7 @@ public class AuthorController extends BaseController{
 
 
     /**
-     * 发布章节内容
+     * Publikasikan konten bab
      */
     @PostMapping("addBookContent")
     public ResultBean addBookContent(Long bookId, String indexName, String content,Byte isVip, HttpServletRequest request) {
@@ -123,14 +123,14 @@ public class AuthorController extends BaseController{
 
         content = content.replaceAll("\\n", "<br>")
                 .replaceAll("\\s", "&nbsp;");
-        //发布章节内容
+        //Publikasikan konten bab
         bookService.addBookContent(bookId, indexName, content,isVip, author.getId());
 
         return ResultBean.ok();
     }
 
     /**
-     * 查询章节内容
+     * Isi bab kueri
      */
     @GetMapping("queryIndexContent/{indexId}")
     public ResultBean queryIndexContent(@PathVariable("indexId") Long indexId,  HttpServletRequest request) {
@@ -146,7 +146,7 @@ public class AuthorController extends BaseController{
     }
 
     /**
-     * 更新章节内容
+     * Perbarui konten bab
      */
     @PostMapping("updateBookContent")
     public ResultBean updateBookContent(Long indexId, String indexName, String content, HttpServletRequest request) {
@@ -154,14 +154,14 @@ public class AuthorController extends BaseController{
 
         content = content.replaceAll("\\n", "<br>")
                 .replaceAll("\\s", "&nbsp;");
-        //更新章节内容
+        //Perbarui konten bab
         bookService.updateBookContent(indexId, indexName, content, author.getId());
 
         return ResultBean.ok();
     }
 
     /**
-     * 作家日收入统计数据分页列表查询
+     * Kueri daftar halaman statistik pendapatan harian penulis
      * */
     @GetMapping("listIncomeDailyByPage")
     public ResultBean listIncomeDailyByPage(@RequestParam(value = "curr", defaultValue = "1") int page,
@@ -176,7 +176,7 @@ public class AuthorController extends BaseController{
 
 
     /**
-     * 作家月收入统计数据分页列表查询
+     * Kueri daftar halaman statistik pendapatan bulanan penulis
      * */
     @GetMapping("listIncomeMonthByPage")
     public ResultBean listIncomeMonthByPage(@RequestParam(value = "curr", defaultValue = "1") int page,
@@ -194,12 +194,12 @@ public class AuthorController extends BaseController{
             throw new BusinessException(ResponseStatus.NO_LOGIN);
         }
 
-        //查询作家信息
+        //Menanyakan informasi penulis
         Author author = authorService.queryAuthor(userDetails.getId());
 
         //判断作者状态是否正常
         if (author.getStatus() == 1) {
-            //封禁状态，不能发布小说
+            //Status dilarang, tidak bisa menerbitkan novel
             throw new BusinessException(ResponseStatus.AUTHOR_STATUS_FORBIDDEN);
         }
 

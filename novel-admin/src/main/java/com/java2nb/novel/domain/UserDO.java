@@ -48,10 +48,10 @@ public class UserDO implements Serializable {
 	//用户状态，0：正常
 			private Integer status;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
 	//更新时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date updateTime;
 
 	/**

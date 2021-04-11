@@ -17,7 +17,7 @@ public class BookCommentVO extends BookComment {
 
     private String createUserPhoto;
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+7", pattern = "dd-MM-yyyy HH:mm:ss")
     private Date createTime;
 
     @Override

@@ -5,7 +5,7 @@ $().ready(function() {
 
 $.validator.setDefaults({
 	submitHandler : function() {
-		console.log('提交修改');
+		console.log('Mengirim perubahan');
 		update();
 	}
 });
@@ -14,10 +14,10 @@ function update() {
 		cache : true,
 		type : "POST",
 		url : "/common/generator/update",
-		data : $('#signupForm').serialize(),// 你的formid
+		data : $('#signupForm').serialize(),// formID Anda
 		async : false,
 		error : function(request) {
-			parent.layer.alert("网络连接超时");
+			parent.layer.alert("Waktu koneksi jaringan habis");
 		},
 		success : function(data) {
 			if (data.code == 0) {
@@ -49,13 +49,13 @@ function validateRule() {
 		messages : {
 
 			author : {
-				required : icon + "请输入作者"
+				required : icon + "Harap masukkan penulis"
 			},
 			email : {
-				required : icon + "请输入email",
+				required : icon + "Silakan masukkan email",
 			},
 			package : {
-				required : icon + "请输入包名",
+				required : icon + "Harap masukkan nama paket",
 			},
 		}
 	})

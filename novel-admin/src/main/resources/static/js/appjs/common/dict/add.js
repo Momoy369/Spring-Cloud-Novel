@@ -15,11 +15,11 @@ function save() {
 		data : $('#signupForm').serialize(), // 你的formid
 		async : false,
 		error : function(request) {
-			parent.layer.alert("网络超时");
+			parent.layer.alert("Waktu habis");
 		},
 		success : function(data) {
 			if (data.code == 0) {
-				parent.layer.msg("操作成功");
+				parent.layer.msg("Operasi berhasil");
 				parent.reLoad();
 				var index = parent.layer.getFrameIndex(window.name);
 				parent.layer.close(index);
@@ -42,7 +42,7 @@ function validateRule() {
 		},
 		messages : {
 			name : {
-				required : icon + "请输入名字"
+				required : icon + "Silakan masukkan nama"
 			}
 		}
 	})

@@ -48,46 +48,46 @@ function load() {
 								},
 								{
 									field : 'id', // 列字段名
-									title : '序号' // 列标题
+									title : 'Nomor' // 列标题
 								},
 								{
 									field : 'username',
-									title : '用户名'
+									title : 'Username'
 								},
 								{
 									field : 'host',
-									title : '主机'
+									title : 'Host'
 								},
 								{
 									field : 'startTimestamp',
-									title : '登录时间'
+									title : 'Waktu masuk'
 								},
 								{
 									field : 'lastAccessTime',
-									title : '最后访问时间'
+									title : 'Kunjungan terakhir'
 								},
 								{
 									field : 'timeout',
-									title : '过期时间'
+									title : 'Sesi berakhir'
 								},
 								{
 									field : 'status',
-									title : '状态',
+									title : 'Status',
 									align : 'center',
 									formatter : function(value, row, index) {
 										if (value == 'on_line') {
-											return '<span class="label label-success">在线</span>';
+											return '<span class="label label-success">Online</span>';
 										} else if (value == 'off_line') {
-											return '<span class="label label-primary">离线</span>';
+											return '<span class="label label-primary">Offline</span>';
 										}
 									}
 								},
 								{
-									title : '操作',
+									title : 'Aksi',
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-										var d = '<a class="btn btn-warning btn-sm" href="#" title="删除"  mce_href="#" onclick="forceLogout(\''
+										var d = '<a class="btn btn-warning btn-sm" href="#" title="Hapus"  mce_href="#" onclick="forceLogout(\''
 												+ row.id
 												+ '\')"><i class="fa fa-remove"></i></a> ';
 										return d;
@@ -102,7 +102,7 @@ function add() {
 	// iframe层
 	layer.open({
 		type : 2,
-		title : '增加用户',
+		title : 'Tambah',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
@@ -110,8 +110,8 @@ function add() {
 	});
 }
 function forceLogout(id) {
-	layer.confirm('确定要强制选中用户下线吗？', {
-		btn : [ '确定', '取消' ]
+	layer.confirm('Anda yakin ingin memaksa pengguna terpilih untuk offline?', {
+		btn : [ 'OK', 'Batal' ]
 	}, function() {
 		$.ajax({
 			url : prefix+"/forceLogout/" + id,
@@ -133,7 +133,7 @@ function forceLogout(id) {
 function edit(id) {
 	layer.open({
 		type : 2,
-		title : '用户修改',
+		title : 'Ubah',
 		maxmin : true,
 		shadeClose : true, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
@@ -143,7 +143,7 @@ function edit(id) {
 function resetPwd(id) {
 	layer.open({
 		type : 2,
-		title : '重置密码',
+		title : 'Setel ulang kata sandi',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '400px', '260px' ],
@@ -153,11 +153,11 @@ function resetPwd(id) {
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {
-		layer.msg("请选择要删除的数据");
+		layer.msg("Pilih data yang akan dihapus");
 		return;
 	}
-	layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-		btn : [ '确定', '取消' ]
+	layer.confirm("Apakah Anda yakin ingin menghapus '" + rows.length + "' yang Anda pilih?", {
+		btn : [ 'OK', 'Batal' ]
 	// 按钮
 	}, function() {
 		var ids = new Array();

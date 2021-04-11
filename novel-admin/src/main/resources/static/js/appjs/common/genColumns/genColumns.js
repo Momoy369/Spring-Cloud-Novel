@@ -74,22 +74,22 @@ function load() {
                 },
                 columns: [
                     {
-                        title: '序号',
+                        title: 'Nomor',
                         formatter: function () {
                             return arguments[2] + 1;
                         }
                     },
                     {
                         field: 'columnName',
-                        title: '列名'
+                        title: 'Nama kolom'
                     },
                     {
                         field: 'columnType',
-                        title: '列类型'
+                        title: 'Tipe kolom'
                     },
                     {
                         field: 'javaType',
-                        title: '映射java类型',
+                        title: 'Tipe pemetaan Java',
                         formatter: function (value, row, index) {
 
                             return "<select style='width: 100px' class=\"form-control chosen-select\" tabindex=\"2\" dict-value='"+value+"' dict-type=\"java_type\" >\n" +
@@ -98,11 +98,11 @@ function load() {
                     },
                     {
                         field: 'columnComment',
-                        title: '列注释'
+                        title: 'Komentar'
                     },
                     {
                         field: 'columnLabel',
-                        title: '列标签名',
+                        title: 'Label',
                         formatter: function (value, row, index) {
 
                             return "<input style='width: 100px' class=\"form-control\" type='text' value='"+value+"'/>";
@@ -112,7 +112,7 @@ function load() {
                     class="form-control chosen-select" tabindex="2" dict-type="novel_category" >
                         </select>*/
                         field: 'pageType',
-                        title: '页面显示类型',
+                        title: 'Tipe halaman',
                         formatter: function (value, row, index) {
 
                             return "<select style='width: 100px' class=\"form-control chosen-select\" tabindex=\"2\" dict-value='"+value+"' dict-type=\"page_type\" >\n" +
@@ -121,7 +121,7 @@ function load() {
                     },
                     {
                         field: 'dictType',
-                        title: '字典类型',
+                        title: 'Jenis kamus',
                         formatter: function (value, row, index) {
                             return "<select name='dictType' style='width: 150px' class=\"form-control chosen-select\" tabindex=\"2\" select-value='"+value+"' >\n" +
                                 "                        </select>";
@@ -130,14 +130,14 @@ function load() {
                     },
                     {
                         field: 'isRequired',
-                        title: '是否必填',
+                        title: 'Apakah wajib',
                         formatter: function (value, row, index) {
                             return "<input class=\"form-control\" type='checkbox' "+(value==1?'checked':'')+"/>";
                         }
                     },
                     {
                         field: 'columnSort',
-                        title: '列排序（升序）',
+                        title: 'Urutan kolom (menaik) ',
                         formatter: function (value, row, index) {
                             return "<input style='width: 100px' class=\"form-control\" type='text' value='"+value+"'/>";
                         }
@@ -152,7 +152,7 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        title: '增加',
+        title: 'Naik',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -163,7 +163,7 @@ function add() {
 function detail(id) {
     layer.open({
         type: 2,
-        title: '详情',
+        title: 'Rincian',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -174,17 +174,17 @@ function detail(id) {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '编辑',
+        title: 'Ubah',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
+        shadeClose: false, // Klik pada topeng untuk menutup lapisan
         area: ['800px', '520px'],
         content: prefix + '/edit/' + id // iframe的url
     });
 }
 
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih? ', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -210,11 +210,11 @@ function resetPwd(id) {
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
+    layer.confirm("Konfirmasikan bahwa Anda ingin menghapus data'" + rows.length + "' yang dipilih?", {
+        btn: ['OK', 'Batal']
         // 按钮
     }, function () {
         var ids = new Array();
@@ -314,7 +314,7 @@ console.log(columnsData)
         },
         success : function(data) {
             if (data.code == 0) {
-                parent.layer.msg("操作成功");
+                parent.layer.msg("Operasi berhasil");
                 parent.reLoad();
                 var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
                 parent.layer.close(index);

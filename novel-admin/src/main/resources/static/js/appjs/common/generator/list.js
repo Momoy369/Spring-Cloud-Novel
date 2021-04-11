@@ -49,29 +49,29 @@ function load() {
 								},
 								{
 									field : 'tableName', // 列字段名
-									title : '表名称' // 列标题
+									title : 'Nama tabel' // 列标题
 								},
 								{
 									field : 'engine',
-									title : 'engine'
+									title : 'Engine'
 								},
 								{
 									field : 'tableComment',
-									title : '表描述'
+									title : 'Deskripsi tabel'
 								},
 								{
 									field : 'createTime',
-									title : '创建时间'
+									title : 'Tanggal dibuat'
 								},
 								{
-									title : '操作',
+									title : 'Aksi',
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
 										/*var d = '<a class="btn btn-primary btn-sm" href="#" mce_href="#" title="在线下载代码" onclick="downloadCode(\''
 												+ row.tableName
 												+ '\')"><i class="fa fa-cloud-download"></i></a> ';*/
-										var g = '<a class="btn btn-primary btn-sm" href="#" mce_href="#" title="本地生成代码" onclick="columnEdit(\''
+										var g = '<a class="btn btn-primary btn-sm" href="#" mce_href="#" title="Hasilkan kode secara lokal" onclick="columnEdit(\''
 											+ row.tableName
 											+ '\')"><i class="fa fa-bug"></i></a> ';
 
@@ -87,8 +87,8 @@ function downloadCode(tableName) {
 	location.href = prefix + "/downLoadCode/" + tableName;
 }
 function genCode(tableName) {
-	layer.confirm('确定要在本地项目根路径下生成选中记录的代码？', {
-		btn : [ '确定', '取消' ]
+	layer.confirm('Anda yakin ingin membuat kode yang dipilih di bawah jalur akar proyek lokal?', {
+		btn : [ 'OK', 'Batal' ]
 	}, function() {
 		$.ajax({
 			url : prefix + "/genCode",
@@ -109,7 +109,7 @@ function genCode(tableName) {
 function batchDownload() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {
-		layer.msg("请选择要生成代码的表");
+		layer.msg("Pilih tabel untuk menghasilkan kode");
 		return;
 	}
 	var tables = new Array();
@@ -123,7 +123,7 @@ function batchDownload() {
 function batchCode() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {
-		layer.msg("请选择要生成代码的表");
+		layer.msg("Pilih tabel untuk menghasilkan kode");
 		return;
 	}
 	var tables = new Array();
@@ -131,8 +131,8 @@ function batchCode() {
 	$.each(rows, function(i, row) {
 		tables[i] = row['tableName'];
 	});
-	layer.confirm('确定要在本地项目根路径下批量生成选中记录的代码？', {
-		btn : [ '确定', '取消' ]
+	layer.confirm('Anda yakin ingin membuat batch kode catatan yang dipilih di bawah jalur akar proyek lokal?', {
+		btn : [ 'OK', 'Batal' ]
 	}, function() {
 		$.ajax({
 			url : prefix + "/batchCode",
@@ -153,10 +153,10 @@ function batchCode() {
 }
 
 function edit(){
-	console.log('打开配置页面');
+	console.log('Buka halaman konfigurasi');
 	layer.open({
 		type : 2,
-		title : '生成配置',
+		title : 'Bangun konfigurasi',
 		maxmin : true,
 		shadeClose : false, 
 		area : [ '800px', '520px' ],
@@ -167,7 +167,7 @@ function edit(){
 function columnEdit(tableName){
 	layer.open({
 		type : 2,
-		title : '列配置',
+		title : 'Pengaturan kolom',
 		maxmin : true,
 		shadeClose : false,
 		area : [ '800px', '520px' ],

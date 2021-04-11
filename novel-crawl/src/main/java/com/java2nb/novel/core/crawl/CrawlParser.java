@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import static java.util.regex.Pattern.compile;
 
 /**
- * 爬虫解析器
+ * Pengurai perayap
  *
  * @author Administrator
  */
@@ -47,14 +47,14 @@ public class CrawlParser {
             boolean isFindBookName = bookNameMatch.find();
             if (isFindBookName) {
                 String bookName = bookNameMatch.group(1);
-                //设置小说名
+                //Tetapkan nama baru
                 book.setBookName(bookName);
                 Pattern authorNamePatten = compile(ruleBean.getAuthorNamePatten());
                 Matcher authorNameMatch = authorNamePatten.matcher(bookDetailHtml);
                 boolean isFindAuthorName = authorNameMatch.find();
                 if (isFindAuthorName) {
                     String authorName = authorNameMatch.group(1);
-                    //设置作者名
+                    //Tetapkan nama penulis
                     book.setAuthorName(authorName);
                     if (StringUtils.isNotBlank(ruleBean.getPicUrlPatten())) {
                         Pattern picUrlPatten = compile(ruleBean.getPicUrlPatten());
@@ -65,7 +65,7 @@ public class CrawlParser {
                             if (StringUtils.isNotBlank(picUrl) && StringUtils.isNotBlank(ruleBean.getPicUrlPrefix())) {
                                 picUrl = ruleBean.getPicUrlPrefix() + picUrl;
                             }
-                            //设置封面图片路径
+                            //Atur jalur gambar sampul
                             book.setPicUrl(picUrl);
                         }
                     }
@@ -75,7 +75,7 @@ public class CrawlParser {
                         boolean isFindScore = scoreMatch.find();
                         if (isFindScore) {
                             String score = scoreMatch.group(1);
-                            //设置评分
+                            //Atur skor
                             book.setScore(Float.parseFloat(score));
                         }
                     }
@@ -85,20 +85,20 @@ public class CrawlParser {
                         boolean isFindVisitCount = visitCountMatch.find();
                         if (isFindVisitCount) {
                             String visitCount = visitCountMatch.group(1);
-                            //设置访问次数
+                            //Tetapkan jumlah kunjungan
                             book.setVisitCount(Long.parseLong(visitCount));
                         }
                     }
 
                     String desc = bookDetailHtml.substring(bookDetailHtml.indexOf(ruleBean.getDescStart()) + ruleBean.getDescStart().length());
                     desc = desc.substring(0, desc.indexOf(ruleBean.getDescEnd()));
-                    //过滤掉简介中的特殊标签
+                    //Filter tag khusus dalam pendahuluan
                     desc = desc.replaceAll("<a[^<]+</a>", "")
                             .replaceAll("<font[^<]+</font>", "")
                             .replaceAll("<p>\\s*</p>", "")
                             .replaceAll("<p>", "")
                             .replaceAll("</p>", "<br/>");
-                    //设置书籍简介
+                    //Siapkan pengenalan buku
                     book.setBookDesc(desc);
                     if (StringUtils.isNotBlank(ruleBean.getStatusPatten())) {
                         Pattern bookStatusPatten = compile(ruleBean.getStatusPatten());
@@ -107,7 +107,7 @@ public class CrawlParser {
                         if (isFindBookStatus) {
                             String bookStatus = bookStatusMatch.group(1);
                             if (ruleBean.getBookStatusRule().get(bookStatus) != null) {
-                                //设置更新状态
+                                //Setel status pembaruan
                                 book.setBookStatus(ruleBean.getBookStatusRule().get(bookStatus));
                             }
                         }
@@ -119,7 +119,7 @@ public class CrawlParser {
                         boolean isFindUpdateTime = updateTimeMatch.find();
                         if (isFindUpdateTime) {
                             String updateTime = updateTimeMatch.group(1);
-                            //设置更新时间
+                            //Atur waktu pembaruan
                             book.setLastIndexUpdateTime(new SimpleDateFormat(ruleBean.getUpadateTimeFormatPatten()).parse(updateTime));
 
                         }
@@ -127,13 +127,13 @@ public class CrawlParser {
 
                 }
                 if (book.getVisitCount() == null && book.getScore() != null) {
-                    //随机根据评分生成访问次数
+                    //Menghasilkan kunjungan secara acak berdasarkan skor
                     book.setVisitCount(RandomBookInfoUtil.getVisitCountByScore(book.getScore()));
                 } else if (book.getVisitCount() != null && book.getScore() == null) {
-                    //随机根据访问次数生成评分
+                    //Hasilkan skor secara acak berdasarkan jumlah kunjungan
                     book.setScore(RandomBookInfoUtil.getScoreByVisitCount(book.getVisitCount()));
                 } else if (book.getVisitCount() == null && book.getScore() == null) {
-                    //都没有，设置成固定值
+                    //Tidak ada, setel ke nilai tetap
                     book.setVisitCount(Constants.VISIT_COUNT_DEFAULT);
                     book.setScore(6.5f);
                 }
@@ -151,7 +151,7 @@ public class CrawlParser {
 
         List<BookIndex> indexList = new ArrayList<>();
         List<BookContent> contentList = new ArrayList<>();
-        //读取目录
+        //Baca direktori
         String indexListUrl = ruleBean.getBookIndexUrl().replace("{bookId}", sourceBookId);
         String indexListHtml = getByHttpClientWithChrome(indexListUrl);
 
@@ -170,7 +170,7 @@ public class CrawlParser {
 
             int indexNum = 0;
 
-            //总字数
+            //Total kata
             Integer totalWordCount = book.getWordCount() == null ? 0 : book.getWordCount();
 
             while (isFindIndex) {
@@ -184,13 +184,13 @@ public class CrawlParser {
                     String bookContentUrl = ruleBean.getBookContentUrl();
                     int calStart = bookContentUrl.indexOf("{cal_");
                     if (calStart != -1) {
-                        //内容页URL需要进行计算才能得到
+                        //URL halaman konten perlu dihitung untuk mendapatkan
                         String calStr = bookContentUrl.substring(calStart, calStart + bookContentUrl.substring(calStart).indexOf("}"));
                         String[] calArr = calStr.split("_");
                         int calType = Integer.parseInt(calArr[1]);
                         if (calType == 1) {
                             ///{cal_1_1_3}_{bookId}/{indexId}.html
-                            //第一种计算规则，去除第x个参数的最后y个字母
+                            //Aturan perhitungan pertama, hapus huruf y terakhir dari parameter ke-x
                             int x = Integer.parseInt(calArr[2]);
                             int y = Integer.parseInt(calArr[3]);
                             String calResult;
@@ -212,12 +212,12 @@ public class CrawlParser {
 
                     String contentUrl = bookContentUrl.replace("{bookId}", sourceBookId).replace("{indexId}", sourceIndexId);
 
-                    //查询章节内容
+                    //Isi bab kueri
                     String contentHtml = getByHttpClientWithChrome(contentUrl);
                     if (contentHtml != null && !contentHtml.contains("正在手打中")) {
                         String content = contentHtml.substring(contentHtml.indexOf(ruleBean.getContentStart()) + ruleBean.getContentStart().length());
                         content = content.substring(0, content.indexOf(ruleBean.getContentEnd()));
-                        //插入章节目录和章节内容
+                        //Masukkan daftar isi bab dan isi bab
                         BookIndex bookIndex = new BookIndex();
                         bookIndex.setIndexName(indexName);
                         bookIndex.setIndexNum(indexNum);
@@ -230,15 +230,15 @@ public class CrawlParser {
                         contentList.add(bookContent);
 
                         if (hasIndex != null) {
-                            //章节更新
+                            //Pembaruan bab
                             bookIndex.setId(hasIndex.getId());
                             bookContent.setIndexId(hasIndex.getId());
 
-                            //计算总字数
+                            //Hitung jumlah kata
                             totalWordCount = (totalWordCount+wordCount-hasIndex.getWordCount());
                         } else {
-                            //章节插入
-                            //设置目录和章节内容
+                            //Bab Sisipan
+                            //Atur daftar isi dan isi bab
                             Long indexId = idWorker.nextId();
                             bookIndex.setId(indexId);
                             bookIndex.setBookId(book.getId());
@@ -247,7 +247,7 @@ public class CrawlParser {
 
                             bookContent.setIndexId(indexId);
 
-                            //计算总字数
+                            //Hitung jumlah kata
                             totalWordCount += wordCount;
                         }
                         bookIndex.setUpdateTime(currentDate);
@@ -264,8 +264,8 @@ public class CrawlParser {
 
 
             if (indexList.size() > 0) {
-                //如果有爬到最新章节，则设置小说主表的最新章节信息
-                //获取爬取到的最新章节
+                //Jika Anda telah naik ke chapter terbaru, atur informasi chapter terbaru dari tabel utama novel
+                //Dapatkan bab terbaru dirayapi
                 BookIndex lastIndex = indexList.get(indexList.size()-1);
                 book.setLastIndexId(lastIndex.getId());
                 book.setLastIndexName(lastIndex.getIndexName());
@@ -297,7 +297,7 @@ public class CrawlParser {
                 if (body.length() < Constants.INVALID_HTML_LENGTH) {
                     return processErrorHttpResult(url);
                 }
-                //成功获得html内容
+                //Berhasil mendapatkan konten html
                 return body;
             }
         } catch (Exception e) {
@@ -314,7 +314,7 @@ public class CrawlParser {
             if (body != null && body.length() < Constants.INVALID_HTML_LENGTH) {
                 return processErrorHttpResult(url);
             }
-            //成功获得html内容
+            //Berhasil mendapatkan konten html
             return body;
         } catch (Exception e) {
             e.printStackTrace();

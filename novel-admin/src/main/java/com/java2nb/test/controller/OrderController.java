@@ -42,7 +42,7 @@ public class OrderController {
         return "test/order/order";
     }
 
-    @ApiOperation(value = "获取付呗-订单信息表列表", notes = "获取付呗-订单信息表列表")
+    @ApiOperation(value = "Dapatkan daftar tabel informasi pesanan berbayar", notes = "Dapatkan daftar tabel informasi pesanan berbayar")
     @ResponseBody
     @GetMapping("/list")
     @RequiresPermissions("test:order:order")
@@ -55,14 +55,14 @@ public class OrderController {
         return R.ok().put("data", pageBean);
     }
 
-    @ApiOperation(value = "新增付呗-订单信息表页面", notes = "新增付呗-订单信息表页面")
+    @ApiOperation(value = "Halaman formulir informasi pesanan pembayaran yang baru ditambahkan", notes = "Halaman formulir informasi pesanan pembayaran yang baru ditambahkan")
     @GetMapping("/add")
     @RequiresPermissions("test:order:add")
     String add() {
         return "test/order/add";
     }
 
-    @ApiOperation(value = "修改付呗-订单信息表页面", notes = "修改付呗-订单信息表页面")
+    @ApiOperation(value = "Ubah halaman formulir informasi pesanan pembayaran", notes = "Ubah halaman formulir informasi pesanan pembayaran")
     @GetMapping("/edit/{id}")
     @RequiresPermissions("test:order:edit")
     String edit(@PathVariable("id") Long id, Model model) {
@@ -71,7 +71,7 @@ public class OrderController {
         return "test/order/edit";
     }
 
-    @ApiOperation(value = "查看付呗-订单信息表页面", notes = "查看付呗-订单信息表页面")
+    @ApiOperation(value = "Periksa halaman Lembar Informasi Pay-Bai-Order", notes = "Periksa halaman Lembar Informasi Pay-Bai-Order")
     @GetMapping("/detail/{id}")
     @RequiresPermissions("test:order:detail")
     String detail(@PathVariable("id") Long id, Model model) {
@@ -83,7 +83,7 @@ public class OrderController {
     /**
      * 保存
      */
-    @ApiOperation(value = "新增付呗-订单信息表", notes = "新增付呗-订单信息表")
+    @ApiOperation(value = "Formulir informasi pesanan pembayaran baru", notes = "Formulir informasi pesanan pembayaran baru")
     @ResponseBody
     @PostMapping("/save")
     @RequiresPermissions("test:order:add")
@@ -97,7 +97,7 @@ public class OrderController {
     /**
      * 修改
      */
-    @ApiOperation(value = "修改付呗-订单信息表", notes = "修改付呗-订单信息表")
+    @ApiOperation(value = "Ubah formulir informasi pesanan pembayaran", notes = "Ubah formulir informasi pesanan pembayaran")
     @ResponseBody
     @RequestMapping("/update")
     @RequiresPermissions("test:order:edit")
@@ -109,7 +109,7 @@ public class OrderController {
     /**
      * 删除
      */
-    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除付呗-订单信息表")
+    @ApiOperation(value = "Hapus formulir informasi pesanan pembayaran", notes = "Hapus formulir informasi pesanan pembayaran")
     @PostMapping("/remove")
     @ResponseBody
     @RequiresPermissions("test:order:remove")
@@ -123,7 +123,7 @@ public class OrderController {
     /**
      * 删除
      */
-    @ApiOperation(value = "批量删除付呗-订单信息表", notes = "批量删除付呗-订单信息表")
+    @ApiOperation(value = "Hapus batch formulir informasi pesanan pembayaran", notes = "Hapus batch formulir informasi pesanan pembayaran")
     @PostMapping("/batchRemove")
     @ResponseBody
     @RequiresPermissions("test:order:batchRemove")

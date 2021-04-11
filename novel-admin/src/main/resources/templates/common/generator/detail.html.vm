@@ -18,7 +18,7 @@
 
                         #if($column.pageType == 4)
                             <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${${classname}.${column.attrname}}==null?null:${#dates.format(${classname}.${column.attrname},'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${${classname}.${column.attrname}}==null?null:${#dates.format(${classname}.${column.attrname},'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         #elseif($column.pageType == 2)
                             <div style="padding-top:8px" class="col-sm-8 dict-type" dict-type="${column.dictType}"

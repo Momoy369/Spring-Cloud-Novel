@@ -365,7 +365,7 @@
   Class.prototype.config = {
     type: 'date' //控件类型，支持：year/month/date/time/datetime
     ,range: false //是否开启范围选择，即双控件
-    ,format: 'yyyy-MM-dd' //默认日期格式
+    ,format: 'dd-MM-yyyy' //默认日期格式
     ,value: null //默认日期，支持传入new Date()，或者符合format参数设定的日期格式字符
     ,min: '1900-1-1' //有效最小日期，年月日必须用“-”分割，时分秒必须用“:”分割。注意：它并不是遵循 format 设定的格式。
     ,max: '2099-12-31' //有效最大日期，同上
@@ -424,14 +424,14 @@
   Class.prototype.init = function(){
     var that = this
     ,options = that.config
-    ,dateType = 'yyyy|y|MM|M|dd|d|HH|H|mm|m|ss|s'
+    ,dateType = 'dd|d|MM|M|yyyy|y|HH|H|mm|m|ss|s'
     ,isStatic = options.position === 'static'
     ,format = {
       year: 'yyyy'
-      ,month: 'yyyy-MM'
-      ,date: 'yyyy-MM-dd'
+      ,month: 'MM-yyyy'
+      ,date: 'dd-MM-yyyy'
       ,time: 'HH:mm:ss'
-      ,datetime: 'yyyy-MM-dd HH:mm:ss'
+      ,datetime: 'dd-MM-yyyy HH:mm:ss'
     };
     
     options.elem = lay(options.elem);

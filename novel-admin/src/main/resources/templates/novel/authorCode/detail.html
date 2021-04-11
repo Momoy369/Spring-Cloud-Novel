@@ -12,7 +12,7 @@
                 <input id="id" name="id" th:value="${authorCode.id}"
                        type="hidden">
                                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">邀请码：</label>
+                        <label class="col-sm-3 control-label">Kode undangan: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${authorCode.inviteCode}">
@@ -22,16 +22,16 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">有效时间：</label>
+                        <label class="col-sm-3 control-label">Waktu efektif: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${authorCode.validityTime}==null?null:${#dates.format(authorCode.validityTime,'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${authorCode.validityTime}==null?null:${#dates.format(authorCode.validityTime,'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">是否使用过，0：未使用，1:使用过：</label>
+                        <label class="col-sm-3 control-label">Status, 0: tidak digunakan, 1: digunakan: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${authorCode.isUse}">
@@ -41,16 +41,16 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">创建时间：</label>
+                        <label class="col-sm-3 control-label">Waktu dibuat:</label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${authorCode.createTime}==null?null:${#dates.format(authorCode.createTime,'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${authorCode.createTime}==null?null:${#dates.format(authorCode.createTime,'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">创建人ID：</label>
+                        <label class="col-sm-3 control-label">ID Pembuat: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${authorCode.createUserId}">

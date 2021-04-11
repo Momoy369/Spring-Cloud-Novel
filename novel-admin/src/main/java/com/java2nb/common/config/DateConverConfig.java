@@ -20,12 +20,12 @@ public class DateConverConfig {
         return new Converter<String, Date>() {
             @Override
             public Date convert(String source) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 Date date = null;
                 try {
                     date = sdf.parse((String) source);
                 } catch (Exception e) {
-                    SimpleDateFormat sdfday = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sdfday = new SimpleDateFormat("dd-MM-yyyy");
                     try {
                         date = sdfday.parse((String) source);
                     } catch (ParseException e1) {

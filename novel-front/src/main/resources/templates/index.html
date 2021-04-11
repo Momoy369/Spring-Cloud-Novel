@@ -155,7 +155,7 @@
 <div th:replace="common/js :: js"></div>
 <script language="javascript" type="text/javascript">
     $(function () {
-        //加载首页书籍设置数据
+        //Muat data pengaturan buku beranda
         $.ajax({
             type: "get",
             url: "/book/listBookSetting",
@@ -164,7 +164,7 @@
             success: function (data) {
                 if (data.code == 200) {
 
-                    //轮播图设置
+                    //Pengaturan carousel
                     var carouselBooks = data.data[0];
                     var carouseBigHtml = "";
                     var carouseSmallHtml = "";
@@ -184,8 +184,8 @@
                     }
                     $("#carouseBig").html(carouseBigHtml);
                     $("#carouseSmall").html(carouseSmallHtml);
-                    var $div = $('.scBigImg dl');//放置大图容器
-                    var $nav = $('.scSmallImg li');//放置缩略图容器
+                    var $div = $('.scBigImg dl');//Tempatkan wadah gambar besar
+                    var $nav = $('.scSmallImg li');//Tempatkan wadah thumbnail
                     var num = -1;
                     var open;
 
@@ -219,7 +219,7 @@
                             clearTimeout(open);
                         });
                     });
-                    //顶部小说栏设置
+                    //Pengaturan kolom novel teratas
                     var topBooks = data.data[1];
                     var topBooks1Html = "";
                     var topBooks2Html = "";
@@ -256,7 +256,7 @@
                     $("#topBooks1").html(topBooks1Html);
                     $("#topBooks2").html(topBooks2Html);
 
-                    //本周强推
+                    //Dorong minggu ini
                     var rightListBooks = data.data[2];
                     var rightListBooksHtml = "";
                     for (var i = 0; i < rightListBooks.length; i++) {
@@ -280,7 +280,7 @@
                     }
                     $("#currentWeek").html(rightListBooksHtml);
 
-                    //热门推荐
+                    //Rekomendasi populer
                     var hotRecBooks = data.data[3];
                     var hotRecBooksHtml = "";
                     for (var i = 0; i < hotRecBooks.length; i++) {
@@ -299,7 +299,7 @@
                     }
                     $("#hotRecBooks").html(hotRecBooksHtml);
 
-                    //精品推荐
+                    //Direkomendasikan
                     var classicBooks = data.data[4];
                     var classicBooksHtml = "";
                     for (var i = 0; i < classicBooks.length; i++) {
@@ -329,7 +329,7 @@
                 layer.alert('Kesalahan sistem');
             }
         })
-        //首页新闻查询
+        //Beranda Berita Pertanyaan
         $.ajax({
             type: "get",
             url: "/news/listIndexNews",
@@ -357,7 +357,7 @@
         })
 
 
-        //点击榜单数据查询
+        //Klik kueri data daftar
         $.ajax({
             type: "get",
             url: "/book/listClickRank",
@@ -400,7 +400,7 @@
                 layer.alert('Kesalahan sistem');
             }
         })
-        //新书榜单查询
+        //Kueri daftar buku baru
         $.ajax({
             type: "get",
             url: "/book/listNewRank",
@@ -444,7 +444,7 @@
                 layer.alert('Kesalahan sistem!');
             }
         })
-        //更新榜单查询
+        //Perbarui kueri daftar
         $.ajax({
             type: "get",
             url: "/book/listUpdateRank",
@@ -502,7 +502,7 @@
                 layer.alert('Kesalahan sistem!');
             }
         })
-        //友情链接查询
+        //Kueri tautan ramah
         $.ajax({
             type: "get",
             url: "/friendLink/listIndexLink",

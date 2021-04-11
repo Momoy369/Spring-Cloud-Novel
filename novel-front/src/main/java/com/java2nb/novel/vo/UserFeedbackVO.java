@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 public class UserFeedbackVO extends UserFeedback {
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+7", pattern = "dd-MM-yyyy HH:mm:ss")
     private Date createTime;
 
     @Override

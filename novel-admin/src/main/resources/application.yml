@@ -13,8 +13,8 @@ spring:
     mode: LEGACYHTML5
     cache: false
   jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+7
+    date-format: dd-MM-yyyy HH:mm:ss
   profiles: 
     active: prod
   servlet:

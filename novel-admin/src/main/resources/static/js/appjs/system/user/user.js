@@ -51,44 +51,44 @@ function load(deptId) {
 					},
 					{
 						field : 'userId', // 列字段名
-						title : '序号' // 列标题
+						title : 'Nomor' // 列标题
 					},
 					{
 						field : 'name',
-						title : '姓名'
+						title : 'Nama'
 					},
 					{
 						field : 'username',
-						title : '用户名'
+						title : 'Username'
 					},
 					{
 						field : 'email',
-						title : '邮箱'
+						title : 'Email'
 					},
 					{
 						field : 'status',
-						title : '状态',
+						title : 'Status',
 						align : 'center',
 						formatter : function(value, row, index) {
 							if (value == '0') {
-								return '<span class="label label-danger">禁用</span>';
+								return '<span class="label label-danger">Nonaktifkan</span>';
 							} else if (value == '1') {
-								return '<span class="label label-primary">正常</span>';
+								return '<span class="label label-primary">Aktifkan</span>';
 							}
 						}
 					},
 					{
-						title : '操作',
+						title : 'Aksi',
 						field : 'id',
 						align : 'center',
 						formatter : function(value, row, index) {
-							var e = '<a  class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+							var e = '<a  class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Ubah" onclick="edit(\''
 								+ row.userId
 								+ '\')"><i class="fa fa-edit "></i></a> ';
-							var d = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
+							var d = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="Hapus"  mce_href="#" onclick="remove(\''
 								+ row.userId
 								+ '\')"><i class="fa fa-remove"></i></a> ';
-							var f = '<a class="btn btn-success btn-sm ' + s_resetPwd_h + '" href="#" title="重置密码"  mce_href="#" onclick="resetPwd(\''
+							var f = '<a class="btn btn-success btn-sm ' + s_resetPwd_h + '" href="#" title="Atur ulang kata sandi"  mce_href="#" onclick="resetPwd(\''
 								+ row.userId
 								+ '\')"><i class="fa fa-key"></i></a> ';
 							return e + d + f;
@@ -103,7 +103,7 @@ function add() {
 	// iframe层
 	layer.open({
 		type : 2,
-		title : '增加用户',
+		title : 'Tambah',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
@@ -111,8 +111,8 @@ function add() {
 	});
 }
 function remove(id) {
-	layer.confirm('确定要删除选中的记录？', {
-		btn : [ '确定', '取消' ]
+	layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+		btn : [ 'OK', 'Batal' ]
 	}, function() {
 		$.ajax({
 			url : "/sys/user/remove",
@@ -134,7 +134,7 @@ function remove(id) {
 function edit(id) {
 	layer.open({
 		type : 2,
-		title : '用户修改',
+		title : 'Modifikasi pengguna',
 		maxmin : true,
 		shadeClose : false,
 		area : [ '800px', '520px' ],
@@ -144,7 +144,7 @@ function edit(id) {
 function resetPwd(id) {
 	layer.open({
 		type : 2,
-		title : '重置密码',
+		title : 'Setel ulang Kata Sandi',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '400px', '260px' ],
@@ -154,11 +154,11 @@ function resetPwd(id) {
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {
-		layer.msg("请选择要删除的数据");
+		layer.msg("Pilih data yang akan dihapus");
 		return;
 	}
-	layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-		btn : [ '确定', '取消' ]
+	layer.confirm("Apakah Anda yakin ingin menghapus '" + rows.length + "' data yang Anda pilih?", {
+		btn : [ 'OK', 'Batal' ]
 	// 按钮
 	}, function() {
 		var ids = new Array();

@@ -88,7 +88,7 @@
     <li id="menu29" class="layui-nav-item"><a href="/book/searchSoftBook.html?softCat=29">Thriller</a></li>
     <li id="menu0" class="layui-nav-item"><a href="/book/searchSoftBook.html?softCat=0">Romansa</a></li>
     <li id="menucomplete" class="layui-nav-item"><a>Buku Tamat</a>
-        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dl class="layui-nav-child"> <!-- Menu sekunder -->
             <dd><a href="/book/searchSoftBook.html?bookStatus=tamat">Semua</a></dd>
             <dd><a href="/book/searchSoftBook.html?bookStatus=tamat&softCat=21">Horor</a></dd>
             <dd><a href="/book/searchSoftBook.html?bookStatus=tamat&softCat=22">Fantasi</a></dd>
@@ -103,7 +103,7 @@
         </dl>
     </li>
     <li id="menuhot" class="layui-nav-item"><a>Skor</a>
-        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dl class="layui-nav-child"> <!-- Menu sekunder -->
             <dd><a href="/book/searchSoftBook.html?sortBy=score">Semua</a></dd>
             <dd><a href="/book/searchSoftBook.html?sortBy=score&softCat=21">Horor</a></dd>
             <dd><a href="/book/searchSoftBook.html?sortBy=score&softCat=22">Fantasi</a></dd>
@@ -158,7 +158,7 @@
         </a>
         <div style="margin-top: 5px;color: #4c6978;" th:text="'Genre: '+ ${book.cateName}"></div>
         <div style="margin-top: 5px;color: #4c6978;" th:text="'Status: '+ ${book.bookStatus}"></div>
-        <div style="margin-top: 5px;color: #4c6978;">Diperbarui: <i th:text="${#dates.format(book.updateTime, 'yy-MM-dd')}"></i>
+        <div style="margin-top: 5px;color: #4c6978;">Diperbarui: <i th:text="${#dates.format(book.updateTime, 'dd-MM-yy')}"></i>
         </div>
         <div class="layui-collapse" style="margin-top: 5px;">
             <div class="layui-colla-item">
@@ -192,21 +192,21 @@
     layui.use('laypage', function () {
         var laypage = layui.laypage;
 
-        //执行一个laypage实例
+        //Jalankan instance laypage
         laypage.render({
-            elem: 'books' //注意，这里的 test1 是 ID，不用加 # 号
-            , count: $("#total").val() //数据总数，从服务端得到,
+            elem: 'books' //Perhatikan bahwa test1 di sini adalah ID, tidak perlu menambahkan tanda #
+            , count: $("#total").val() //Jumlah total data, diperoleh dari server,
             , curr: $("#curr").val()
             , limit: $("#limit").val()
             , jump: function (obj, first) {
 
 
-                //obj包含了当前分页的所有参数，比如：
-                console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
-                console.log(obj.limit); //得到每页显示的条数
+                //obj berisi semua parameter halaman saat ini, seperti:
+                console.log(obj.curr); //Dapatkan halaman saat ini untuk meminta data halaman terkait dari server.
+                console.log(obj.limit); //Dapatkan jumlah item yang ditampilkan di setiap halaman
 
 
-                //首次不执行
+                //Tidak dijalankan untuk pertama kali
                 if (!first) {
                     searchByAllCondition(obj.curr, obj.limit);
                 } else {

@@ -277,11 +277,11 @@ layui.define(["element", "jquery"], function (exports) {
         this.bgColorConfig = function (bgcolorId) {
             var bgColorConfig = [
                 {
-                    headerRight: '#1aa094',
+                    headerRight: '#2145bb',
                     headerRightThis: '#197971',
                     headerLogo: '#243346',
                     menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -289,7 +289,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#0c0c0c',
                     headerLogo: '#0c0c0c',
                     menuLeft: '#23262e',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -301,11 +301,11 @@ layui.define(["element", "jquery"], function (exports) {
                     menuLeftHover: '#1f1f1f',
                 },
                 {
-                    headerRight: '#1aa094',
+                    headerRight: '#2145bb',
                     headerRightThis: '#197971',
                     headerLogo: '#0c0c0c',
                     menuLeft: '#23262e',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -313,7 +313,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#0069b7',
                     headerLogo: '#0c0c0c',
                     menuLeft: '#1f1f1f',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
 
@@ -322,7 +322,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#d09600',
                     headerLogo: '#243346',
                     menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -330,7 +330,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#ae1919',
                     headerLogo: '#0c0c0c',
                     menuLeft: '#1f1f1f',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -338,7 +338,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#772c6a',
                     headerLogo: '#243346',
                     menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -346,7 +346,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#0069b7',
                     headerLogo: '#0069b7',
                     menuLeft: '#1f1f1f',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -354,7 +354,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#d09600',
                     headerLogo: '#d09600',
                     menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -362,7 +362,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#ae1919',
                     headerLogo: '#d91f1f',
                     menuLeft: '#1f1f1f',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 },
                 {
@@ -370,7 +370,7 @@ layui.define(["element", "jquery"], function (exports) {
                     headerRightThis: '#772c6a',
                     headerLogo: '#772c6a',
                     menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
+                    menuLeftThis: '#2145bb',
                     menuLeftHover: '#3b3f4b',
                 }
             ];

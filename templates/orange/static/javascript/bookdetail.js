@@ -7,8 +7,8 @@
     },
     DescriptionMore: function (sClass) {
         if (sClass == "") {
-            if ($("#pDesMore").html().length > 150) {
-                $("#divDescription").html($("#pDesMore").html().substring(0, 150) + "<a href=\"javascript:void(0);\" class=\"info_txt_more\" onclick=\"javascript:BookDetail.DescriptionMore('down');\">Tarik<img src=\"../images/arrow_d.png\" /></a>");
+            if ($("#pDesMore").html().length > 300) {
+                $("#divDescription").html($("#pDesMore").html().substring(0, 300) + "<a href=\"javascript:void(0);\" class=\"info_txt_more\" onclick=\"javascript:BookDetail.DescriptionMore('down');\">Tarik<img src=\"../images/arrow_d.png\" /></a>");
             } else {
                 $("#divDescription").html($("#pDesMore").html());
             }

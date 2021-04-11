@@ -55,7 +55,7 @@ function load() {
                         checkbox: true
                     },
                     {
-                        title: '序号',
+                        title: 'Nomor',
                         formatter: function () {
                             return arguments[2] + 1;
                         }
@@ -68,70 +68,70 @@ function load() {
 
                     {
                         field: 'name',
-                        title: '权限名称'
+                        title: 'Nama otoritas'
                     },
 
 
                     {
                         field: 'tableName',
-                        title: '数据表名称'
+                        title: 'Nama tabel'
                     },
 
 
                     {
                         field: 'moduleName',
-                        title: '所属模块'
+                        title: 'Nama modul'
                     },
 
 
                     {
                         field: 'crlAttrName',
-                        title: '用户权限控制属性名'
+                        title: 'Nama atribut'
                     },
 
 
                     {
                         field: 'crlColumnName',
-                        title: '数据表权限控制列名'
+                        title: 'Nama kolom kontrol'
                     },
 
 
                     {
                         field: 'permCode',
-                        title: '权限code'
+                        title: 'Kode izin'
                     },
 
 
                     {
                         field: 'orderNum',
-                        title: '排序'
+                        title: 'Nomor urut'
                     },
 
 
                     {
                         field: 'gmtCreate',
-                        title: '创建时间'
+                        title: 'Waktu dibuat'
                     },
 
 
                     {
                         field: 'gmtModified',
-                        title: '修改时间'
+                        title: 'Waktu diubah'
                     },
 
 
                     {
-                        title: '操作',
+                        title: 'Aksi',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="详情" onclick="detail(\''
+                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="Rincian" onclick="detail(\''
                                 + row.id
                                 + '\')"><i class="fa fa-file"></i></a> ';
-                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Ubah" onclick="edit(\''
                                 + row.id
                                 + '\')"><i class="fa fa-edit"></i></a> ';
-                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
+                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="Hapus"  mce_href="#" onclick="remove(\''
                                 + row.id
                                 + '\')"><i class="fa fa-remove"></i></a> ';
                             return d + e + r;
@@ -145,7 +145,7 @@ function selectLoad() {
     $.ajax({
         url: '/system/dataPerm/moduleName',
         success: function (data) {
-            //加载数据
+            //Unduh Data
             for (var i = 0; i < data.length; i++) {
                 html += '<option value="' + data[i].moduleName + '">' + data[i].moduleName + '</option>'
             }
@@ -153,7 +153,7 @@ function selectLoad() {
             $(".chosen-select").chosen({
                 maxHeight: 200
             });
-            //点击事件
+            //Klik acara
             $('.chosen-select').on('change', function (e, params) {
                 console.log(params.selected);
                 $('#exampleTable').bootstrapTable('refresh');
@@ -169,7 +169,7 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        title: '增加',
+        title: 'Tambah',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -180,7 +180,7 @@ function add() {
 function detail(id) {
     layer.open({
         type: 2,
-        title: '详情',
+        title: 'Rincian',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -191,7 +191,7 @@ function detail(id) {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '编辑',
+        title: 'Ubah',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -200,8 +200,8 @@ function edit(id) {
 }
 
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -227,11 +227,11 @@ function resetPwd(id) {
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus ");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
+    layer.confirm("Anda yakin mau menghapus data'" + rows.length + "' yang Anda pilih?", {
+        btn: ['OK', 'Batal']
         // 按钮
     }, function () {
         var ids = new Array();

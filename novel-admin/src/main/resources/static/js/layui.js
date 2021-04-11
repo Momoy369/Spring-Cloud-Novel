@@ -336,7 +336,7 @@
     return settings.key ? data[settings.key] : data;
   };
 
-  //设备信息
+  //Informasi Perangkat
   Layui.prototype.device = function(key){
     var agent = navigator.userAgent.toLowerCase()
 

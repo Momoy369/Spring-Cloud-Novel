@@ -54,7 +54,7 @@ function load() {
                         checkbox: true
                     },
                     {
-                        title: '序号',
+                        title: 'Nomor',
                         formatter: function () {
                             return arguments[2] + 1;
                         }
@@ -63,30 +63,30 @@ function load() {
 
                     {
                         field: 'name',
-                        title: '分类名'
+                        title: 'Nama Kategori'
                     },
 
 
                     {
                         field: 'sort',
-                        title: '排序'
+                        title: 'Urutan'
                     },
 
 
 
 
                     {
-                        title: '操作',
+                        title: 'Aksi',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="详情" onclick="detail(\''
+                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="Rincian" onclick="detail(\''
                                 + row.id
                                 + '\')"><i class="fa fa-file"></i></a> ';
-                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Ubah" onclick="edit(\''
                                 + row.id
                                 + '\')"><i class="fa fa-edit"></i></a> ';
-                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
+                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="Hapus"  mce_href="#" onclick="remove(\''
                                 + row.id
                                 + '\')"><i class="fa fa-remove"></i></a> ';
                             return  e + r;
@@ -102,7 +102,7 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        title: '增加',
+        title: 'Tambah',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -113,7 +113,7 @@ function add() {
 function detail(id) {
     layer.open({
         type: 2,
-        title: '详情',
+        title: 'Rincian',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -124,7 +124,7 @@ function detail(id) {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '编辑',
+        title: 'Ubah',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -133,8 +133,8 @@ function edit(id) {
 }
 
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -160,11 +160,11 @@ function resetPwd(id) {
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
+    layer.confirm("Apakah Anda yakin ingin menghapus '" + rows.length + "' yang Anda pilih?", {
+        btn: ['OK', 'Batal']
         // 按钮
     }, function () {
         var ids = new Array();

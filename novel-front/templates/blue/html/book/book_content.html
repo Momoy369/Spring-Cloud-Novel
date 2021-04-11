@@ -88,7 +88,7 @@
                                 </h1>
                             <div class="textinfo">
                                 Genre: <a th:href="'/book/bookclass.html?c='+${book.catId}" th:text="${book.catName}"></a>
-                                Penulis: <a th:href="'javascript:searchByK(\''+${book.authorName}+'\')'" th:utext="${book.authorName}"></a><span th:text="'Kata: '+${bookIndex.wordCount}"></span><span th:text="'Diperbarui: '+${#dates.format(bookIndex.updateTime, 'yy/MM/dd HH:mm:ss')}"></span>
+                                Penulis: <a th:href="'javascript:searchByK(\''+${book.authorName}+'\')'" th:utext="${book.authorName}"></a><span th:text="'Kata: '+${bookIndex.wordCount}"></span><span th:text="'Diperbarui: '+${#dates.format(bookIndex.updateTime, 'dd/MM/yy HH:mm:ss')}"></span>
                             </div>
                         </div>
                         <div class="txtwrap" th:if="${needBuy}">

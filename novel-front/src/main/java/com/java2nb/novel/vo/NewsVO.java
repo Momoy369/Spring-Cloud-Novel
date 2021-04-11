@@ -12,6 +12,6 @@ import java.util.Date;
 @Data
 public class NewsVO extends News {
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+7", pattern = "dd-MM-yyyy")
     private Date createTime;
 }

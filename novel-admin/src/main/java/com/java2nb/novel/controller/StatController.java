@@ -65,7 +65,7 @@ public class StatController {
     public R tableSta() {
         Date currentDate = new Date();
         List<String> dateList = DateUtils.getDateList(7,currentDate);
-        Date minDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateList.get(0));
+        Date minDate = new SimpleDateFormat("dd-MM-yyyy").parse(dateList.get(0));
         Map<Object,Object> userTableSta = userService.tableSta(minDate);
         Map<Object,Object> bookTableSta = bookService.tableSta(minDate);
         Map<Object,Object> authorTableSta = authorService.tableSta(minDate);

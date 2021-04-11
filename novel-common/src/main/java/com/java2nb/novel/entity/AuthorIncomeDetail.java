@@ -18,7 +18,7 @@ public class AuthorIncomeDetail {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long bookId;
 
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @JsonFormat(pattern = "dd-MM-yyyy", timezone = "GMT+7")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date incomeDate;
 

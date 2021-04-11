@@ -48,7 +48,7 @@ public class BookToEsSchedule {
                 //查询需要更新的小说
                 Date lastDate = (Date) cacheService.getObject(CacheKey.ES_LAST_UPDATE_TIME);
                 if (lastDate == null) {
-                    lastDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-01-01");
+                    lastDate = new SimpleDateFormat("dd-MM-yyyy").parse("2020-01-01");
                 }
 
 

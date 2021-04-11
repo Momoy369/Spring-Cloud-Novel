@@ -41,7 +41,7 @@ public class UserDO implements Serializable {
     //性别
     private Long sex;
     //出身日期
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date birth;
     //图片ID
     private Long picId;

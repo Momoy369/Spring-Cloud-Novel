@@ -71,8 +71,8 @@
                                                                                     <input type="text" class="laydate-icon layer-date form-control"
                                                    id="createTime"
                                                    name="createTime"
-                                                   th:value="${pay.createTime}==null?null:${#dates.format(pay.createTime,'yyyy-MM-dd HH:mm:ss')}"
-                                                   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
+                                                   th:value="${pay.createTime}==null?null:${#dates.format(pay.createTime,'dd-MM-yyyy HH:mm:ss')}"
+                                                   onclick="laydate({istime: true, format: 'DD-MM-YYYY hh:mm:ss'})"
                                                    style="background-color: #fff;" readonly="readonly"/>
                                                                             </div>
                                 </div>
@@ -82,8 +82,8 @@
                                                                                     <input type="text" class="laydate-icon layer-date form-control"
                                                    id="updateTime"
                                                    name="updateTime"
-                                                   th:value="${pay.updateTime}==null?null:${#dates.format(pay.updateTime,'yyyy-MM-dd HH:mm:ss')}"
-                                                   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"
+                                                   th:value="${pay.updateTime}==null?null:${#dates.format(pay.updateTime,'dd-MM-yyyy HH:mm:ss')}"
+                                                   onclick="laydate({istime: true, format: 'DD-MM-YYYY hh:mm:ss'})"
                                                    style="background-color: #fff;" readonly="readonly"/>
                                                                             </div>
                                 </div>

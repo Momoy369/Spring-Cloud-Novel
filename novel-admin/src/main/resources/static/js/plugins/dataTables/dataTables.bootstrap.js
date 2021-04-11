@@ -2,7 +2,7 @@
 $.extend(true, $.fn.dataTable.defaults, {
     "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>" + "t" + "<'row'<'col-sm-6'i><'col-sm-6'p>>",
     "oLanguage": {
-        "sLengthMenu": "每页 _MENU_ 条记录"
+        "sLengthMenu": "_MENU_ record per halaman"
     }
 });
 

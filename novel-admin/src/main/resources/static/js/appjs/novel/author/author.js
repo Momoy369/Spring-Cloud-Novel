@@ -54,7 +54,7 @@ function load() {
                         checkbox: true
                     },
                     {
-                        title: '序号',
+                        title: 'Nomor',
                         formatter: function () {
                             return arguments[2] + 1;
                         }
@@ -63,37 +63,37 @@ function load() {
 
                     {
                         field: 'inviteCode',
-                        title: '邀请码'
+                        title: 'Kode undangan'
                     },
 
 
                     {
                         field: 'penName',
-                        title: '笔名'
+                        title: 'Nama pena'
                     },
 
 
                     {
                         field: 'telPhone',
-                        title: '手机号码'
+                        title: 'Nomor HP'
                     },
 
 
                     {
                         field: 'chatAccount',
-                        title: 'QQ或微信账号'
+                        title: 'Akun QQ atau WeChat'
                     },
 
 
                     {
                         field: 'email',
-                        title: '电子邮箱'
+                        title: 'Email'
                     },
 
 
                     {
                         field: 'workDirection',
-                        title: '作品方向',
+                        title: 'Spesialisasi',
                         formatter: function (value, row, index) {
                             return formatDict("work_direction", value);
                         }
@@ -101,13 +101,13 @@ function load() {
 
                     {
                         field: 'createTime',
-                        title: '入驻时间'
+                        title: 'Taggal'
                     },
 
 
                     {
                         field: 'status',
-                        title: '状态',
+                        title: 'Status',
                         formatter: function (value, row, index) {
                             return value == 1 ? '封禁' : '正常';
                         }
@@ -115,18 +115,18 @@ function load() {
 
 
                     {
-                        title: '操作',
+                        title: 'Aksi',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
                             if(row.status==1) {
-                                var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="恢复正常" onclick="edit(\''
+                                var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Ubah" onclick="edit(\''
                                     + row.id
-                                    + '\',0)"><i >恢复正常</i></a> ';
+                                    + '\',0)"><i >Default</i></a> ';
                             }else{
-                                var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="封禁" onclick="edit(\''
+                                var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Blokir" onclick="edit(\''
                                     + row.id
-                                    + '\',1)"><i >封禁</i></a> ';
+                                    + '\',1)"><i >Blokir</i></a> ';
                             }
                             return  e ;
                         }
@@ -141,7 +141,7 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        title: '增加',
+        title: 'Tambah',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -152,7 +152,7 @@ function add() {
 function detail(id) {
     layer.open({
         type: 2,
-        title: '详情',
+        title: 'Rincian',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -172,7 +172,7 @@ function edit(id,status) {
         },
         success: function (data) {
             if (data.code == 0) {
-                parent.layer.msg("操作成功");
+                parent.layer.msg("Operasi berhasil");
                 reLoad();
 
             } else {
@@ -184,8 +184,8 @@ function edit(id,status) {
 }
 
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -211,11 +211,11 @@ function resetPwd(id) {
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
+    layer.confirm("Konfirmasikan bahwa Anda ingin menghapus'" + rows.length + "' yang Anda pilih?", {
+        btn: ['OK', 'Batal']
         // 按钮
     }, function () {
         var ids = new Array();

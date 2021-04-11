@@ -220,21 +220,21 @@
                     layui.use('laypage', function () {
                         var laypage = layui.laypage;
 
-                        //执行一个laypage实例
+                        //Jalankan instance laypage
                         laypage.render({
-                            elem: 'books' //注意，这里的 test1 是 ID，不用加 # 号
-                            , count: data.data.total //数据总数，从服务端得到,
+                            elem: 'books' //Perhatikan bahwa test1 di sini adalah ID, tidak perlu menambahkan tanda #
+                            , count: data.data.total //Jumlah total data, diperoleh dari server,
                             , curr: data.data.pageNum
                             , limit: data.data.pageSize
                             , jump: function (obj, first) {
 
 
-                                //obj包含了当前分页的所有参数，比如：
-                                console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
-                                console.log(obj.limit); //得到每页显示的条数
+                                //obj berisi semua parameter halaman saat ini, seperti:
+                                console.log(obj.curr); //Dapatkan halaman saat ini untuk meminta data halaman terkait dari server.
+                                console.log(obj.limit); //Dapatkan jumlah item yang ditampilkan di setiap halaman
 
 
-                                //首次不执行
+                                //Tidak dijalankan untuk pertama kali
                                 if (!first) {
                                     search(obj.curr, obj.limit);
                                 } else {

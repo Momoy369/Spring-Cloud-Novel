@@ -25,467 +25,467 @@ public class BookDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	//主键
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	//Kunci utama
+// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long id;
-	//作品方向，0：男频，1：女频'
+	// Arah kerja, 0: frekuensi laki-laki, 1: frekuensi perempuan '
 			private Integer workDirection;
-	//分类ID
+	// ID Genre
 			private Integer catId;
-	//分类名
+	// Nama Genre
 			private String catName;
-	//子分类ID
+	// ID sub-genre
 			private Integer catChildId;
-	//子分类名
+	// Nama sub-genre
 			private String catChildName;
-	//小说封面
+	// Sampul novel
 			private String picUrl;
-	//小说名
+	// Judul buku
 			private String bookName;
-	//男主角姓名
+	// Nama hero
 			private String heroName;
-	//女主角姓名
+	// Nama heroine
 			private String ladyName;
-	//作品风格，0：甜宠，1：虐恋，2：其他
+	// Gaya kerja, 0: hewan peliharaan yang manis, 1: sadomasokisme, 2: lainnya
 			private Integer bookStyle;
-	//作品标签
+	// Label
 			private String bookLabel;
-	//作者id
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// ID Penulis
+		//Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+	// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long authorId;
-	//作者名
+	// Nama penulis
 			private String authorName;
-	//书籍描述
+	// Blurb Buku
 			private String bookDesc;
-	//评分，预留字段
+	// Skor
 			private Float score;
-	//书籍状态，0：连载中，1：已完结
+	// Status buku, 0: berjalan, 1: selesai
 			private Integer bookStatus;
-	//点击量
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// Volume klik
+		// Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+	// Jadi selesaikan dengan membuat serial menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long visitCount;
-	//总字数
+	// Jumlah kata
 			private Integer wordCount;
-	//评论数
+	// Jumlah komentar
 			private Integer commentCount;
-	//昨日订阅数
+	// Pembelian koin kemarin
 			private Integer yesterdayBuy;
-	//最新目录ID
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
-	//所以通过序列化成字符串来解决
+	// ID Katalog
+		//Rentang yang dapat diwakili oleh long di java lebih besar dari angka di js, yang berarti beberapa nilai tidak dapat disimpan dalam js (menjadi nilai yang tidak akurat)
+	// Jadi ini diselesaikan dengan serialisasi menjadi string
 	@JsonSerialize(using = LongToStringSerializer.class)
 			private Long lastIndexId;
-	//最新目录名
+	// Nama direktori terbaru
 			private String lastIndexName;
-	//最新目录更新时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	// Waktu pembaruan bab
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date lastIndexUpdateTime;
-	//是否收费，1：收费，0：免费
+	// Status buku, 1: berbayar, 0: gratis
 			private Integer isVip;
-	//状态，0：入库，1：上架
+	// Status, 0: Masuk, 1: Di rak
 			private Integer status;
-	//更新时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	// Waktu diperbarui
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date updateTime;
-	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	// Waktu dibuat
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
-	//爬虫源站ID
+	// ID Sumber perayapan
 			private Integer crawlSourceId;
-	//抓取的源站小说ID
+	// ID novel situs asal yang diambil
 			private String crawlBookId;
-	//最后一次的抓取时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	// Waktu penjelajahan terakhir
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date crawlLastTime;
-	//是否已停止更新，0：未停止，1：已停止
+	// Apakah pembaruan telah dihentikan, 0: tidak dihentikan, 1: dihentikan
 			private Integer crawlIsStop;
 
-	/**
-	 * 设置：主键
-	 */
+		/**
+		* Pengaturan: Kunci utama
+		*/
 	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
-	 * 获取：主键
+	 * Dapatkan: Kunci utama
 	 */
 	public Long getId() {
 		return id;
 	}
 	/**
-	 * 设置：作品方向，0：男频，1：女频'
+	 * Pengaturan: arah kerja, 0: frekuensi pria, 1: frekuensi wanita '
 	 */
 	public void setWorkDirection(Integer workDirection) {
 		this.workDirection = workDirection;
 	}
 	/**
-	 * 获取：作品方向，0：男频，1：女频'
+	 * Akuisisi: arah kerja, 0: frekuensi pria, 1: frekuensi wanita '
 	 */
 	public Integer getWorkDirection() {
 		return workDirection;
 	}
 	/**
-	 * 设置：分类ID
+	 * Pengaturan: ID genre
 	 */
 	public void setCatId(Integer catId) {
 		this.catId = catId;
 	}
 	/**
-	 * 获取：分类ID
+	 * Dapatkan: ID genre
 	 */
 	public Integer getCatId() {
 		return catId;
 	}
 	/**
-	 * 设置：分类名
+	 * Pengaturan: nama genre
 	 */
 	public void setCatName(String catName) {
 		this.catName = catName;
 	}
 	/**
-	 * 获取：分类名
+	 * Dapatkan: nama genre
 	 */
 	public String getCatName() {
 		return catName;
 	}
 	/**
-	 * 设置：子分类ID
+	 * Pengaturan: ID sub-kategori
 	 */
 	public void setCatChildId(Integer catChildId) {
 		this.catChildId = catChildId;
 	}
 	/**
-	 * 获取：子分类ID
+	 * Dapatkan: ID sub-kategori
 	 */
 	public Integer getCatChildId() {
 		return catChildId;
 	}
 	/**
-	 * 设置：子分类名
+	 * Pengaturan: nama sub-kategori
 	 */
 	public void setCatChildName(String catChildName) {
 		this.catChildName = catChildName;
 	}
 	/**
-	 * 获取：子分类名
+	 * Dapatkan: nama sub-kategori
 	 */
 	public String getCatChildName() {
 		return catChildName;
 	}
 	/**
-	 * 设置：小说封面
+	 * Pengaturan: sampul novel
 	 */
 	public void setPicUrl(String picUrl) {
 		this.picUrl = picUrl;
 	}
 	/**
-	 * 获取：小说封面
+	 * Dapatkan: Sampul Novel
 	 */
 	public String getPicUrl() {
 		return picUrl;
 	}
 	/**
-	 * 设置：小说名
+	 * Pengaturan: Judul buku
 	 */
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}
 	/**
-	 * 获取：小说名
+	 * Dapatkan judul buku
 	 */
 	public String getBookName() {
 		return bookName;
 	}
 	/**
-	 * 设置：男主角姓名
+	 * Pengaturan: Nama Hero
 	 */
 	public void setHeroName(String heroName) {
 		this.heroName = heroName;
 	}
 	/**
-	 * 获取：男主角姓名
+	 * Dapatkan nama hero
 	 */
 	public String getHeroName() {
 		return heroName;
 	}
 	/**
-	 * 设置：女主角姓名
+	 * Pengaturan: tentukan nama heroine
 	 */
 	public void setLadyName(String ladyName) {
 		this.ladyName = ladyName;
 	}
 	/**
-	 * 获取：女主角姓名
+	 * Dapatkan nama heroine
 	 */
 	public String getLadyName() {
 		return ladyName;
 	}
 	/**
-	 * 设置：作品风格，0：甜宠，1：虐恋，2：其他
+	 * Pengaturan: gaya kerja, 0: hewan peliharaan yang manis, 1: sadomasokisme, 2: lainnya
 	 */
 	public void setBookStyle(Integer bookStyle) {
 		this.bookStyle = bookStyle;
 	}
 	/**
-	 * 获取：作品风格，0：甜宠，1：虐恋，2：其他
+	 * Akuisisi: gaya kerja, 0: hewan peliharaan yang manis, 1: sadomasokisme, 2: lainnya
 	 */
 	public Integer getBookStyle() {
 		return bookStyle;
 	}
 	/**
-	 * 设置：作品标签
+	 * Pengaturan: Label kerja
 	 */
 	public void setBookLabel(String bookLabel) {
 		this.bookLabel = bookLabel;
 	}
 	/**
-	 * 获取：作品标签
+	 * Dapatkan: Tag Kerja
 	 */
 	public String getBookLabel() {
 		return bookLabel;
 	}
 	/**
-	 * 设置：作者id
+	 * Pengaturan: id penulis
 	 */
 	public void setAuthorId(Long authorId) {
 		this.authorId = authorId;
 	}
 	/**
-	 * 获取：作者id
+	 * Dapatkan: ID Penulis
 	 */
 	public Long getAuthorId() {
 		return authorId;
 	}
 	/**
-	 * 设置：作者名
+	 * Pengaturan: Nama penulis
 	 */
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
 	}
 	/**
-	 * 获取：作者名
+	 * Dapatkan: Nama penulis
 	 */
 	public String getAuthorName() {
 		return authorName;
 	}
 	/**
-	 * 设置：书籍描述
+	 * Pengaturan: Deskripsi buku
 	 */
 	public void setBookDesc(String bookDesc) {
 		this.bookDesc = bookDesc;
 	}
 	/**
-	 * 获取：书籍描述
+	 * Dapatkan: Deskripsi buku
 	 */
 	public String getBookDesc() {
 		return bookDesc;
 	}
 	/**
-	 * 设置：评分，预留字段
+	 * Pengaturan: penilaian, bidang yang dipesan
 	 */
 	public void setScore(Float score) {
 		this.score = score;
 	}
 	/**
-	 * 获取：评分，预留字段
+	 * Dapatkan: Skor, bidang yang dipesan
 	 */
 	public Float getScore() {
 		return score;
 	}
 	/**
-	 * 设置：书籍状态，0：连载中，1：已完结
+	 * Setting: status buku, 0: berjalan, 1: selesai
 	 */
 	public void setBookStatus(Integer bookStatus) {
 		this.bookStatus = bookStatus;
 	}
 	/**
-	 * 获取：书籍状态，0：连载中，1：已完结
+	 * Dapatkan: status buku, 0: berjalan, 1: selesai
 	 */
 	public Integer getBookStatus() {
 		return bookStatus;
 	}
 	/**
-	 * 设置：点击量
+	 * Pengaturan: Klik
 	 */
 	public void setVisitCount(Long visitCount) {
 		this.visitCount = visitCount;
 	}
 	/**
-	 * 获取：点击量
+	 * Akuisisi: Klik
 	 */
 	public Long getVisitCount() {
 		return visitCount;
 	}
 	/**
-	 * 设置：总字数
+	 * Pengaturan: kata total
 	 */
 	public void setWordCount(Integer wordCount) {
 		this.wordCount = wordCount;
 	}
 	/**
-	 * 获取：总字数
+	 * Dapatkan: Total kata
 	 */
 	public Integer getWordCount() {
 		return wordCount;
 	}
 	/**
-	 * 设置：评论数
+	 * Pengaturan: Jumlah komentar
 	 */
 	public void setCommentCount(Integer commentCount) {
 		this.commentCount = commentCount;
 	}
 	/**
-	 * 获取：评论数
+	 * Dapatkan: Jumlah komentar
 	 */
 	public Integer getCommentCount() {
 		return commentCount;
 	}
 	/**
-	 * 设置：昨日订阅数
+	 * Setelan: Jumlah langganan kemarin
 	 */
 	public void setYesterdayBuy(Integer yesterdayBuy) {
 		this.yesterdayBuy = yesterdayBuy;
 	}
 	/**
-	 * 获取：昨日订阅数
+	 * Dapatkan: Jumlah langganan kemarin
 	 */
 	public Integer getYesterdayBuy() {
 		return yesterdayBuy;
 	}
 	/**
-	 * 设置：最新目录ID
+	 * Setting: ID katalog terbaru
 	 */
 	public void setLastIndexId(Long lastIndexId) {
 		this.lastIndexId = lastIndexId;
 	}
 	/**
-	 * 获取：最新目录ID
+	 * Dapatkan: ID katalog terbaru
 	 */
 	public Long getLastIndexId() {
 		return lastIndexId;
 	}
 	/**
-	 * 设置：最新目录名
+	 * Setting: nama direktori terbaru
 	 */
 	public void setLastIndexName(String lastIndexName) {
 		this.lastIndexName = lastIndexName;
 	}
 	/**
-	 * 获取：最新目录名
+	 * Dapatkan: nama direktori terbaru
 	 */
 	public String getLastIndexName() {
 		return lastIndexName;
 	}
 	/**
-	 * 设置：最新目录更新时间
+	 * Setting: waktu update katalog terbaru
 	 */
 	public void setLastIndexUpdateTime(Date lastIndexUpdateTime) {
 		this.lastIndexUpdateTime = lastIndexUpdateTime;
 	}
 	/**
-	 * 获取：最新目录更新时间
+	 * Dapatkan: Waktu pembaruan katalog terbaru
 	 */
 	public Date getLastIndexUpdateTime() {
 		return lastIndexUpdateTime;
 	}
 	/**
-	 * 设置：是否收费，1：收费，0：免费
+	 * Setting: status buku, 1: bayar, 0: gratis
 	 */
 	public void setIsVip(Integer isVip) {
 		this.isVip = isVip;
 	}
 	/**
-	 * 获取：是否收费，1：收费，0：免费
+	 * Dapatkan: status buku, 1: bayar, 0: gratis
 	 */
 	public Integer getIsVip() {
 		return isVip;
 	}
 	/**
-	 * 设置：状态，0：入库，1：上架
+	 * Pengaturan: status, 0: simpan, 1: simpan di rak
 	 */
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	/**
-	 * 获取：状态，0：入库，1：上架
+	 * Dapatkan: Status, 0: Masuk, 1: Di rak
 	 */
 	public Integer getStatus() {
 		return status;
 	}
 	/**
-	 * 设置：更新时间
+	 * Pengaturan: waktu update
 	 */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 	/**
-	 * 获取：更新时间
+	 * Dapatkan: waktu update
 	 */
 	public Date getUpdateTime() {
 		return updateTime;
 	}
 	/**
-	 * 设置：创建时间
+	 * Pengaturan: Waktu pembuatan
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 	/**
-	 * 获取：创建时间
+	 * Dapatkan: Waktu pembuatan
 	 */
 	public Date getCreateTime() {
 		return createTime;
 	}
 	/**
-	 * 设置：爬虫源站ID
+	 * Pengaturan: ID stasiun sumber crawler
 	 */
 	public void setCrawlSourceId(Integer crawlSourceId) {
 		this.crawlSourceId = crawlSourceId;
 	}
 	/**
-	 * 获取：爬虫源站ID
+	 * Dapatkan: ID stasiun sumber crawler
 	 */
 	public Integer getCrawlSourceId() {
 		return crawlSourceId;
 	}
 	/**
-	 * 设置：抓取的源站小说ID
+	 * Pengaturan: ID dari novel situs asal yang diambil
 	 */
 	public void setCrawlBookId(String crawlBookId) {
 		this.crawlBookId = crawlBookId;
 	}
 	/**
-	 * 获取：抓取的源站小说ID
+	 * Dapatkan: ID novel situs asal yang diambil
 	 */
 	public String getCrawlBookId() {
 		return crawlBookId;
 	}
 	/**
-	 * 设置：最后一次的抓取时间
+	 * Pengaturan: Waktu penjelajahan terakhir
 	 */
 	public void setCrawlLastTime(Date crawlLastTime) {
 		this.crawlLastTime = crawlLastTime;
 	}
 	/**
-	 * 获取：最后一次的抓取时间
+	 * Ambil: Waktu pengambilan terakhir
 	 */
 	public Date getCrawlLastTime() {
 		return crawlLastTime;
 	}
 	/**
-	 * 设置：是否已停止更新，0：未停止，1：已停止
+	 * Pengaturan: apakah pembaruan telah dihentikan, 0: tidak dihentikan, 1: dihentikan
 	 */
 	public void setCrawlIsStop(Integer crawlIsStop) {
 		this.crawlIsStop = crawlIsStop;
 	}
 	/**
-	 * 获取：是否已停止更新，0：未停止，1：已停止
+	 * Dapatkan: Apakah update telah dihentikan, 0: tidak dihentikan, 1: dihentikan
 	 */
 	public Integer getCrawlIsStop() {
 		return crawlIsStop;

@@ -21,7 +21,7 @@ var config = {
         groups: 'js/plugins/layer/layim/data/groups.json', //群组成员接口
         sendurl: '' //发送消息接口
     },
-    user: { //当前用户信息
+    user: { //Informasi pengguna saat ini
         name: '游客',
         face: 'img/a1.jpg'
     },

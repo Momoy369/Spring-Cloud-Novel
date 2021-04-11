@@ -45,10 +45,10 @@ public class DataPermDO implements Serializable {
 	//排序
 			private Integer orderNum;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date gmtCreate;
 	//修改时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date gmtModified;
 
 	/**

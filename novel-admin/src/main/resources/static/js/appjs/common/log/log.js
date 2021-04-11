@@ -57,52 +57,52 @@ function load() {
                     },
                     {
                         field: 'id', // 列字段名
-                        title: '序号' // 列标题
+                        title: 'Nomor' // 列标题
                     },
                     {
                         field: 'userId',
-                        title: '用户Id'
+                        title: 'ID Pengguna'
                     },
                     {
                         field: 'username',
-                        title: '用户名'
+                        title: 'Username'
                     },
                     {
                         field: 'operation',
-                        title: '操作'
+                        title: 'Aksi'
                     },
                     {
                         field: 'time',
-                        title: '用时'
+                        title: 'Waktu'
                     },
                     {
                         field: 'method',
-                        title: '方法'
+                        title: 'Metode'
                     },
                     {
                         field: 'params',
-                        title: '参数'
+                        title: 'Parameter'
                     },
                     {
                         field: 'ip',
-                        title: 'IP地址'
+                        title: 'Alamat IP'
                     },
                     {
                         field: 'gmtCreate',
-                        title: '创建时间'
+                        title: 'Waktu dibuat'
                     },
                     {
-                        title: '操作',
+                        title: 'Aksi',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm" href="#" mce_href="#" title="Ubah" onclick="edit(\''
                                 + row.userId
                                 + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm" href="#" title="删除"  mce_href="#" onclick="remove(\''
+                            var d = '<a class="btn btn-warning btn-sm" href="#" title="Hapus"  mce_href="#" onclick="remove(\''
                                 + row.id
                                 + '\')"><i class="fa fa-remove"></i></a> ';
-                            var f = '<a class="btn btn-success btn-sm" href="#" title="重置密码"  mce_href="#" onclick="resetPwd(\''
+                            var f = '<a class="btn btn-success btn-sm" href="#" title="Setel ulang kata sandi"  mce_href="#" onclick="resetPwd(\''
                                 + row.userId
                                 + '\')"><i class="fa fa-key"></i></a> ';
                             return d;
@@ -116,8 +116,8 @@ function reLoad() {
 }
 
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -144,11 +144,11 @@ function remove(id) {
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
+    layer.confirm("Konfirmasikan bahwa Anda ingin menghapus'" + rows.length + "' yang Anda pilih?", {
+        btn: ['OK', 'Batal']
         // 按钮
     }, function () {
         var ids = new Array();

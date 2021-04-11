@@ -11,32 +11,32 @@
 						<form class="form-horizontal m-t" id="signupForm">
 							<input id="userId" name="userId" type="hidden">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">姓名：</label>
+								<label class="col-sm-3 control-label">Nama: </label>
 								<div class="col-sm-8">
 									<input id="name" name="name" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">用户名：</label>
+								<label class="col-sm-3 control-label">Username: </label>
 								<div class="col-sm-8">
 									<input id="username" name="username" class="form-control"
 										type="text">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">密码：</label>
+								<label class="col-sm-3 control-label">Kata sandi: </label>
 								<div class="col-sm-8">
 									<input id="password" name="password" class="form-control"
 										type="password">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">部门：</label>
+								<label class="col-sm-3 control-label">Departemen: </label>
 								<div class="col-sm-8">
 									<input id="deptId" name="deptId" class="hidden"> <input
 										id="deptName" name="deptName" class="form-control" type="text"
 										style="cursor: pointer;" onclick="openDept()"
-										readonly="readonly" placeholder="所属部门">
+										readonly="readonly" placeholder="Departemen">
 								</div>
 							</div>
 							<div class="form-group">
@@ -47,18 +47,18 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">状态:</label>
+								<label class="col-sm-3 control-label">Status:</label>
 								<div class="col-sm-8">
 									<label class="radio-inline"> <input type="radio"
-										name="status" value="1" /> 正常
+										name="status" value="1" /> Aktif
 									</label> <label class="radio-inline"> <input type="radio"
-										name="status" value="0" /> 禁用
+										name="status" value="0" /> Nonaktifkan
 									</label>
 								</div>
 							</div>
 							<input type="hidden" name="roleIds" id="roleIds">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">角色</label>
+								<label class="col-sm-3 control-label">Peran</label>
 								<div class="col-sm-8">
 									<label th:each="role:${roles}" class="checkbox-inline">
 										<input name="role" type="checkbox" th:value="${role.roleId}"
@@ -68,7 +68,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
-									<button type="submit" class="btn btn-primary">提交</button>
+									<button type="submit" class="btn btn-primary">Kirim</button>
 								</div>
 							</div>
 						</form>

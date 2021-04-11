@@ -48,7 +48,7 @@ public class AuthorDO implements Serializable {
 	//作品方向，0：男频，1：女频
 			private Integer workDirection;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
 	//0：正常，1：封禁
 			private Integer status;

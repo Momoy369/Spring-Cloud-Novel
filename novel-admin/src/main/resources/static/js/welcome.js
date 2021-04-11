@@ -1,4 +1,4 @@
-//欢迎信息
+//Pesan selamat datang
 
 layer.config({
     extend: ['extend/layer.ext.js', 'skin/moon/style.css'],
@@ -35,6 +35,6 @@ layer.ready(function () {
         });
     }
 
-    console.log('欢迎使用H+，如果您在使用的过程中有碰到问题，可以参考开发文档，感谢您的支持。');
+    console.log('Selamat menggunakan H+. Jika Anda menemui masalah selama penggunaan, Anda dapat merujuk ke dokumentasi pengembangan. Terima kasih atas dukungan Anda.');
 
 });

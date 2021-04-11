@@ -19,7 +19,7 @@ public class BookReadHistoryVO extends UserReadHistory {
     private String lastIndexName;
     private String bookName;
 
-    @JsonFormat(timezone = "GMT+8", pattern = "MM/dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+7", pattern = "dd/MM HH:mm:ss")
     private Date lastIndexUpdateTime;
 
 

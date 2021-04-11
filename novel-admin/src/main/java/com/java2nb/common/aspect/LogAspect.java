@@ -88,7 +88,7 @@ public class LogAspect {
                 sysLog.setUsername(sysLog.getParams());
             } else {
                 sysLog.setUserId(-1L);
-                sysLog.setUsername("获取用户信息为空");
+                sysLog.setUsername("Dapatkan informasi pengguna kosong");
             }
         } else {
             sysLog.setUserId(ShiroUtils.getUserId());

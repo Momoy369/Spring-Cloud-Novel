@@ -78,7 +78,7 @@ function update() {
         },
         success: function (data) {
             if (data.code == 0) {
-                parent.layer.msg("操作成功");
+                parent.layer.msg("Operasi berhasil");
                 parent.reLoad();
                 var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
                 parent.layer.close(index);
@@ -112,16 +112,16 @@ function validateRule() {
     messages: {
                                                         catId:
                 {
-                    required: icon + "请选择类别ID"
+                    required: icon + "Pilih ID kategori"
                 },                                                 catName:
                 {
-                    required: icon + "请选择分类名"
+                    required: icon + "Pilih nama kategori"
                 },                                                                     title:
                 {
-                    required: icon + "请选择标题"
+                    required: icon + "Silakan pilih satu judul"
                 },                                                 content:
                 {
-                    required: icon + "请选择内容"
+                    required: icon + "Pilih konten"
                 },                                                                                                         }
 })
 }

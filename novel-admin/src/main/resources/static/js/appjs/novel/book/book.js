@@ -7,39 +7,39 @@ function load() {
     $('#exampleTable')
         .bootstrapTable(
             {
-                method: 'get', // 服务器数据的请求方式 get or post
-                url: prefix + "/list", // 服务器数据的加载地址
+                method: 'get', // Metode permintaan data server, dapatkan atau posting
+                url: prefix + "/list", // Muat alamat data server
                 //	showRefresh : true,
                 //	showToggle : true,
                 //	showColumns : true,
                 iconSize: 'outline',
                 toolbar: '#exampleToolbar',
-                striped: true, // 设置为true会有隔行变色效果
-                dataType: "json", // 服务器返回的数据类型
-                pagination: true, // 设置为true会在底部显示分页条
+                striped: true, // Setel ke true, akan ada efek perubahan warna yang saling bertautan
+                dataType: "json", // Server mengembalikan jenis data dari Jenis data yang dikembalikan oleh server
+                pagination: true, // Setel ke true untuk menampilkan bilah halaman di bagian bawah
                 // queryParamsType : "limit",
-                // //设置为limit则会发送符合RESTFull格式的参数
-                singleSelect: false, // 设置为true将禁止多选
+                // //Set to limit akan mengirimkan parameter yang sesuai dengan format RESTFull
+                singleSelect: false, // Setel ke true untuk menonaktifkan banyak pilihan
                 // contentType : "application/x-www-form-urlencoded",
-                // //发送到服务器的数据编码类型
-                pageSize: 10, // 如果设置了分页，每页数据条数
-                pageNumber: 1, // 如果设置了分布，首页页码
-                //search : true, // 是否显示搜索框
-                showColumns: false, // 是否显示内容下拉框（选择显示的列）
-                sidePagination: "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                // //Jenis pengkodean data dikirim ke server
+                pageSize: 10, // Jika paging disetel, jumlah item data per halaman
+                pageNumber: 1, // Jika distribusi sudah diatur, nomor halaman rumah
+                //search : true, // Apakah akan menampilkan kotak pencarian
+                showColumns: false, // Apakah akan menampilkan kotak drop-down konten (pilih kolom yang ditampilkan)
+                sidePagination: "server", // Setel di mana paging, nilai opsional adalah "klien" atau "server"
                 queryParams: function (params) {
-                    //说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
+                    //Deskripsi: Parameter yang diteruskan ke latar belakang termasuk indeks awal offset, ukuran langkah batas, urutan pengurutan, urutan: desc atau, dan pasangan nilai kunci dari semua kolom
                     var queryParams = getFormJson("searchForm");
                     queryParams.limit = params.limit;
                     queryParams.offset = params.offset;
                     return queryParams;
                 },
-                // //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
-                // queryParamsType = 'limit' ,返回参数必须包含
-                // limit, offset, search, sort, order 否则, 需要包含:
+                // //Saat meminta data server, Anda dapat menambahkan beberapa parameter tambahan dengan menulis ulang parameter tersebut, seperti parameter di toolbar
+                // queryParamsType = 'limit' ,Parameter kembali harus mengandung
+                // limit, offset, search, sort, order Jika tidak, Anda perlu memasukkan:
                 // pageSize, pageNumber, searchText, sortName,
                 // sortOrder.
-                // 返回false将会终止请求
+                // Mengembalikan nilai false akan menghentikan permintaan
                 responseHandler: function (rs) {
 
                     if (rs.code == 0) {
@@ -54,215 +54,215 @@ function load() {
                         checkbox: true
                     },
                     {
-                        title: '序号',
+                        title: 'Nomor seri',
                         formatter: function () {
                             return arguments[2] + 1;
                         }
                     },
                                                                         {
                                 field: 'id',
-                                title: '主键'
+                                title: 'Kunci utama'
                             },
 
                         
                                                                         {
                                 field: 'workDirection',
-                                title: '作品方向，0：男频，1：女频'
+                                title: 'Spesialis, 0: Fiksi pria, 1: Umum'
                             },
 
                         
                                                                         {
                                 field: 'catId',
-                                title: '分类ID'
+                                title: 'ID Kategori'
                             },
 
                         
                                                                         {
                                 field: 'catName',
-                                title: '分类名'
+                                title: 'Judul Kategori'
                             },
 
                         
                                                                         {
                                 field: 'catChildId',
-                                title: '子分类ID'
+                                title: 'ID sub-kategori'
                             },
 
                         
                                                                         {
                                 field: 'catChildName',
-                                title: '子分类名'
+                                title: 'Nama sub-kategori'
                             },
 
                         
                                                                         {
                                 field: 'picUrl',
-                                title: '小说封面'
+                                title: 'Sampul novel'
                             },
 
                         
                                                                         {
                                 field: 'bookName',
-                                title: '小说名'
+                                title: 'Judul buku'
                             },
 
                         
                                                                         {
                                 field: 'heroName',
-                                title: '男主角姓名'
+                                title: 'Nama hero'
                             },
 
                         
                                                                         {
                                 field: 'ladyName',
-                                title: '女主角姓名'
+                                title: 'Nama heroine'
                             },
 
                         
                                                                         {
                                 field: 'bookStyle',
-                                title: '作品风格，0：甜宠，1：虐恋，2：其他'
+                                title: 'Gaya kerja, 0: hewan peliharaan yang manis, 1: sadomasokisme, 2: lainnya'
                             },
 
                         
                                                                         {
                                 field: 'bookLabel',
-                                title: '作品标签'
+                                title: 'Label kerja'
                             },
 
                         
                                                                         {
                                 field: 'authorId',
-                                title: '作者id'
+                                title: 'ID penulis'
                             },
 
                         
                                                                         {
                                 field: 'authorName',
-                                title: '作者名'
+                                title: 'Nama penulis'
                             },
 
                         
                                                                         {
                                 field: 'bookDesc',
-                                title: '书籍描述'
+                                title: 'Deskripsi buku'
                             },
 
                         
                                                                         {
                                 field: 'score',
-                                title: '评分，预留字段'
+                                title: 'Skor, bidang yang dipesan'
                             },
 
                         
                                                                         {
                                 field: 'bookStatus',
-                                title: '书籍状态，0：连载中，1：已完结'
+                                title: 'Status buku, 0: berlanjut, 1: selesai'
                             },
 
                         
                                                                         {
                                 field: 'visitCount',
-                                title: '点击量'
+                                title: 'Volume klik'
                             },
 
                         
                                                                         {
                                 field: 'wordCount',
-                                title: '总字数'
+                                title: 'Jumlah kata'
                             },
 
                         
                                                                         {
                                 field: 'commentCount',
-                                title: '评论数'
+                                title: 'Jumlah komentar'
                             },
 
                         
                                                                         {
                                 field: 'yesterdayBuy',
-                                title: '昨日订阅数'
+                                title: 'Jumlah pembelian kemarin'
                             },
 
                         
                                                                         {
                                 field: 'lastIndexId',
-                                title: '最新目录ID'
+                                title: 'ID katalog terbaru'
                             },
 
                         
                                                                         {
                                 field: 'lastIndexName',
-                                title: '最新目录名'
+                                title: 'Nama direktori terbaru'
                             },
 
                         
                                                                         {
                                 field: 'lastIndexUpdateTime',
-                                title: '最新目录更新时间'
+                                title: 'Waktu pembaruan katalog terbaru'
                             },
 
                         
                                                                         {
                                 field: 'isVip',
-                                title: '是否收费，1：收费，0：免费'
+                                title: 'Status buku, 1: berbayar, 0: gratis'
                             },
 
                         
                                                                         {
                                 field: 'status',
-                                title: '状态，0：入库，1：上架'
+                                title: 'Status, 0: Masuk, 1: Di rak'
                             },
 
                         
                                                                         {
                                 field: 'updateTime',
-                                title: '更新时间'
+                                title: 'Waktu update'
                             },
 
                         
                                                                         {
                                 field: 'createTime',
-                                title: '创建时间'
+                                title: 'Waktu dibuat'
                             },
 
                         
                                                                         {
                                 field: 'crawlSourceId',
-                                title: '爬虫源站ID'
+                                title: 'ID stasiun sumber crawler'
                             },
 
                         
                                                                         {
                                 field: 'crawlBookId',
-                                title: '抓取的源站小说ID'
+                                title: 'ID novel situs asal yang diambil'
                             },
 
                         
                                                                         {
                                 field: 'crawlLastTime',
-                                title: '最后一次的抓取时间'
+                                title: 'Waktu dirayapi terakhir'
                             },
 
                         
                                                                         {
                                 field: 'crawlIsStop',
-                                title: '是否已停止更新，0：未停止，1：已停止'
+                                title: 'Apakah pembaruan telah dihentikan, 0: tidak dihentikan, 1: dihentikan'
                             },
 
                         
                                         {
-                        title: '操作',
+                        title: 'Pengoperasian',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="详情" onclick="detail(\''
+                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="Rincian" onclick="detail(\''
                                 + row.id
                                 + '\')"><i class="fa fa-file"></i></a> ';
-                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="Ubah" onclick="edit(\''
                                 + row.id
                                 + '\')"><i class="fa fa-edit"></i></a> ';
-                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
+                            var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="Menghapus"  mce_href="#" onclick="remove(\''
                                 + row.id
                                 + '\')"><i class="fa fa-remove"></i></a> ';
                             return d + e + r;
@@ -276,19 +276,19 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        title: '增加',
+        title: 'meningkatkan',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
+        shadeClose: false, // Klik pada topeng untuk menutup lapisan
         area: ['800px', '520px'],
-        content: prefix + '/add' // iframe的url
+        content: prefix + '/add' // url iframe
     });
 }
 function detail(id) {
     layer.open({
         type: 2,
-        title: '详情',
+        title: 'Rincian',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
+        shadeClose: false, // Klik pada topeng untuk menutup lapisan
         area: ['800px', '520px'],
         content: prefix + '/detail/' + id // iframe的url
     });
@@ -296,16 +296,16 @@ function detail(id) {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '编辑',
+        title: 'Ubah',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
+        shadeClose: false, // Klik pada topeng untuk menutup lapisan
         area: ['800px', '520px'],
         content: prefix + '/edit/' + id // iframe的url
     });
 }
 function remove(id) {
-    layer.confirm('确定要删除选中的记录？', {
-        btn: ['确定', '取消']
+    layer.confirm('Apakah Anda yakin ingin menghapus data yang dipilih?', {
+        btn: ['OK', 'Batal']
     }, function () {
         $.ajax({
             url: prefix + "/remove",
@@ -328,17 +328,17 @@ function remove(id) {
 function resetPwd(id) {
 }
 function batchRemove() {
-    var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
+    var rows = $('#exampleTable').bootstrapTable('getSelections'); // Kembalikan semua baris yang dipilih, jika tidak ada rekaman yang dipilih, kembalikan larik kosong
     if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
+        layer.msg("Pilih data yang akan dihapus");
         return;
     }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
-        // 按钮
+    layer.confirm("Konfirmasikan bahwa Anda ingin menghapus'" + rows.length + "' data?", {
+        btn: ['OK', 'Batal']
+        // Tombol
     }, function () {
         var ids = new Array();
-        // 遍历所有选择的行数据，取每条数据对应的ID
+        // Lintasi semua data baris yang dipilih dan dapatkan ID yang sesuai dengan setiap data
         $.each(rows, function (i, row) {
             ids[i] = row['id'];
         });

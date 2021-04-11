@@ -45,18 +45,18 @@
         }
         .tag-list .highlight {
             padding: 5px 9px;
-            border: 1px solid #f90;
-            color: #f90;
+            border: 1px solid rgb(0, 68, 255);
+            color: rgb(0, 68, 255);
             border-radius: 50px;
         }
 
         .tag-list .highlight .text {
-            color: #f90;
+            color: rgb(0, 68, 255);
         }
         .tag-list .tag .text {
             display: inline-block;
             vertical-align: middle;
-            color: #f90;
+            color: rgb(0, 68, 255);
         }
 
         ul, li {
@@ -72,7 +72,7 @@
         }
 
         .tag-list .highlight .icn {
-            color: #f90;
+            color: rgb(0, 68, 255);
         }
         .tag-list .tag .icn {
             margin-right: 5px;
@@ -81,12 +81,12 @@
 
         .tag-list .highlight .text {
             padding-left: 3px;
-            color: #f90;
+            color: rgb(0, 68, 255);
         }
         .tag-list .tag .text {
             display: inline-block;
             vertical-align: middle;
-            color: #f90;
+            color: rgb(0, 68, 255);
         }
 
         .line-limit-length {
@@ -136,8 +136,8 @@
             <a th:href="'javascript:searchBooks(\''+ ${book.authorName}+'\')'"><div style=";color: #444;" th:utext="'Penulis: '+ ${book.authorName}"></div></a>
             <a th:href="'/book/book_ranking.html?catId='+${book.catId}"><div style="margin-top: 5px;color: #444;" th:text="'Genre: '+ ${book.catName}"></div></a>
             <div style="margin-top: 5px;color: #444;" th:text="'Status: '+ ${book.bookStatus==0?'berlanjut':'tamat'}"></div>
-            <div style="margin-top: 5px;color: #444;">Diperbarui: <i  th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd')}"></i></div>
-            <div style="margin-top: 5px;color: #444;">Skor: <i style="font-weight:bold;color: red" th:text="${book.score} + '分'"></i></div>
+            <div style="margin-top: 5px;color: #444;">Diperbarui: <i  th:text="${#dates.format(book.lastIndexUpdateTime, 'dd-MM-yy')}"></i></div>
+            <div style="margin-top: 5px;color: #444;">Skor: <i style="font-weight:bold;color: red" th:text="${book.score} + ' '"></i></div>
             <div style="margin-top: 5px;color: #444;">Klik: <i style="font-weight:bold;color: red" th:text="${book.visitCount}"></i></div>
 
 
@@ -164,7 +164,7 @@
         <h2 class="layui-colla-title">
             <span>Bab terbaru</span>
             <span style="margin-left: 30px">
-                Diperbarui:  <i th:text="${#dates.format(book.lastIndexUpdateTime, 'yy-MM-dd HH:mm:ss')}"></i>
+                Diperbarui:  <i th:text="${#dates.format(book.lastIndexUpdateTime, 'dd-MM-yy HH:mm:ss')}"></i>
             </span>
         </h2>
         <div class="layui-colla-content layui-show indexP layui-row" id="indexList">

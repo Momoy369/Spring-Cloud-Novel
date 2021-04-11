@@ -12,7 +12,7 @@
                 <input id="id" name="id" th:value="${news.id}"
                        type="hidden">
                                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">类别ID：</label>
+                        <label class="col-sm-3 control-label">ID Kategori: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8 dict-type" dict-type="${column.dictType}"
                                  th:attr="dict-value=${news.catId}">
@@ -22,7 +22,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">分类名：</label>
+                        <label class="col-sm-3 control-label">Nama Kategori: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${news.catName}">
@@ -32,7 +32,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">来源：</label>
+                        <label class="col-sm-3 control-label">Sumber: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${news.sourceName}">
@@ -42,7 +42,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">标题：</label>
+                        <label class="col-sm-3 control-label">Judul: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${news.title}">
@@ -52,7 +52,7 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">内容：</label>
+                        <label class="col-sm-3 control-label">Isi: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:utext="${news.content}"></div>
@@ -60,16 +60,16 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">发布时间：</label>
+                        <label class="col-sm-3 control-label">Waktu rilis: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${news.createTime}==null?null:${#dates.format(news.createTime,'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${news.createTime}==null?null:${#dates.format(news.createTime,'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">发布人ID：</label>
+                        <label class="col-sm-3 control-label">ID Penayang: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${news.createUserId}">
@@ -79,16 +79,16 @@
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">更新时间：</label>
+                        <label class="col-sm-3 control-label">Diperbarui: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
-                                 th:text="${news.updateTime}==null?null:${#dates.format(news.updateTime,'yyyy-MM-dd HH:mm:ss')}">
+                                 th:text="${news.updateTime}==null?null:${#dates.format(news.updateTime,'dd-MM-yyyy HH:mm:ss')}">
                             </div>
                         
 
                     </div>
                                                                             <div class="form-group">
-                        <label class="col-sm-3 control-label">更新人ID：</label>
+                        <label class="col-sm-3 control-label">ID updater: </label>
 
                                                     <div style="padding-top:8px" class="col-sm-8"
                                  th:text="${news.updateUserId}">

@@ -73,7 +73,7 @@ public class OrderDO implements Serializable {
 	//支付宝顾客的账号
 			private String userLogonId;
 	//交易成功的时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date payTime;
 	//支付通道:1微信、2支付宝、3银联
 			private Integer payChannel;
@@ -88,10 +88,10 @@ public class OrderDO implements Serializable {
 	//其它选项
 			private String options;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date createTime;
 	//推送时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+			@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 		private Date pushTime;
 	//推送IP
 			private String pushIp;

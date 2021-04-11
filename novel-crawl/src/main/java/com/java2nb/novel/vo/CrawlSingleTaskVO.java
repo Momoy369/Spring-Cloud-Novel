@@ -13,7 +13,7 @@ import java.util.Date;
 @Data
 public class CrawlSingleTaskVO extends CrawlSingleTask {
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(timezone = "GMT+7", pattern = "dd-MM-yyyy HH:mm")
     private Date createTime;
 
 
