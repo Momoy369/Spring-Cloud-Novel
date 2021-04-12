@@ -8,14 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * XSS过滤处理
+ * Pemrosesan filter XSS
  *
  * @author Administrator
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     /**
-     * 假如有有html 代码是自己传来的  需要设定对应的name 不过滤
+     * Jika ada kode html yang dikirimkan sendiri, Anda perlu mengatur nama yang sesuai tanpa penyaringan
      */
     private static final List<String> noFilterNames = Arrays.asList("content");
 

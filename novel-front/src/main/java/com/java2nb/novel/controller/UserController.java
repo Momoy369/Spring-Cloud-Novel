@@ -38,12 +38,12 @@ public class UserController extends BaseController {
     private final BookService bookService;
 
     /**
-     * 登陆
+     * Masuk
      */
     @PostMapping("login")
     public ResultBean login(User user) {
 
-        //登陆
+        //Masuk
         UserDetails userDetails = userService.login(user);
 
         Map<String, Object> data = new HashMap<>(1);
@@ -55,18 +55,18 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 注册
+     * Daftar
      */
     @PostMapping("register")
     public ResultBean register(@Validated({AddGroup.class}) User user, @RequestParam(value = "velCode", defaultValue = "") String velCode) {
 
 
-        //判断验证码是否正确
+        //Tentukan apakah kode verifikasi sudah benar
         if (!velCode.equals(cacheService.get(RandomValidateCodeUtil.RANDOM_CODE_KEY))) {
             return ResultBean.fail(ResponseStatus.VEL_CODE_ERROR);
         }
 
-        //注册
+        //Daftar
         UserDetails userDetails = userService.register(user);
         Map<String, Object> data = new HashMap<>(1);
         data.put("token", jwtTokenUtil.generateToken(userDetails));
@@ -78,7 +78,7 @@ public class UserController extends BaseController {
 
 
     /**
-     * 刷新token
+     * Segarkan token
      */
     @PostMapping("refreshToken")
     public ResultBean refreshToken(HttpServletRequest request) {
@@ -99,7 +99,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 查询小说是否已加入书架
+     * Periksa apakah novel telah ditambahkan ke rak buku
      */
     @GetMapping("queryIsInShelf")
     public ResultBean queryIsInShelf(Long bookId, HttpServletRequest request) {
@@ -111,7 +111,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 加入书架
+     * Tambahkan ke rak buku
      * */
     @PostMapping("addToBookShelf")
     public ResultBean addToBookShelf(Long bookId,Long preContentId, HttpServletRequest request) {
@@ -124,7 +124,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 移出书架
+     * Keluar dari rak buku
      * */
     @DeleteMapping("removeFromBookShelf/{bookId}")
     public ResultBean removeFromBookShelf(@PathVariable("bookId") Long bookId, HttpServletRequest request) {
@@ -137,7 +137,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 分页查询书架
+     * Rak Buku Permintaan Penomoran Halaman
      * */
     @GetMapping("listBookShelfByPage")
     public ResultBean listBookShelfByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize,HttpServletRequest request) {
@@ -149,7 +149,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 分页查询阅读记录
+     * Paging query membaca catatan
      * */
     @GetMapping("listReadHistoryByPage")
     public ResultBean listReadHistoryByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize,HttpServletRequest request) {
@@ -161,7 +161,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 添加阅读记录
+     * Tambahkan catatan bacaan
      * */
     @PostMapping("addReadHistory")
     public ResultBean addReadHistory(Long bookId,Long preContentId, HttpServletRequest request) {
@@ -174,7 +174,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 添加反馈
+     * Tambahkan umpan balik
      * */
     @PostMapping("addFeedBack")
     public ResultBean addFeedBack(String content, HttpServletRequest request) {
@@ -187,7 +187,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 分页查询我的反馈列表
+     * Kueri daftar umpan balik saya per halaman
      * */
     @GetMapping("listUserFeedBackByPage")
     public ResultBean listUserFeedBackByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize, HttpServletRequest request){
@@ -199,7 +199,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 查询个人信息
+     * Menanyakan informasi pribadi
      * */
     @GetMapping("userInfo")
     public ResultBean userInfo(HttpServletRequest request) {
@@ -211,7 +211,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 更新个人信息
+     * Perbarui informasi pribadi
      * */
     @PostMapping("updateUserInfo")
     public ResultBean updateUserInfo(@Validated({UpdateGroup.class}) User user, HttpServletRequest request) {
@@ -231,7 +231,7 @@ public class UserController extends BaseController {
 
 
     /**
-     * 更新密码
+     * Perbarui kata sandi
      * */
     @PostMapping("updatePassword")
     public ResultBean updatePassword(String oldPassword,String newPassword1,String newPassword2,HttpServletRequest request) {
@@ -247,7 +247,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 分页查询用户书评
+     * Kueri ulasan buku pengguna berdasarkan pagination
      * */
     @GetMapping("listCommentByPage")
     public ResultBean listCommentByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize,HttpServletRequest request) {
@@ -260,7 +260,7 @@ public class UserController extends BaseController {
 
 
     /**
-     * 购买小说章节
+     * Beli bab baru
      * */
     @PostMapping("buyBookIndex")
     public ResultBean buyBookIndex(UserBuyRecord buyRecord, HttpServletRequest request) {

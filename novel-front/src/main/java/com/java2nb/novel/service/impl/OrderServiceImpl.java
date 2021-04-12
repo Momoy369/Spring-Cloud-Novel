@@ -59,16 +59,16 @@ public class OrderServiceImpl implements OrderService {
         OrderPay orderPay = orderPayMapper.selectMany(selectStatement).get(0);
 
         if(orderPay.getPayStatus()!=1) {
-            //此订单还未处理过
+            //Pesanan ini belum diproses
 
             if (tradeStatus.equals("TRADE_SUCCESS") || tradeStatus.equals("TRADE_FINISHED")) {
-                //支付成功
-                //1.更新订单状态为成功
+                //pembayaran berhasil
+                //1.Perbarui status pesanan agar berhasil
                 orderPay.setPayStatus((byte) 1);
                 orderPay.setUpdateTime(new Date());
                 orderPayMapper.updateByPrimaryKeySelective(orderPay);
 
-                //2.增加用户余额
+                //2.Tingkatkan saldo pengguna
                 userService.addAmount(orderPay.getUserId(),orderPay.getTotalAmount()*100);
 
 

@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 作家日收入统计任务
+ * Tugas statistik pendapatan harian penulis
  *
  * @author cd
  */
@@ -32,30 +32,30 @@ public class MonthIncomeStaSchedule {
     private final AuthorIncomeProperties authorIncomeConfig;
 
     /**
-     * 每个月1号凌晨2点统计上个月数据
+     * Statistik data bulan lalu pada pukul 2 pagi pada tanggal 1 setiap bulan
      */
     @Scheduled(cron = "0 0 2 1 * ?")
     public void statistics() {
 
-        //获取上个月的开始时间和结束时间
+        //Dapatkan waktu mulai dan waktu akhir bulan sebelumnya
         Date startTime = DateUtil.getLastMonthStartTime();
         Date endTime = DateUtil.getLastMonthEndTime();
 
-        //每次查询的作家数量
+        //Jumlah penulis per kueri
         int needAuthorNumber = 10;
-        //查询出来的真实作家数量
+        //Jumlah penulis sungguhan yang ditanyakan
         int realAuthorNumber;
-        //每次查询最大申请时间
+        //Waktu aplikasi maksimum per kueri
         Date maxAuthorCreateTime = new Date();
         do {
-            //1.查询作家列表
+            //1. Menanyakan daftar penulis
             List<Author> authors = authorService.queryAuthorList(needAuthorNumber, maxAuthorCreateTime);
             realAuthorNumber = authors.size();
             for (Author author : authors) {
                 maxAuthorCreateTime = author.getCreateTime();
                 Long authorId = author.getId();
                 Long userId = author.getUserId();
-                //2.查询作家作品
+                //2. Bertanya tentang karya penulis
                 List<Book> books = bookService.queryBookList(authorId);
 
                 Long totalPreTaxIncome = 0L;
@@ -65,7 +65,7 @@ public class MonthIncomeStaSchedule {
                     Long bookId = book.getId();
 
 
-                    //3.月收入数据未统计入库,分作品统计数据入库
+                    //3. Data pendapatan bulanan tidak dihitung dan disimpan di database, dan data statistik pekerjaan disimpan di database
                     Long monthIncome = authorService.queryTotalAccount(userId, bookId, startTime, endTime);
 
                     BigDecimal monthIncomeShare = new BigDecimal(monthIncome)
@@ -85,7 +85,7 @@ public class MonthIncomeStaSchedule {
 
                     totalAfterTaxIncome += afterTaxIncome;
 
-                    //4.查询月收入统计是否入库
+                    //4. Tanyakan apakah statistik pendapatan bulanan ada di database
                     if (monthIncome > 0 && !authorService.queryIsStatisticsMonth(bookId, endTime)) {
                         AuthorIncome authorIncome = new AuthorIncome();
                         authorIncome.setAuthorId(authorId);

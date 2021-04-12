@@ -197,7 +197,7 @@ public class AuthorController extends BaseController{
         //Menanyakan informasi penulis
         Author author = authorService.queryAuthor(userDetails.getId());
 
-        //判断作者状态是否正常
+        //Tentukan apakah status penulis normal
         if (author.getStatus() == 1) {
             //Status dilarang, tidak bisa menerbitkan novel
             throw new BusinessException(ResponseStatus.AUTHOR_STATUS_FORBIDDEN);

@@ -44,8 +44,8 @@ public class BookVisitAddListener {
 
 
     /**
-     * 更新数据库
-     * 流量削峰，每本小说累积10个点击更新一次
+     * Perbarui database
+     * Puncak lalu lintas, setiap novel mengumpulkan 10 klik untuk memperbarui sekali
      */
     @SneakyThrows
     @RabbitListener(queues = {"UPDATE-DB-QUEUE"})
@@ -53,12 +53,12 @@ public class BookVisitAddListener {
 
         log.debug("收到更新数据库消息：" + bookId);
         Thread.sleep(1000 * 2);
-        //TODO 操作共享资源visitCount，集群环境下有线程安全问题，引入Redisson框架实现分布式锁
+        //TODO Mengoperasikan visitCount resource bersama, ada masalah keamanan thread di lingkungan cluster, dan framework Redisson diperkenalkan untuk mengimplementasikan kunci terdistribusi
         //RLock lock = redissonClient.getLock("visitCount");
         //lock.lock();
 
 
-        //目前visitCount不重要，数据可丢失，暂不实现分布式锁
+        //Saat ini visitCount tidak penting, data bisa hilang, dan kunci terdistribusi tidak diterapkan sementara
         Integer visitCount = (Integer) cacheService.getObject(CacheKey.BOOK_ADD_VISIT_COUNT+bookId);
         if(visitCount == null){
             visitCount = 0 ;
@@ -69,7 +69,7 @@ public class BookVisitAddListener {
             cacheService.del(CacheKey.BOOK_ADD_VISIT_COUNT+bookId);
         }
 
-        //TODO 操作共享资源visitCount，集群环境下有线程安全问题，引入Redisson框架实现分布式锁
+        //TODO Mengoperasikan visitCount resource bersama, ada masalah keamanan thread di lingkungan cluster, dan framework Redisson diperkenalkan untuk mengimplementasikan kunci terdistribusi
         //lock.unlock();
 
 
@@ -77,13 +77,13 @@ public class BookVisitAddListener {
     }
 
     /**
-     * 更新搜索引擎
-     * 流量削峰，每本小说1个小时更新一次
+     * Perbarui mesin telusur
+     * Lalu lintas memuncak, diperbarui setiap 1 jam untuk setiap novel
      */
     @RabbitListener(queues = {"UPDATE-ES-QUEUE"})
     public void updateEs(Long bookId, Channel channel, Message message) {
 
-        log.debug("收到更新搜索引擎消息：" + bookId);
+        log.debug("Terima pesan pembaruan mesin telusur: " + bookId);
         if (cacheService.get(CacheKey.ES_IS_UPDATE_VISIT + bookId) == null) {
             cacheService.set(CacheKey.ES_IS_UPDATE_VISIT + bookId, "1", 60 * 60);
             try {
@@ -92,7 +92,7 @@ public class BookVisitAddListener {
                 searchService.importToEs(book);
             }catch (Exception e){
                 cacheService.del(CacheKey.ES_IS_UPDATE_VISIT + bookId);
-                log.error("更新搜索引擎失败"+bookId);
+                log.error("Gagal memperbarui mesin telusur"+bookId);
             }
 
 

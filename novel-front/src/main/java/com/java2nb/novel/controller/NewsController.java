@@ -19,7 +19,7 @@ public class NewsController {
     private final NewsService newsService;
 
     /**
-     * 查询首页新闻
+     * Lihat Home News
      * */
     @GetMapping("listIndexNews")
     public ResultBean listIndexNews(){
@@ -27,7 +27,7 @@ public class NewsController {
     }
 
     /**
-     * 分页查询新闻列表
+     * Query daftar berita berdasarkan halaman
      * */
     @GetMapping("listByPage")
     public ResultBean listByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize){

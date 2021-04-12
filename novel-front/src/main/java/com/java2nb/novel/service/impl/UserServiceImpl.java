@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails register(User user) {
-        //查询用户名是否已注册
+        //Periksa apakah nama pengguna terdaftar
         SelectStatementProvider selectStatement = select(count(id))
                 .from(UserDynamicSqlSupport.user)
                 .where(username, isEqualTo(user.getUsername()))
@@ -67,12 +67,12 @@ public class UserServiceImpl implements UserService {
                 .render(RenderingStrategies.MYBATIS3);
         long count = userMapper.count(selectStatement);
         if (count > 0) {
-            //用户名已注册
+            //Nama pengguna sudah terdaftar
             throw new BusinessException(ResponseStatus.USERNAME_EXIST);
         }
         User entity = new User();
         BeanUtils.copyProperties(user,entity);
-        //数据库生成注册记录
+        //Basis data menghasilkan catatan pendaftaran
         Long id = new IdWorker().nextId();
         entity.setId(id);
         entity.setNickName(entity.getUsername());
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
         entity.setUpdateTime(currentDate);
         entity.setPassword(MD5Util.MD5Encode(entity.getPassword(), Charsets.UTF_8.name()));
         userMapper.insertSelective(entity);
-        //生成UserDetail对象并返回
+        //Buat objek UserDetail dan kembali
         UserDetails userDetails = new UserDetails();
         userDetails.setId(id);
         userDetails.setUsername(entity.getUsername());
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails login(User user) {
-        //根据用户名密码查询记录
+        //Catatan kueri berdasarkan nama pengguna dan kata sandi
         SelectStatementProvider selectStatement = select(id, username,nickName)
                 .from(UserDynamicSqlSupport.user)
                 .where(username, isEqualTo(user.getUsername()))
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
         if (users.size() == 0) {
             throw new BusinessException(ResponseStatus.USERNAME_PASS_ERROR);
         }
-        //生成UserDetail对象并返回
+        //Buat objek UserDetail dan kembali
         UserDetails userDetails = new UserDetails();
         user = users.get(0);
         userDetails.setId(user.getId());
@@ -158,7 +158,7 @@ public class UserServiceImpl implements UserService {
     public void addReadHistory(Long userId, Long bookId, Long preContentId) {
 
         Date currentDate = new Date();
-        //删除该书以前的历史记录
+        //Hapus riwayat buku sebelumnya
         DeleteStatementProvider deleteStatement = deleteFrom(userReadHistory)
                 .where(UserReadHistoryDynamicSqlSupport.bookId, isEqualTo(bookId))
                 .and(UserReadHistoryDynamicSqlSupport.userId, isEqualTo(userId))
@@ -166,7 +166,7 @@ public class UserServiceImpl implements UserService {
                 .render(RenderingStrategies.MYBATIS3);
         userReadHistoryMapper.delete(deleteStatement);
 
-        //插入该书新的历史记录
+        //Sisipkan sejarah baru buku tersebut
         UserReadHistory userReadHistory = new UserReadHistory();
         userReadHistory.setBookId(bookId);
         userReadHistory.setUserId(userId);
@@ -176,7 +176,7 @@ public class UserServiceImpl implements UserService {
         userReadHistoryMapper.insertSelective(userReadHistory);
 
 
-        //更新书架的阅读历史
+        //Perbarui riwayat membaca rak buku
         UpdateStatementProvider updateStatement = update(userBookshelf)
                 .set(UserBookshelfDynamicSqlSupport.preContentId)
                 .equalTo(preContentId)
@@ -281,18 +281,18 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void buyBookIndex(Long userId, UserBuyRecord buyRecord) {
-        //查询用户余额
+        //Periksa saldo pengguna
         long balance = userInfo(userId).getAccountBalance();
         if(balance<buyRecord.getBuyAmount()){
-            //余额不足
+            //Saldo tidak mencukupi
             throw new BusinessException(ResponseStatus.USER_NO_BALANCE);
         }
         buyRecord.setUserId(userId);
         buyRecord.setCreateTime(new Date());
-        //生成购买记录
+        //Hasilkan catatan pembelian
         userBuyRecordMapper.insertSelective(buyRecord);
 
-        //减少用户余额
+        //Kurangi saldo pengguna
         userMapper.update(update(user)
                 .set(UserDynamicSqlSupport.accountBalance)
                 .equalTo(balance-buyRecord.getBuyAmount())

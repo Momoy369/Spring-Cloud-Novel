@@ -13,23 +13,23 @@ import java.util.List;
 public interface NewsService {
 
     /**
-     * 查询首页新闻
+     * Lihat Home News
      * @return
      * */
     List<News> listIndexNews();
 
     /**
-     * 查询新闻
-     * @param newsId 新闻id
-     * @return 新闻
+     * Periksa berita
+     * @param newsId ID berita
+     * @return berita
      * */
     News queryNewsInfo(Long newsId);
 
     /**
-     * 分页查询新闻列表
-     * @param page 页码
-     * @param pageSize 分页大小
-     * @return 新闻分页数据
+     * Query daftar berita berdasarkan halaman
+     * @param page nomor halaman
+     * @param pageSize Ukuran Paging
+     * @return Data paginasi berita
      * */
     PageBean<News> listByPage(int page, int pageSize);
 }

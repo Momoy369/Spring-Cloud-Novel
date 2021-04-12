@@ -64,7 +64,7 @@ public class OssFileServiceImpl implements FileService {
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         } finally {
-            //关闭
+            //menutup
             ossClient.shutdown();
             file.delete();
         }

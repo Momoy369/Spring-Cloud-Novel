@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 小说搜索参数
+ * Parameter pencarian baru
  * @author 11797
  */
 @Data

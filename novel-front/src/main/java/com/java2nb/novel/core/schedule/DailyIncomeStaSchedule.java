@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 作家日收入统计任务
+ * Tugas statistik pendapatan harian penulis
  *
  * @author cd
  */
@@ -35,33 +35,33 @@ public class DailyIncomeStaSchedule {
 
 
     /**
-     * 每天凌晨0点统计上一天数据
+     * Statistik data hari sebelumnya pukul 0 pagi setiap hari
      */
     @Scheduled(cron = "0 0 0 * * ?")
     public void statistics() {
 
-        //获取昨天的日期时间
+        //Dapatkan tanggal dan waktu kemarin
         Date yesterday = DateUtil.getYesterday();
-        //获取昨天的开始时间
+        //Dapatkan waktu mulai kemarin
         Date startTime = DateUtil.getDateStartTime(yesterday);
-        //获取昨天的结束时间
+        //Dapatkan waktu akhir kemarin
         Date endTime = DateUtil.getDateEndTime(yesterday);
 
-        //每次查询的作家数量
+        //Jumlah penulis per kueri
         int needAuthorNumber = 10;
-        //查询出来的真实作家数量
+        //Jumlah penulis sungguhan yang ditanyakan
         int realAuthorNumber;
-        //每次查询最大申请时间
+        //Waktu aplikasi maksimum per kueri
         Date maxAuthorCreateTime = new Date();
         do {
-            //1.查询作家列表
+            //1. Menanyakan daftar penulis
             List<Author> authors = authorService.queryAuthorList(needAuthorNumber, maxAuthorCreateTime);
             realAuthorNumber = authors.size();
             for (Author author : authors) {
                 maxAuthorCreateTime = author.getCreateTime();
                 Long authorId = author.getId();
                 Long userId = author.getUserId();
-                //2.查询作家作品
+                //2. Bertanya tentang karya penulis
                 List<Book> books = bookService.queryBookList(authorId);
 
                 int buyTotalMember = 0;
@@ -72,7 +72,7 @@ public class DailyIncomeStaSchedule {
 
                     Long bookId = book.getId();
 
-                    //3.查询该作家作品昨日的订阅人数
+                    //3. Menanyakan jumlah pelanggan karya penulis kemarin
                     int buyMember = userService.queryBuyMember(bookId, startTime, endTime);
 
                     int buyCount = 0;
@@ -81,16 +81,16 @@ public class DailyIncomeStaSchedule {
 
 
                     if (buyMember > 0) {
-                        //4.查询该作家作品昨日的订阅次数
+                        //4. Tanyakan jumlah langganan karya penulis kemarin
                         buyCount = userService.queryBuyCount(bookId, startTime, endTime);
-                        //5.查询该作家作品昨日的订阅总额
+                        //5. Tanyakan jumlah total langganan untuk karya penulis kemarin
                         buyAccount = userService.queryBuyAccount(bookId, startTime, endTime);
                     }
 
-                    //6.判断该作家作品昨日收入数据是否统计入库
+                    //6. Menilai apakah data pendapatan karya penulis kemarin secara statistik disimpan di database
                     boolean isStatistics = authorService.queryIsStatisticsDaily(bookId, yesterday);
                     if (!isStatistics) {
-                        //7.该作家作品昨日收入数据未统计入库,分作品统计数据入库
+                        //7. Data pendapatan karya penulis kemarin belum dihitung ke dalam database, dan data statistik karya tersebut dimasukkan ke dalam database
                         AuthorIncomeDetail authorIncomeDetail = new AuthorIncomeDetail();
                         authorIncomeDetail.setAuthorId(authorId);
                         authorIncomeDetail.setUserId(userId);
@@ -110,15 +110,15 @@ public class DailyIncomeStaSchedule {
 
                 }
 
-                //8.判断该作家所有作品昨日收入数据是否统计入库
+                //8. Tentukan apakah data pendapatan dari semua karya penulis kemarin disimpan secara statistik di database
                 boolean isStatistics = authorService.queryIsStatisticsDaily(authorId,0L, yesterday);
                 if (!isStatistics) {
                     if (buyTotalCount > 0) {
-                        //总订阅次数大于0，则订阅人数也大于0
+                        //Jika total jumlah langganan lebih dari 0, jumlah pelanggan juga lebih dari 0
                         buyTotalMember = userService.queryBuyTotalMember(bookIds, startTime, endTime);
                     }
 
-                    //9.作家所有作品昨日收入数据统计入库
+                    //9. Data statistik pendapatan dari semua karya penulis kemarin dimasukkan ke dalam database
                     AuthorIncomeDetail authorIncomeAllDetail = new AuthorIncomeDetail();
                     authorIncomeAllDetail.setAuthorId(authorId);
                     authorIncomeAllDetail.setUserId(userId);

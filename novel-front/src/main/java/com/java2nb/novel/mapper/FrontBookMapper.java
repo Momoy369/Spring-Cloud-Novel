@@ -24,9 +24,9 @@ public interface FrontBookMapper extends BookMapper {
     List<Book> queryNetworkPicBooks(@Param("localPicPrefix") String localPicPrefix, @Param("limit") Integer limit);
 
     /**
-     * 按评分随机查询小说集合
-     * @param limit 查询条数
-     * @return 小说集合
+     * Koleksi kueri acak novel menurut peringkat
+     * @param limit Jumlah kueri
+     * @return Koleksi fiksi
      * */
     List<Book> selectIdsByScoreAndRandom(@Param("limit") int limit);
 }

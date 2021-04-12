@@ -36,8 +36,8 @@ public class CacheController {
     private final FriendLinkService friendLinkService;
 
     /**
-     * 刷新缓存
-     * @param type 缓存类型，1：首页书籍推荐，2：首页新闻，3：首页友情链接
+     * Segarkan cache
+     * @param type Jenis cache, 1: Rekomendasi buku halaman muka, 2: Berita halaman muka, 3: Link pertemanan halaman muka
      * */
     @GetMapping("refresh/{pass}/{type}")
     public ResultBean refreshCache(@PathVariable("type") Byte type, @PathVariable("pass") String pass){
@@ -46,19 +46,19 @@ public class CacheController {
         }
         switch (type){
             case 1:{
-                //刷新首页推荐书籍缓存
+                //Segarkan cache buku yang direkomendasikan di beranda
                 cacheService.del(CacheKey.INDEX_BOOK_SETTINGS_KEY);
                 bookService.listBookSettingVO();
                 break;
             }
             case 2:{
-                //刷新首页新闻缓存
+                //Segarkan cache berita beranda
                 cacheService.del(CacheKey.INDEX_NEWS_KEY);
                 newsService.listIndexNews();
                 break;
             }
             case 3:{
-                //刷新首页友情链接
+                //Segarkan tautan beranda
                 cacheService.del(CacheKey.INDEX_LINK_KEY);
                 friendLinkService.listIndexLink();
                 break;
