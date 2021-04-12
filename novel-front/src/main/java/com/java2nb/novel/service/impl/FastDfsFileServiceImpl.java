@@ -37,7 +37,7 @@ public class FastDfsFileServiceImpl implements FileService {
         if (filePath.contains(Constants.LOCAL_PIC_PREFIX)) {
             file = new File(picSavePath + filePath);
         } else {
-            //默认图片不存储
+            //Gambar default tidak disimpan
             return filePath;
         }
 
@@ -51,7 +51,7 @@ public class FastDfsFileServiceImpl implements FileService {
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         } finally {
-            //删除
+            //menghapus
             file.delete();
         }
 

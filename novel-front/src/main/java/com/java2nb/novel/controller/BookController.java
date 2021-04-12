@@ -38,7 +38,7 @@ public class BookController extends BaseController{
 
 
     /**
-     * 查询首页小说设置列表数据
+     * Query data daftar pengaturan halaman beranda baru
      * */
     @GetMapping("listBookSetting")
     public ResultBean listBookSetting(){
@@ -46,7 +46,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询首页点击榜单数据
+     * Kueri data daftar klik beranda
      * */
     @GetMapping("listClickRank")
     public ResultBean listClickRank(){
@@ -54,7 +54,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询首页新书榜单数据
+     * Query home page data daftar buku baru
      * */
     @GetMapping("listNewRank")
     public ResultBean listNewRank(){
@@ -62,7 +62,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询首页更新榜单数据
+     * Kueri data daftar pembaruan halaman beranda
      * */
     @GetMapping("listUpdateRank")
     public ResultBean listUpdateRank(){
@@ -70,7 +70,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询小说分类列表
+     * Buat kueri daftar kategori novel
      * */
     @GetMapping("listBookCategory")
     public ResultBean listBookCategory(){
@@ -78,7 +78,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 分页搜索
+     * Pencarian pagination
      * */
     @GetMapping("searchByPage")
     public ResultBean searchByPage(BookSpVO bookSP, @RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "20") int pageSize){
@@ -86,7 +86,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询小说详情信息
+     * Pertanyaan detail novel
      * */
     @GetMapping("queryBookDetail/{id}")
     public ResultBean queryBookDetail(@PathVariable("id") Long id){
@@ -95,7 +95,7 @@ public class BookController extends BaseController{
 
 
     /**
-     * 查询小说排行信息
+     * Menanyakan informasi peringkat novel
      * */
     @GetMapping("listRank")
     public ResultBean listRank(@RequestParam(value = "type",defaultValue = "0") Byte type,@RequestParam(value = "limit",defaultValue = "30") Integer limit){
@@ -103,7 +103,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 增加点击次数
+     * Tingkatkan klik
      * */
     @PostMapping("addVisitCount")
     public ResultBean addVisitCount(Long bookId){
@@ -116,7 +116,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 查询章节相关信息
+     * Informasi terkait bagian kueri
      * */
     @GetMapping("queryBookIndexAbout")
     public ResultBean queryBookIndexAbout(Long bookId,Long lastBookIndexId) {
@@ -131,7 +131,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 根据分类id查询同类推荐书籍
+     * Buat kueri tentang buku-buku serupa yang direkomendasikan menurut id kategori
      * */
     @GetMapping("listRecBookByCatId")
     public ResultBean listRecBookByCatId(Integer catId) {
@@ -140,7 +140,7 @@ public class BookController extends BaseController{
 
 
     /**
-     *分页查询书籍评论列表
+     *Daftar pertanyaan penomoran halaman dari resensi buku
      * */
     @GetMapping("listCommentByPage")
     public ResultBean listCommentByPage(@RequestParam("bookId") Long bookId,@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize) {
@@ -148,7 +148,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 新增评价
+     * Tambahkan ulasan
      * */
     @PostMapping("addBookComment")
     public ResultBean addBookComment(BookComment comment, HttpServletRequest request) {
@@ -161,7 +161,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 根据小说ID查询小说前十条最新更新目录集合
+     * Kueri sepuluh koleksi novel terbaru yang diperbarui menurut ID novel
      * */
     @GetMapping("queryNewIndexList")
     public ResultBean queryNewIndexList(Long bookId){
@@ -169,7 +169,7 @@ public class BookController extends BaseController{
     }
 
     /**
-     * 目录页
+     * Halaman isi
      * */
     @GetMapping("/queryIndexList")
     public ResultBean indexList(Long bookId,@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize,@RequestParam(value = "orderBy",defaultValue = "index_num desc") String orderBy) {

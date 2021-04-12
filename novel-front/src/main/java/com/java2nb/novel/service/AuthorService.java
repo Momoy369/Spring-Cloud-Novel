@@ -16,114 +16,114 @@ import java.util.List;
 public interface AuthorService {
 
     /**
-     * 校验笔名是否存在
-     * @param penName 校验的笔名
-     * @return true：存在该笔名，false: 不存在该笔名
+     * Periksa apakah nama pena ada
+     * @param penName Nama pena yang diperiksa
+     * @return benar: nama pena ada, salah: nama pena tidak ada
      * */
     Boolean checkPenName(String penName);
 
     /**
-     * 作家注册
-     * @param userId 注册用户ID
-     *@param author 注册信息
-     * @return 返回错误信息
+     * Pendaftaran penulis
+     * @param userId ID pengguna terdaftar
+     *@param author pesan pendaftaran
+     * @return Kembalikan pesan kesalahan
      * */
     String register(Long userId, Author author);
 
     /**
-     * 判断是否是作家
-     * @param userId 用户ID
-     * @return true：是作家，false: 不是作家
+     * Tentukan apakah ia seorang penulis
+     * @param userId identitas pengguna
+     * @return benar: dia penulis, salah: bukan penulis
      * */
     Boolean isAuthor(Long userId);
 
     /**
-     * 查询作家信息
-     * @param userId 用户ID
-     * @return 作家对象
+     * Menanyakan informasi penulis
+     * @param userId identitas pengguna
+     * @return Objek penulis
      * */
     Author queryAuthor(Long userId);
 
     /**
-     * 查询作家列表
-     * @return 作家列表
-     * @param limit 查询条数
-     * @param maxAuthorCreateTime 最大申请时间
+     * Buat kueri daftar penulis
+     * @return Daftar penulis
+     * @param limit Jumlah kueri
+     * @param maxAuthorCreateTime Waktu aplikasi maksimal
      */
     List<Author> queryAuthorList(int limit, Date maxAuthorCreateTime);
 
     /**
-     * 查询收入日统计是否入库
-     * @param bookId 作品ID
-     * @param date 收入时间
-     * @return true:已入库，false：未入库
+     * Tanyakan apakah statistik hari pendapatan ada di database
+     * @param bookId ID Pekerjaan
+     * @param date Waktu penghasilan
+     * @return true: telah disimpan, false: tidak disimpan
      */
     boolean queryIsStatisticsDaily(Long bookId, Date date);
 
 
     /**
-     * 保存日收入统计(按作品)
-     * @param authorIncomeDetail 收入详情
+     * Simpan statistik pendapatan harian (berdasarkan pekerjaan)
+     * @param authorIncomeDetail Detail pendapatan
      * */
     void saveDailyIncomeSta(AuthorIncomeDetail authorIncomeDetail);
 
 
 
     /**
-     * 查询月收入统计是否入库
-     * @param bookId 作品ID
-     * @param incomeDate 收入时间
-     * @return true:已入库，false：未入库
+     * Tanyakan apakah statistik pendapatan bulanan ada di database
+     * @param bookId ID Pekerjaan
+     * @param incomeDate Waktu penghasilan
+     * @return true: telah disimpan, false: tidak disimpan
      * */
     boolean queryIsStatisticsMonth(Long bookId, Date incomeDate);
 
     /**
-     * 查询时间段内总订阅额
+     * Kueri jumlah total langganan selama periode waktu tersebut
      *
      * @param userId
-     * @param bookId 作品ID
-     * @param startTime 开始时间
-     * @param endTime 结束时间
-     * @return 订阅额（屋币）
+     * @param bookId ID Pekerjaan
+     * @param startTime Waktu mulai
+     * @param endTime Akhir waktu
+     * @return Jumlah langganan (Koin)
      * */
     Long queryTotalAccount(Long userId, Long bookId, Date startTime, Date endTime);
 
 
     /**
-     * 保存月收入统计
-     * @param authorIncome 收入详情
+     * Simpan statistik pendapatan bulanan
+     * @param authorIncome Detail pendapatan
      * */
     void saveAuthorIncomeSta(AuthorIncome authorIncome);
 
     /**
-     * 查询收入日统计是否入库
-     * @param authorId 作家ID
-     * @param bookId 作品ID
-     * @param date 收入时间
-     * @return true:已入库，false：未入库
+     * Tanyakan apakah statistik hari pendapatan ada di database
+     * @param authorId ID Penulis
+     * @param bookId ID Pekerjaan
+     * @param date Waktu penghasilan
+     * @return true: telah disimpan, false: tidak disimpan
      */
     boolean queryIsStatisticsDaily(Long authorId, Long bookId, Date date);
 
     /**
-     *作家日收入统计数据分页列表查询
+     *Statistik pendapatan harian penulis paged list query
      * @param userId
-     * @param page 页码
-     * @param pageSize 分页大小
-     * @param bookId 小说ID
-     * @param startTime 开始时间
-     * @param endTime 结束时间
-     * @return 日收入统计数据分页数据
+     * @param page nomor halaman
+     * @param pageSize Ukuran Paging
+     * @param bookId ID Novel
+     * @param startTime Waktu mulai
+     * @param endTime Akhir waktu
+     * @return Data pagination statistik pendapatan harian
      */
     PageBean<AuthorIncomeDetail> listIncomeDailyByPage(int page, int pageSize, Long userId, Long bookId, Date startTime, Date endTime);
 
 
     /**
-     * 作家月收入统计数据分页列表查询
-     * @param page 页码
-     * @param pageSize 分页大小
-     * @param userId 用户ID
-     * @param bookId 小说ID
-     * @return 分页数据
+     * Kueri daftar halaman statistik pendapatan bulanan penulis
+     * @param page nomor halaman
+     * @param pageSize Ukuran Paging
+     * @param userId ID pengguna
+     * @param bookId ID Novel
+     * @return Data paging
      * */
     PageBean<AuthorIncome> listIncomeMonthByPage(int page, int pageSize, Long userId, Long bookId);
 }

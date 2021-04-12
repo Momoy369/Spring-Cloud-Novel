@@ -43,19 +43,19 @@ public class FileController {
     private String picSavePath;
 
     /**
-     * 生成验证码
+     * Hasilkan kode verifikasi
      */
     @GetMapping(value = "getVerify")
     public void getVerify(HttpServletRequest request, HttpServletResponse response) {
         try {
-            //设置相应类型,告诉浏览器输出的内容为图片
+            //Setel jenis yang sesuai dan beri tahu browser bahwa konten keluarannya adalah gambar
             response.setContentType("image/jpeg");
-            //设置响应头信息，告诉浏览器不要缓存此内容
+            //Setel informasi header respons dan beri tahu browser untuk tidak menyimpan konten ini ke dalam cache
             response.setHeader("Pragma", "No-cache");
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expire", 0);
             RandomValidateCodeUtil randomValidateCode = new RandomValidateCodeUtil();
-            //输出验证码图片方法
+            //Output metode gambar kode verifikasi
             randomValidateCode.getRandcode(cacheService, response);
         } catch (Exception e) {
             log.error("Gagal mendapatkan kode verifikasi>>>> ", e);
@@ -63,7 +63,7 @@ public class FileController {
     }
 
     /**
-     * 文件上传
+     * Unggah File
      */
     @ResponseBody
     @PostMapping("/upload")

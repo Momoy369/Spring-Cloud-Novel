@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 将爬取的网络图片转存为自己的存储介质（本地、OSS、fastDfs）任务
+ * Transfer gambar jaringan yang dirayapi ke tugas media penyimpanan Anda sendiri (lokal, OSS, fastDfs)
  *
  * @author Administrator
  */
@@ -33,7 +33,7 @@ public class CrawlPicTransSchedule {
     private String picSavePath;
 
     /**
-     * 10分钟转一次
+     * Setiap 10 menit
      */
     @Scheduled(fixedRate = 1000 * 60 * 10)
     @SneakyThrows
@@ -45,7 +45,7 @@ public class CrawlPicTransSchedule {
         List<Book> networkPicBooks = bookService.queryNetworkPicBooks(Constants.LOCAL_PIC_PREFIX,100);
         for (Book book : networkPicBooks) {
             bookService.updateBookPicToLocal(book.getPicUrl(), book.getId());
-            //3秒钟转化一张图片，10分钟转化200张
+            //Ubah gambar dalam 3 detik, dan ubah 200 gambar dalam 10 menit
             Thread.sleep(3000);
         }
 

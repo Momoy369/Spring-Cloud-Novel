@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 /**
- * 章节费用配置属性
+ * Atribut konfigurasi biaya bab
  * @author cd
  */
 @Component

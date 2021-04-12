@@ -13,17 +13,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 防止XSS攻击的过滤器
+ * Filter untuk mencegah serangan XSS
  * @author Administrator
  */
 public class XssFilter implements Filter {
     /**
-     * 排除链接
+     * Kecualikan link
      */
     public List<String> excludes = new ArrayList<>();
 
     /**
-     * xss过滤开关
+     * saklar filter xss
      */
     public boolean enabled = false;
 

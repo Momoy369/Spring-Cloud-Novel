@@ -14,7 +14,7 @@ public class RabbitConfig {
 
 
     /**
-     * 更新数据库队列
+     * Perbarui antrean database
      */
     @Bean
     public Queue updateDbQueue() {
@@ -22,7 +22,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 更新数据库队列
+     * Perbarui antrean database
      */
     @Bean
     public Queue updateEsQueue() {
@@ -31,7 +31,7 @@ public class RabbitConfig {
 
 
     /**
-     * 增加点击量交换机
+     * Tingkatkan sakelar lalu lintas
      */
     @Bean
     public FanoutExchange addVisitExchange() {
@@ -39,7 +39,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 更新搜索引擎队列绑定到增加点击量交换机中
+     * Perbarui pengikatan antrian mesin pencari untuk meningkatkan pertukaran lalu lintas
      */
     @Bean
     public Binding updateEsBinding() {
@@ -48,7 +48,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 更新数据库绑定到增加点击量交换机中
+     * Memperbarui database terikat pada sakelar untuk meningkatkan lalu lintas
      */
     @Bean
     public Binding updateDbBinding() {

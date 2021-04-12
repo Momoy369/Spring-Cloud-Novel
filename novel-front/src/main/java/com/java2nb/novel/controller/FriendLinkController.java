@@ -21,7 +21,7 @@ public class FriendLinkController {
     private final FriendLinkService friendLinkService;
 
     /**
-     * 查询首页友情链接
+     * Query Homepage Link Persahabatan
      * */
     @GetMapping("listIndexLink")
     public ResultBean listIndexLink(){

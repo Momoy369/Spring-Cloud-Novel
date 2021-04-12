@@ -32,7 +32,7 @@ public class FrontNovelApplication {
     }
 
     /**
-     * 解决同一时间只能一个定时任务执行的问题
+     * Selesaikan masalah bahwa hanya satu tugas waktu yang dapat dijalankan pada waktu yang sama
      * */
     @Bean
     public TaskScheduler taskScheduler() {

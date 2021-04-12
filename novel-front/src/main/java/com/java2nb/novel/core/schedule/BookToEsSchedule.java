@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 小说导入搜索引擎
+ * Mesin pencari impor baru
  *
  * @author Administrator
  */
@@ -36,19 +36,19 @@ public class BookToEsSchedule {
 
 
     /**
-     * 1分钟导入一次
+     * Impor setiap 1 menit
      */
     @Scheduled(fixedRate = 1000 * 60)
     public void saveToEs() {
-        //TODO 引入Redisson框架实现分布式锁
-        //可以重复更新，只是效率可能略有降低，所以暂不实现分布式锁
+        //TODO Memperkenalkan framework Redisson untuk mengimplementasikan kunci terdistribusi
+        //Ini dapat diperbarui berulang kali, tetapi efisiensinya mungkin sedikit berkurang, sehingga kunci terdistribusi tidak diterapkan untuk sementara
         if (cacheService.get(CacheKey.ES_TRANS_LOCK) == null) {
             cacheService.set(CacheKey.ES_TRANS_LOCK, "1", 60 * 20);
             try {
-                //查询需要更新的小说
+                //Temukan novel yang perlu diperbarui
                 Date lastDate = (Date) cacheService.getObject(CacheKey.ES_LAST_UPDATE_TIME);
                 if (lastDate == null) {
-                    lastDate = new SimpleDateFormat("dd-MM-yyyy").parse("2020-01-01");
+                    lastDate = new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2020");
                 }
 
 

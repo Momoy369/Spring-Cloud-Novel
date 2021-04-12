@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**
- * 项目核心过滤器
+ * Filter inti proyek
  * @author Administrator
  */
 public class NovelFilter implements Filter {
 
     /**
-     * 本地图片保存路径
+     * Jalur penyimpanan gambar lokal
      * */
     private String picSavePath;
 
@@ -33,7 +33,7 @@ public class NovelFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String requestUri = req.getRequestURI();
 
-        //本地图片访问处理
+        //Pemrosesan akses gambar lokal
         if (requestUri.contains(Constants.LOCAL_PIC_PREFIX)) {
             //缓存10天
             resp.setDateHeader("expires", System.currentTimeMillis()+60*60*24*10*1000);
@@ -56,22 +56,22 @@ public class NovelFilter implements Filter {
             CookieUtil.setCookie(resp,Constants.USER_CLIENT_MARK_KEY,userMark);
         }
         ThreadLocalUtil.setCientId(userMark);
-        //根据浏览器类型选择前端模板
+        //Pilih template front-end sesuai dengan jenis browser
         String to = req.getParameter("to");
         CacheService cacheService = SpringUtil.getBean(CacheService.class);
         if("pc".equals(to)){
-            //直接进PC站
+            //Langsung ke stasiun PC
             cacheService.set(CacheKey.TEMPLATE_DIR_KEY+userMark,"",60*60*24);
         }else if("mobile".equals(to)){
-            //直接进手机站
+            //Langsung ke stasiun seluler
             cacheService.set(CacheKey.TEMPLATE_DIR_KEY+userMark,"mobile/",60*60*24);
         }else{
-            //自动识别是PC站还是手机站
+            //Secara otomatis mengidentifikasi apakah itu stasiun PC atau stasiun bergerak
             if(BrowserUtil.isMobile(req)){
-                //手机端访问
+                //Akses ponsel
                 ThreadLocalUtil.setTemplateDir("mobile/");
             }else{
-                //PC端访问
+                //Akses PC
                 ThreadLocalUtil.setTemplateDir("");
             }
         }

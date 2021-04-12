@@ -9,21 +9,21 @@ public interface OrderService {
 
 
     /**
-     * 创建充值订单
+     * Buat pesanan isi ulang
      *
-     * @param payChannel 支付渠道
-     * @param payAmount 支付金额
-     * @param userId 用户ID
-     * @return 商户订单号
+     * @param payChannel Saluran pembayaran
+     * @param payAmount Jumlah pembayaran
+     * @param userId identitas pengguna
+     * @return Nomor pesanan pedagang
      * */
     Long createPayOrder(Byte payChannel, Integer payAmount, Long userId);
 
 
     /**
-     * 更新订单状态
-     * @param outTradeNo 商户订单号
-     * @param tradeNo      支付宝/微信 订单号
-     * @param tradeStatus 支付状态
+     * Perbarui status pesanan
+     * @param outTradeNo Nomor pesanan pedagang
+     * @param tradeNo      Nomor pesanan Alipay / WeChat
+     * @param tradeStatus Status pembayaran
      * */
     void updatePayOrder(Long outTradeNo, String tradeNo, String tradeStatus);
 }
