@@ -149,7 +149,7 @@ public class PageController extends BaseController {
         CompletableFuture<BookIndex> bookIndexCompletableFuture = CompletableFuture.supplyAsync(() -> {
             //Katalog kueri
             BookIndex bookIndex = bookService.queryBookIndex(bookIndexId);
-            log.debug("Akhir pemuatan konten informasi bab yang baru++");
+            log.debug("Akhir pemuatan konten informasi bab yang baru");
             return bookIndex;
         }, threadPoolExecutor);
 
